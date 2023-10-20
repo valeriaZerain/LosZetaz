@@ -1,7 +1,6 @@
 package com.progra.loszetaz.dataBase
 
 import com.progra.loszetaz.dataClases.Club
-import com.progra.loszetaz.dataClases.Owner
 
 class ClubDB {
 
