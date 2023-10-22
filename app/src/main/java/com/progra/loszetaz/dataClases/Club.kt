@@ -4,6 +4,7 @@ package com.progra.loszetaz.dataClases
 data class Club(
     val id: Int,
     var logo: String,
+    val name: String,
 //    val owner: Owner,
     var ownerName: String,
     var license: String,
@@ -14,7 +15,8 @@ data class Club(
     var schedule: String,
     var recommendations: String,
     var contactNumber: Int,
-    val tags: MutableList<String>
+    val tags: MutableList<String>,
+    var likes: Int
 )
 
 //data class Owner(
