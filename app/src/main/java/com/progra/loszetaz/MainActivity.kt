@@ -10,9 +10,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println(UserDB.getAllUsers())
-        println(UserDB.getUserById(10))
-        println(UserDB.getUserById(0) ?: "No existe el usuario")
-        println(ClubDB.clubs)
     }
 }

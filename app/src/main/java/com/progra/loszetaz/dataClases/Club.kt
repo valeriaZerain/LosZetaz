@@ -16,7 +16,8 @@ data class Club(
     var recommendations: String,
     var contactNumber: Int,
     val tags: MutableList<String>,
-    var likes: Int
+    var likes: Int,
+    val zone: String
 )
 
 //data class Owner(
