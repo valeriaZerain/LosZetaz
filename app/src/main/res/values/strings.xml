@@ -6,5 +6,8 @@
     <string name="password">Contraseña</string>
     <string name="insert_password">Insertar contraseña</string>
     <string name="insert_username">Insertar nombre de usuario</string>
-    <string name="register_count">¿No tienes una cuenta?</string>
+    <string name="register_account">¿No tienes una cuenta?</string>
+    <string name="question_register">¿Qué tipo de cuenta deseas crear?</string>
+    <string name="register_client">Quiero salir de fiesta</string>
+    <string name="register_club">Quiero registrar mi club</string>
 </resources>
