@@ -20,7 +20,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Llevate dinero para el taxi",
                 contactNumber = 12345678,
-                tags = mutableListOf("Musica Fuerte", "Reggaeton", "Nightlife", "DJ"),
+                tags = mutableListOf("Área de fumadores", "Reggaeton", "DJ"),
                 likes = 10,
                 zone = "Irpavi"
             ),
@@ -37,7 +37,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:30 PM - 2:00 AM",
                 recommendations = "Vente preparada que el ambiente está más caliente que una llajua con aji",
                 contactNumber = 12345678,
-                tags = mutableListOf("Aire Libre", "Musica", "Neon"),
+                tags = mutableListOf("Cocteles", "Seguridad", "DJ"),
                 likes = 20,
                 zone = "Calacoto"
             ),
@@ -69,9 +69,9 @@ class ClubDB {
                 location = "Av Muñoz Reyes entre 26 y 27 de Cota Cota",
                 cover = 30,
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
-                recommendations = "",
+                recommendations = "Ven temprano que se llena rapido",
                 contactNumber = 12345678,
-                tags = mutableListOf("Afro", "Extranjeros", "Visa"),
+                tags = mutableListOf("Musica en vivo", "Extranjeros"),
                 likes = 30,
                 zone = "Cota Cota"
             ),
@@ -88,7 +88,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Reserva tu mesa",
                 contactNumber = 12345678,
-                tags = mutableListOf("Aire Libre", "PACHAPAR", "Mesas", "DJ"),
+                tags = mutableListOf("Aire Libre", "Mesas", "DJ", "Seguridad"),
                 likes = 50,
                 zone = "Cota Cota"
             ),
@@ -105,7 +105,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Deja tu corazon en tu casa y ven a divertirte",
                 contactNumber = 12345678,
-                tags = mutableListOf("Aire Libre", "Musica", "Neon"),
+                tags = mutableListOf("Aire Libre", "DJ", "Seguridad"),
                 likes = 35,
                 zone = "Cota Cota"
             ),
@@ -156,7 +156,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 9:00 PM - 2:00 AM",
                 recommendations = "Mientras mas tarde mejor",
                 contactNumber = 12345678,
-                tags = mutableListOf(),
+                tags = mutableListOf("Clasicos"),
                 likes = 10,
                 zone = "Sopocachi"
             ),
@@ -207,7 +207,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "",
                 contactNumber = 63076222,
-                tags = mutableListOf("DJ", "Musica en vivo"),
+                tags = mutableListOf("DJ", "Musica en vivo", "Área de fumadores"),
                 likes = 26,
                 zone = "Irpavi"
             ),
@@ -241,7 +241,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "No lleves auto",
                 contactNumber = 63076222,
-                tags = mutableListOf("DJ", "Barato"),
+                tags = mutableListOf("DJ"),
                 likes = 29,
                 zone = "Centro"
             ),
