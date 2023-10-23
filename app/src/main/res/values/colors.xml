@@ -5,4 +5,5 @@
     <color name="purple">#7728F5</color>
     <color name="turquoise">#75F9FD</color>
     <color name="fucsia">#FF24F3</color>
+    <color name="transparent">#100000000</color>
 </resources>
