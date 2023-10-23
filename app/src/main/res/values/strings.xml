@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LosZetaz</string>
+    <string name="title_activity_iniciar_sesion">Iniciar_sesion</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="insert_password">Insertar contraseña</string>
+    <string name="insert_username">Insertar nombre de usuario</string>
+    <string name="register_count">¿No tienes una cuenta?</string>
 </resources>
