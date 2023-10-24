@@ -9,5 +9,12 @@
     <string name="filter_title">Filtros</string>
 
     <string name="search_by_zone_title">Zonas</string>
+    
+    <string-array name="zones">
+        <item>Sopocachi</item>
+        <item>Centro</item>
+        <item>Calacoto</item>
+        <item>Cota Cota</item>
+    </string-array>
 
 </resources>
