@@ -2,16 +2,15 @@ package com.progra.loszetaz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 
-class PantallaBusquedaActivity : AppCompatActivity() {
+class SearchScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_busqueda)
+        setContentView(R.layout.activity_search_screen)
 
         val zones = listOf("Calacoto", "Cota Cota", "Sopocachi", "Irpavi", "San Pedro", "Centro", "Miraflores")
 
