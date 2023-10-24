@@ -63,7 +63,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:hint="@string/search_by_name_hint"
-            style="@style/TextViewSubtitle"
+            style="@style/TextViewDescription"
             android:background="@color/gray"
             android:padding="10dp"
             >
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:text="Area de Fumadores"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="4dp"
                     >
                 </CheckBox>
                 <CheckBox
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:text="Aire Libre"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="4dp"
                     />
 
 
@@ -132,9 +132,9 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reggeaton"
+                    android:text="Reggaeton"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="4dp"
                     >
                 </CheckBox>
                 <CheckBox
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="Cumbia"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="4dp"
                     >
                 </CheckBox>
                 <CheckBox
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:text="Clasicos"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="4dp"
                     >
                 </CheckBox>
             </LinearLayout>
@@ -162,9 +162,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Muscia en vivo"
+                    android:text="Musica en vivo"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
                     >
                 </CheckBox>
                 <CheckBox
@@ -172,16 +171,14 @@
                     android:layout_height="wrap_content"
                     android:text="Mesas"
                     style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
                     >
                 </CheckBox>
+
                 <CheckBox
+                    style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Cover"
-                    style="@style/TextViewButton"
-                    android:layout_marginRight="10dp"
-                    >
+                    android:text="No Cover">
                 </CheckBox>
             </LinearLayout>
 
@@ -219,16 +216,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:focusableInTouchMode="true"
             >
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:backgroundTint="@color/gray"
+                >
                 <AutoCompleteTextView
                     android:id="@+id/dropdown_zones"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Elige la zona"
-                    style="@style/TextViewTitle"
+                    style="@style/TextViewDescription"
                     android:inputType="none"
                     >
                 </AutoCompleteTextView>

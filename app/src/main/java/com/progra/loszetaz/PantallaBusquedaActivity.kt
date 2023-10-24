@@ -6,13 +6,14 @@ import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 
 class PantallaBusquedaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_busqueda)
 
-        val zones = resources.getStringArray(R.array.zones)
+        val zones = listOf("Calacoto", "Cota Cota", "Sopocachi", "Irpavi", "San Pedro", "Centro", "Miraflores")
 
         val autoComplete: AutoCompleteTextView = findViewById(R.id.dropdown_zones)
 
@@ -20,9 +21,10 @@ class PantallaBusquedaActivity : AppCompatActivity() {
 
         autoComplete.setAdapter(adapter)
 
-        autoComplete.onItemClickListener = AdapterView.OnItemClickListener {
+        autoComplete.onItemClickListener = AdapterView.OnItemClickListener{
             adapterView, view, i, l ->
-                val itemSelected = adapterView.get
+                val itemSelected = adapterView.getItemAtPosition(i)
+                Toast.makeText(this, "Item $itemSelected", Toast.LENGTH_SHORT).show()
         }
     }
 }
