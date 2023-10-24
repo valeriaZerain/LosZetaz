@@ -56,7 +56,7 @@
 
     <TextView
         android:id="@+id/TitleQuestion"
-        style="@style/TextViewTitle"
+        android:theme="@style/TextViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -70,7 +70,7 @@
         android:layout_width="192dp"
         android:layout_height="80dp"
         android:text="@string/register_client"
-        style="@style/TextViewButton"
+        android:theme="@style/TextViewButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TitleQuestion"
@@ -82,7 +82,7 @@
         android:layout_width="192dp"
         android:layout_height="80dp"
         android:text="@string/register_club"
-        style="@style/TextViewButton"
+        android:theme="@style/TextViewButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ButtonClient"
