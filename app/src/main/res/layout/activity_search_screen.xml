@@ -109,7 +109,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Area de Fumadores"
+                    android:text="@string/tag_smoking_area"
                     style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     >
@@ -117,7 +117,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aire Libre"
+                    android:text="@string/tag_outdoor"
                     style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     />
@@ -132,7 +132,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reggaeton"
+                    android:text="@string/tag_reggaeton"
                     style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     >
@@ -140,7 +140,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cumbia"
+                    android:text="@string/tag_cumbia"
                     style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     >
@@ -148,7 +148,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clasicos"
+                    android:text="@string/tag_oldies"
                     style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     >
@@ -162,14 +162,14 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Musica en vivo"
+                    android:text="@string/tag_live_music"
                     style="@style/TextViewButton"
                     >
                 </CheckBox>
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mesas"
+                    android:text="@string/tag_tables"
                     style="@style/TextViewButton"
                     >
                 </CheckBox>
@@ -178,7 +178,7 @@
                     style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Cover">
+                    android:text="@string/tag_no_cover">
                 </CheckBox>
             </LinearLayout>
 
@@ -228,7 +228,7 @@
                     android:id="@+id/dropdown_zones"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Elige la zona"
+                    android:hint="@string/dropdown_hint"
                     style="@style/TextViewDescription"
                     android:inputType="none"
                     >

@@ -6,15 +6,20 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import com.progra.loszetaz.databinding.ActivitySearchScreenBinding
 
 class SearchScreenActivity : AppCompatActivity() {
+
+    lateinit var binding:ActivitySearchScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_screen)
+        binding = ActivitySearchScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val zones = listOf("Calacoto", "Cota Cota", "Sopocachi", "Irpavi", "San Pedro", "Centro", "Miraflores")
 
-        val autoComplete: AutoCompleteTextView = findViewById(R.id.dropdown_zones)
+        val autoComplete: AutoCompleteTextView = binding.dropdownZones
+            //findViewById(R.id.dropdown_zones)
 
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, zones)
 
