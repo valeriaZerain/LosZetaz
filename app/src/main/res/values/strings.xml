@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LosZetaz</string>
+
+
+    <string name="search_title">Búsqueda</string>
+    <string name="search_by_name_hint">Nombre de la discoteca</string>
+    <string name="search_button">Buscar</string>
+
+    <string name="filter_title">Filtros</string>
+
+    <string name="search_by_zone_title">Zonas</string>
+
 </resources>
