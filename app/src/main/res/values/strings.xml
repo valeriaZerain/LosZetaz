@@ -7,4 +7,31 @@
     <string name="insert_password">Insertar contraseña</string>
     <string name="insert_username">Insertar nombre de usuario</string>
     <string name="register_count">¿No tienes una cuenta?</string>
+
+
+    <string name="search_title">Búsqueda</string>
+    <string name="search_by_name_hint">Nombre de la discoteca</string>
+    <string name="search_button">Buscar</string>
+
+    <string name="filter_title">Filtros</string>
+
+    <string name="search_by_zone_title">Zonas</string>
+    <string name="dropdown_hint">Elige la zona</string>
+
+    <string-array name="zones">
+        <item>Sopocachi</item>
+        <item>Centro</item>
+        <item>Calacoto</item>
+        <item>Cota Cota</item>
+    </string-array>
+
+    <string name="tag_smoking_area">Área de fumadores</string>
+    <string name="tag_outdoor">Al aire Libre</string>
+    <string name="tag_reggaeton">Reggaeton</string>
+    <string name="tag_cumbia">Cumbia</string>
+    <string name="tag_oldies">Clasicos</string>
+    <string name="tag_live_music">Música en vivo</string>
+    <string name="tag_tables">Mesas</string>
+    <string name="tag_no_cover">No cover</string>
+
 </resources>
