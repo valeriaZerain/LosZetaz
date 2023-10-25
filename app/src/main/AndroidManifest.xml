@@ -14,14 +14,14 @@
         android:theme="@style/Theme.LosZetaz"
         tools:targetApi="31">
         <activity
+            android:name=".SearchScreenActivity"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name=".RegisterClub"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".login"
+            android:exported="false" />
         <activity
             android:name=".RegisterClientActivity"
             android:exported="true"/>
@@ -31,9 +31,13 @@
         <activity
             android:name=".Login"
             android:exported="true" />
-        <activity
+       <activity
             android:name=".MainActivity"
-            android:exported="true" />
-    </application>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 </manifest>

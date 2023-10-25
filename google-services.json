@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "213001338749",
+    "project_id": "rumbaandina-12daa",
+    "storage_bucket": "rumbaandina-12daa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213001338749:android:858fc2508c6c2283b15614",
+        "android_client_info": {
+          "package_name": "com.progra.loszetaz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDtBKwV_apkO_4UCusYO3mBxlPGOwyV38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
