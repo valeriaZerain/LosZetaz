@@ -128,7 +128,8 @@
             android:hint="@string/insert_password"
             android:paddingStart="14dp"
             android:textColorHint="@color/purple"
-            tools:ignore="RtlSymmetry" />
+            android:autofillHints="password"
+            android:inputType="textPassword"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
