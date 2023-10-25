@@ -28,13 +28,14 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollview_club"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_register"
+            android:id="@+id/layout_registerclub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -75,6 +76,7 @@
                     android:weightSum="2">
 
                     <ImageView
+                        android:id="@+id/logo_placeholder"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
                         android:layout_weight="1"
@@ -83,6 +85,7 @@
                         android:visibility="gone" />
 
                     <Button
+                        android:id="@+id/button_logo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -99,6 +102,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_clubname"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -116,6 +120,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_ownername"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -133,6 +138,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_license"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -150,6 +156,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_phonenumerclub"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -167,6 +174,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_description"
                 android:layout_width="320dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
@@ -184,6 +192,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <View
+                android:id="@+id/map_placeholder"
                 android:layout_width="360dp"
                 android:layout_height="360dp"
                 android:layout_marginTop="8dp"
@@ -197,6 +206,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -263,31 +273,34 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/tags"
                 android:theme="@style/TextViewSubtitle" />
-            
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/smoking_area"
-                android:theme="@style/TextViewDescription"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/subject"
-                android:theme="@style/TextViewDescription"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/non_alcohol_drinks"
-                android:theme="@style/TextViewDescription"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
+
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tables_reserved"
-                android:theme="@style/TextViewDescription"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
 
             <Button
                 android:layout_width="wrap_content"
