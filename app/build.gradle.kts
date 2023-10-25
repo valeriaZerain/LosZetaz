@@ -8,6 +8,10 @@ android {
     namespace = "com.progra.loszetaz"
     compileSdk = 33
 
+    viewBinding{
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.progra.loszetaz"
         minSdk = 29
