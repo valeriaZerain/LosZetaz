@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreenActivity"
+    android:background="@color/black"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/center_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        >
+    </androidx.constraintlayout.widget.Guideline>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mapa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/center_line"
+        app:layout_constraintRight_toRightOf="@id/center_line"
+        android:layout_marginBottom="70dp"
+        android:elevation="1dp"
+        >
+    </Button>
+
+    <LinearLayout
+        android:id="@+id/top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/purple"
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/user"
+            android:padding="8dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/search_title"
+            style="@style/TextViewTitle"
+            android:gravity="center"
+            >
+        </TextView>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/search"
+            android:padding="8dp"
+            >
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/top_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:weightSum="2"
+        android:padding="16dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Novedades"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            style="@style/TextViewTitle"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mas visitadas"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            style="@style/TextViewTitle"
+            />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/menu"
+        android:orientation="vertical"
+        android:elevation="0dp"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/club_item"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/club_post_item"
+            android:visibility="visible" />
+
+    </LinearLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
