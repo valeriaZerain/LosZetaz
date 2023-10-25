@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".RegisterClientActivity">
+
+    <View
+        android:layout_width="600sp"
+        android:layout_height="200sp"
+        android:layout_marginStart="72dp"
+        android:alpha="0.50"
+        android:background="@color/purple"
+        android:rotation="40"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="600sp"
+        android:layout_height="200sp"
+        android:layout_marginEnd="72dp"
+        android:alpha="0.50"
+        android:background="@color/fucsia"
+        android:rotation="40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollviewregisterclub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layout_registerclient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_account"
+                android:theme="@style/TextViewHead" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/profile_picture"
+                    android:theme="@style/TextViewSubtitle" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/profile_placeholder"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:text="@string/select_picture"
+                        android:theme="@style/TextViewButton"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/button_profilepicture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/select_picture"
+                        android:theme="@style/TextViewButton" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/username"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_usernameclient"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="name"
+                android:background="@color/white"
+                android:hint="@string/insert_username"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/email"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_email"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="emailAddress"
+                android:background="@color/white"
+                android:hint="@string/insert_email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/phone_number"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_phonenumberclient"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="phone"
+                android:background="@color/white"
+                android:hint="@string/insert_phonenumber"
+                android:inputType="number"
+                android:textColorHint="@color/purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/birthday"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_birthday"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="birthday"
+                android:background="@color/white"
+                android:hint="@string/insert_birthday"
+                android:inputType="date"
+                android:textColorHint="@color/purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/identification_carnet"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_ci"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="ci"
+                android:background="@color/white"
+                android:hint="@string/insert_ci"
+                android:inputType="number"
+                android:textColorHint="@color/purple" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/password"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="password"
+                android:background="@color/white"
+                android:hint="@string/insert_password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/purple" />
+
+            <Button
+                android:id="@+id/button_createaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="64dp"
+                android:text="@string/create_account"
+                android:theme="@style/TextViewButton" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
