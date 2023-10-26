@@ -1,9 +1,11 @@
 package com.progra.loszetaz.dataClases
 
+import android.graphics.drawable.Drawable
+
 
 data class Club(
     val id: Int,
-    var logo: String,
+    var logo: Int,
     val name: String,
 //    val owner: Owner,
     var ownerName: String,

@@ -1,5 +1,6 @@
 package com.progra.loszetaz.dataBase
 
+import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club
 
 class ClubDB {
@@ -9,7 +10,7 @@ class ClubDB {
         val clubs: MutableList<Club> = mutableListOf(
             Club(
                 id = 1,
-                logo = "logo_vanity.jpg",
+                logo = R.drawable.logo_vanity,
                 ownerName = "Jhons Vanity",
                 name = "Vanity",
                 license = "90800124A-B24235510",
@@ -26,7 +27,7 @@ class ClubDB {
             ),
             Club(
                 id = 2,
-                logo = "logo_garden.png",
+                logo = R.drawable.logo_garden,
                 ownerName = "Cristian Garden",
                 name = "Garden",
                 license = "90800124A-B24235510",
@@ -43,7 +44,7 @@ class ClubDB {
             ),
             Club(
                 id = 3,
-                logo = "logo_gold.jpg",
+                logo = R.drawable.logo_gold,
                 ownerName = "Gold Benson",
                 name = "Gold",
                 license = "90800124A-B24235510",
@@ -60,7 +61,7 @@ class ClubDB {
             ),
             Club(
                 id = 4,
-                logo = "logo_malegria.jpg",
+                logo = R.drawable.logo_malegria,
                 ownerName = "Justin Malegria",
                 name = "Malegria",
                 license = "90800124A-B24235510",
@@ -77,7 +78,7 @@ class ClubDB {
             ),
             Club(
                 id = 5,
-                logo = "logo_pacha.jpeg",
+                logo = R.drawable.logo_pacha,
                 ownerName = "Rodrigo Pacha",
                 name = "Pacha",
                 license = "90800124A-B24235510",
@@ -94,7 +95,7 @@ class ClubDB {
             ),
             Club(
                 id = 6,
-                logo = "logo_taboo.jpeg",
+                logo = R.drawable.logo_taboo,
                 ownerName = "Taboo Johnson",
                 name = "Taboo",
                 license = "90800124A-B24235510",
@@ -111,7 +112,7 @@ class ClubDB {
             ),
             Club(
                 id = 7,
-                logo = "logo_fabula.jpg",
+                logo = R.drawable.logo_fabula,
                 ownerName = "Kevin Fabula",
                 name = "Fabula",
                 license = "90800124A-B24235510",
@@ -128,7 +129,7 @@ class ClubDB {
             ),
             Club(
                 id = 9,
-                logo = "logo_black_monkey.jpg",
+                logo = R.drawable.logo_black_monkey,
                 ownerName = "Black Monkey",
                 name = "Black Monkey Bar",
                 license = "90800124A-B24235510",
@@ -145,7 +146,7 @@ class ClubDB {
             ),
             Club(
                 id = 10,
-                logo = "logo_forum.jpg",
+                logo = R.drawable.logo_forum,
                 ownerName = "Marco Forum",
                 name = "Forum",
                 license = "90800124A-B24235510",
@@ -162,7 +163,7 @@ class ClubDB {
             ),
             Club(
                 id = 11,
-                logo = "logo_zouk.jpg",
+                logo = R.drawable.logo_zouk,
                 ownerName = "Hans Zoruk",
                 name = "Zoruk Boulevard",
                 license = "90800124A-B24235510",
@@ -179,7 +180,7 @@ class ClubDB {
             ),
             Club(
                 id = 12,
-                logo = "logo_wave.png",
+                logo = R.drawable.logo_wave,
                 ownerName = "WIlson Wave",
                 name = "Wave Club",
                 license = "90800124A-B24235510",
@@ -196,7 +197,7 @@ class ClubDB {
             ),
             Club(
                 id = 13,
-                logo = "logo_london.jpg",
+                logo = R.drawable.logo_london,
                 ownerName = "James London",
                 name = "London Club",
                 license = "90800124A-B24235510",
@@ -213,7 +214,7 @@ class ClubDB {
             ),
             Club(
                 id = 14,
-                logo = "logo_zelta.png",
+                logo = R.drawable.logo_zelta,
                 ownerName = "Suvadra Zelta",
                 name = "Zelta",
                 license = "90800124A-B24235510",
@@ -230,7 +231,7 @@ class ClubDB {
             ),
             Club(
                 id = 15,
-                logo = "logo_plan_b.jpg",
+                logo = R.drawable.logo_plan_b,
                 ownerName = "Chencho y Maldy",
                 name = "Club Plan B",
                 license = "90800124A-B24235510",
@@ -247,7 +248,7 @@ class ClubDB {
             ),
             Club(
                 id = 16,
-                logo = "logo_level.jpg",
+                logo = R.drawable.logo_level,
                 ownerName = "Loki",
                 name = "Level Club",
                 license = "90800124A-B24235510",
@@ -264,7 +265,7 @@ class ClubDB {
             ),
             Club(
                 id = 17,
-                logo = "logo_guru.png",
+                logo = R.drawable.logo_guru,
                 ownerName = "Gabo Guru",
                 name = "Gurú",
                 license = "90800124A-B24235510",
@@ -281,7 +282,7 @@ class ClubDB {
             ),
             Club(
                 id = 18,
-                logo = "logo_open_mind.jpg",
+                logo = R.drawable.logo_open_mind,
                 ownerName = "Oliver Mind",
                 name = "Open Mind",
                 license = "90800124A-B24235510",
