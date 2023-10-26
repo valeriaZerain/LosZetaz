@@ -65,14 +65,17 @@
         android:padding="16dp"
         >
         <TextView
+            android:id="@+id/text_recent_posts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Novedades"
             android:layout_weight="1"
             android:textAlignment="center"
-            style="@style/TextViewTitle"
+            android:theme="@style/TextViewTitle"
+            android:textColor="@color/fucsia"
             />
         <TextView
+            android:id="@+id/text_most_liked_clubs"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Mas visitadas"
@@ -90,19 +93,19 @@
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/most_liked_club_recylcer"
+            android:id="@+id/most_liked_club_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:listitem="@layout/most_liked_club_item"
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+            android:id="@+id/recent_post_club_recycler"
+            android:layout_width="387dp"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/club_post_item"
-            android:visibility="gone"
-            android:elevation="0dp"/>
+            android:visibility="visible"
+            tools:listitem="@layout/recent_post_club_item" />
 
     </LinearLayout>
 
