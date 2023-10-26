@@ -1,5 +1,6 @@
 package com.progra.loszetaz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,6 +24,12 @@ class HomeScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.searchIcon.setOnClickListener {
+            val intentHomeToSearch = Intent(this, SearchScreenActivity::class.java)
+            startActivity(intentHomeToSearch)
+        }
+
         showMostLikedClubs()
         showRecentPost()
 
@@ -32,7 +39,7 @@ class HomeScreenActivity : AppCompatActivity() {
                 binding.mostLikedClubRecycler.visibility = View.GONE
                 binding.recentPostClubRecycler.visibility = View.VISIBLE
                 binding.textRecentPosts.setTextColor(AppCompatResources.getColorStateList
-                    (this, R.color.fucsia))
+                    (this, R.color.turquoise))
                 binding.textMostLikedClubs.setTextColor(AppCompatResources.getColorStateList
                     (this, R.color.white))
 

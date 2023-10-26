@@ -34,26 +34,37 @@
             android:layout_weight="1"
             android:src="@drawable/user"
             android:padding="8dp"
-            >
-        </ImageView>
+            />
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:text="@string/search_title"
-            style="@style/TextViewTitle"
+            style="@style/TextViewHead"
             android:gravity="center"
-            >
-        </TextView>
+            />
         <ImageView
+            android:id="@+id/search_icon"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/search"
             android:padding="8dp"
-            >
-        </ImageView>
+            />
     </LinearLayout>
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="240dp"
+        android:background="@color/dark_green"
+        app:layout_constraintTop_toBottomOf="@id/top_menu"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="240dp"
+        android:background="@color/dark_purple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <LinearLayout
         android:id="@+id/menu"
@@ -68,56 +79,66 @@
             android:id="@+id/text_recent_posts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Novedades"
+            android:text="@string/recent_post_title"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:theme="@style/TextViewTitle"
-            android:textColor="@color/fucsia"
+            android:theme="@style/TextViewActualTab"
             />
         <TextView
             android:id="@+id/text_most_liked_clubs"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Mas visitadas"
+            android:text="@string/most_liked_title"
             android:layout_weight="1"
             android:textAlignment="center"
-            style="@style/TextViewTitle"
+            android:theme="@style/TextViewTab"
             />
     </LinearLayout>
     
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/menu"
-        android:orientation="vertical"
-        >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/most_liked_club_recycler"
+        android:fillViewport="true">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:listitem="@layout/most_liked_club_item"
-            />
+            android:orientation="vertical"
+            >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recent_post_club_recycler"
-            android:layout_width="387dp"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            tools:listitem="@layout/recent_post_club_item" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/most_liked_club_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:listitem="@layout/most_liked_club_item"
+                />
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recent_post_club_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                tools:listitem="@layout/recent_post_club_item"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mapa"
+        android:text="@string/maps_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/center_line"
         app:layout_constraintRight_toRightOf="@id/center_line"
         android:layout_marginBottom="70dp"
         android:elevation="2dp"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

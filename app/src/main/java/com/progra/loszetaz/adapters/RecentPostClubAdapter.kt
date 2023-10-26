@@ -42,6 +42,7 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
                 fun binding(data: Post){
                     binding.postTitle.text = data.title
                     binding.postImage.setImageResource(data.images[0])
+                    binding.recentPostClubDescription.text = data.getMiniDescription()
                 }
 
             }

@@ -8,4 +8,8 @@ data class Post(
     val description: String,
     val images: List<Int>,
     val clubId: Int
-)
+){
+    fun getMiniDescription(): String{
+        return "${description.take(40)}..."
+    }
+}
