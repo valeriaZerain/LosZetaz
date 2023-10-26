@@ -40,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:text="@string/search_title"
-            style="@style/TextViewHead"
+            android:theme="@style/TextViewHead"
             android:gravity="center"
             />
         <ImageView
