@@ -152,7 +152,6 @@
         android:text="@string/register_account"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_signin"
-        android:backgroundTint="@drawable/background_button"/>
+        app:layout_constraintTop_toBottomOf="@id/button_signin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
