@@ -4,37 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchScreenActivity"
     android:background="@color/black"
-    >
+    tools:context=".SearchScreenActivity">
 
     <LinearLayout
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:background="@color/purple"
         android:orientation="horizontal"
         android:weightSum="5"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/purple"
-        >
-    
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/home"
             android:padding="8dp"
-            >
-        </ImageView>
+            android:src="@drawable/home"></ImageView>
+
         <TextView
+            style="@style/TextViewTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="@string/search_title"
-            style="@style/TextViewTitle"
             android:gravity="center"
-            >
+            android:text="@string/search_title">
 
         </TextView>
     </LinearLayout>
@@ -42,144 +38,127 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="700dp"
-        app:layout_constraintTop_toBottomOf="@+id/top_menu"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="vertical"
         android:padding="30dp"
         android:weightSum="9"
-        android:orientation="vertical"
-        >
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_menu">
+
         <TextView
+            style="@style/TextViewSubtitle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/search_title"
-            style="@style/TextViewSubtitle"
-            >
-        </TextView>
+            android:text="@string/search_title"></TextView>
 
         <EditText
             android:id="@+id/name_edit_text"
+            style="@style/TextViewDescription"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:hint="@string/search_by_name_hint"
-            style="@style/TextViewDescription"
             android:background="@color/gray"
-            android:padding="10dp"
-            >
-        </EditText>
+            android:hint="@string/search_by_name_hint"
+            android:padding="10dp"></EditText>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
-            >
+            android:layout_weight="1">
+
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            style="@style/TextViewSubtitle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/filter_title"
-            style="@style/TextViewSubtitle"
-            >
-        </TextView>
+            android:text="@string/filter_title"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <CheckBox
+                    style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_smoking_area"
-                    style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
-                    >
-                </CheckBox>
+                    android:text="@string/tag_smoking_area"></CheckBox>
+
                 <CheckBox
+                    style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_outdoor"
-                    style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
-                    />
+                    android:text="@string/tag_outdoor" />
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tag_reggaeton"
-                    style="@style/TextViewButton"
-                    android:layout_marginRight="4dp"
-                    >
-                </CheckBox>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tag_cumbia"
-                    style="@style/TextViewButton"
-                    android:layout_marginRight="4dp"
-                    >
-                </CheckBox>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tag_oldies"
-                    style="@style/TextViewButton"
-                    android:layout_marginRight="4dp"
-                    >
-                </CheckBox>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tag_live_music"
-                    style="@style/TextViewButton"
-                    >
-                </CheckBox>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tag_tables"
-                    style="@style/TextViewButton"
-                    >
-                </CheckBox>
+                android:orientation="horizontal">
 
                 <CheckBox
                     style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_no_cover">
-                </CheckBox>
+                    android:layout_marginRight="4dp"
+                    android:text="@string/tag_reggaeton"></CheckBox>
+
+                <CheckBox
+                    style="@style/TextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:text="@string/tag_cumbia"></CheckBox>
+
+                <CheckBox
+                    style="@style/TextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:text="@string/tag_oldies"></CheckBox>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    style="@style/TextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_live_music"></CheckBox>
+
+                <CheckBox
+                    style="@style/TextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_tables"></CheckBox>
+
+                <CheckBox
+                    style="@style/TextViewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_no_cover"></CheckBox>
             </LinearLayout>
 
         </LinearLayout>
@@ -188,70 +167,62 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
-            >
+            android:layout_weight="1">
+
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <TextView
+            style="@style/TextViewSubtitle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/search_by_zone_title"
-            style="@style/TextViewSubtitle"
-            >
-        </TextView>
+            android:text="@string/search_by_zone_title"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:focusableInTouchMode="true"
-            >
+            android:orientation="vertical">
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:backgroundTint="@color/gray"
-                >
+                android:backgroundTint="@color/gray">
+
                 <AutoCompleteTextView
                     android:id="@+id/dropdown_zones"
+                    style="@style/TextViewDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/dropdown_hint"
-                    style="@style/TextViewDescription"
-                    android:inputType="none"
-                    >
-                </AutoCompleteTextView>
+                    android:inputType="none"></AutoCompleteTextView>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
-        
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
-            >
+            android:layout_weight="1">
+
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
