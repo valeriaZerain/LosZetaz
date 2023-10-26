@@ -16,17 +16,6 @@
         app:layout_constraintGuide_percent="0.5"
         >
     </androidx.constraintlayout.widget.Guideline>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mapa"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/center_line"
-        app:layout_constraintRight_toRightOf="@id/center_line"
-        android:layout_marginBottom="70dp"
-        android:elevation="1dp"
-        >
-    </Button>
 
     <LinearLayout
         android:id="@+id/top_menu"
@@ -98,21 +87,34 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/menu"
         android:orientation="vertical"
-        android:elevation="0dp"
         >
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/most_liked_club_recylcer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/club_item"
-            android:visibility="gone" />
+            android:visibility="visible"
+            tools:listitem="@layout/most_liked_club_item"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/club_post_item"
-            android:visibility="visible" />
+            android:visibility="gone"
+            android:elevation="0dp"/>
 
     </LinearLayout>
-    
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mapa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/center_line"
+        app:layout_constraintRight_toRightOf="@id/center_line"
+        android:layout_marginBottom="70dp"
+        android:elevation="2dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
