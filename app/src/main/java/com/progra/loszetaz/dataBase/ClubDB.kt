@@ -347,6 +347,9 @@ class ClubDB {
             }
             return result
         }
+        fun getClubById(id: Int): Club? {
+            return clubs.find { club -> club.id == id }
+        }
     }
 
 }

@@ -1,9 +1,13 @@
 package com.progra.loszetaz.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.progra.loszetaz.ClubProfileActivity
+import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
+import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.MostLikedClubItemBinding
 
@@ -41,6 +45,11 @@ class MostLikedClubAdapter: RecyclerView.Adapter<MostLikedClubAdapter.MostLikedC
                 binding.clubName.text = data.name
                 binding.textNumberLikes.text = data.likes.toString()
                 binding.imgClub.setImageResource(data.logo)
+                binding.textShowMore.setOnClickListener {
+                    val intent = Intent(context, ClubProfileActivity::class.java)
+                    intent.putExtra(CLUB_KEY, data)
+
+                }
             }
     }
 

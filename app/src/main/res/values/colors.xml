@@ -9,4 +9,6 @@
     <color name="dark_green">#265658</color>
     <color name="dark_purple">#441D49</color>
     <color name="black_transparent">#70000000</color>
+    <color name="dark_blue">#36286A</color>
+    <color name="blue">#3575A9</color>
 </resources>

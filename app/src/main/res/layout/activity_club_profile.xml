@@ -4,10 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClubProfileActivity">
+    tools:context=".ClubProfileActivity"
+    android:background="@color/black"
+    >
 
     <LinearLayout
-        android:id="@+id/top_menu"
+        android:id="@+id/top_menu_club"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/fucsia"
+        android:elevation="1dp">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/user"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Taboo"
+            android:theme="@style/TextViewHead"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/top_menu_client"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:orientation="horizontal"
@@ -15,7 +40,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/purple"
-        >
+        android:elevation="1dp"
+        android:visibility="invisible">
 
         <ImageView
             android:layout_width="0dp"
@@ -25,10 +51,10 @@
             android:padding="8dp"
             />
         <TextView
+            android:id="@+id/text_club_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="Taboo"
             android:theme="@style/TextViewHead"
             android:gravity="center"
             />
@@ -46,23 +72,26 @@
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/top_menu"
+        app:layout_constraintTop_toBottomOf="@id/top_menu_client"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:weightSum="2"
         android:orientation="horizontal"
         android:padding="24dp"
+        android:elevation="1dp"
         >
 
         <TextView
+            android:id="@+id/text_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Informacion"
             android:layout_weight="1"
-            android:theme="@style/TextViewTab"
+            android:theme="@style/TextViewActualTab"
             android:textAlignment="center"
             />
         <TextView
+            android:id="@+id/text_feed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Feed"
@@ -72,12 +101,6 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/turquoise"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_club"
@@ -86,6 +109,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:elevation="1dp"
         >
         <ImageView
             android:id="@+id/image_logo_club"
@@ -99,13 +123,14 @@
             android:id="@+id/image_favorite"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/favorite_full"
+            android:src="@drawable/favorite_border"
             app:layout_constraintLeft_toRightOf="@id/image_logo_club"
             app:layout_constraintTop_toTopOf="@id/image_logo_club"
             app:layout_constraintBottom_toBottomOf="@id/image_logo_club"
             android:layout_marginLeft="40dp"
             />
         <TextView
+            android:id="@+id/text_number_likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="200"
@@ -117,69 +142,189 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/update_info"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Cambiar Informacion"
+        android:elevation="2dp"/>
+
+    <ScrollView
+        android:id="@+id/club_info_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/constraint_club"
-        android:orientation="vertical"
         android:layout_margin="20dp"
         android:padding="20dp"
-        android:background="@color/black_transparent"
+        android:background="@drawable/background_info_profile"
+        android:elevation="1dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:isScrollContainer="true"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextViewTitle"
-            android:text="Descripcion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
-            android:theme="@style/TextViewDescription"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextViewTitle"
-            android:text="Descripcion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
-            android:theme="@style/TextViewDescription"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextViewTitle"
-            android:text="Descripcion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
-            android:theme="@style/TextViewDescription"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextViewTitle"
-            android:text="Descripcion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
-            android:theme="@style/TextViewDescription"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextViewTitle"
-            android:text="Descripcion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
-            android:theme="@style/TextViewDescription"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewSubtitleDescription"
+                android:text="Descripcion"/>
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes y pasar un gran momento al aire libre con amigos. Todos nuestros ambientes estan listos para que te caigas y aparezcas botada en la calle pero con tus rinones aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                android:theme="@style/TextViewDescription"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewSubtitleDescription"
+                android:text="Recomendaciones"/>
+            <TextView
+                android:id="@+id/text_recommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En Taboo ofrecemos el mejor lugar para salir en las tardes"
+                android:theme="@style/TextViewDescription"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewSubtitleDescription"
+                android:text="Horario"
+                android:layout_marginRight="8dp"/>
+            <TextView
+                android:id="@+id/schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="03:00 PM - 10:00 PM"
+                android:theme="@style/TextViewDescription"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewSubtitleDescription"
+                android:text="Cover"
+                android:layout_marginRight="8dp"/>
+            <TextView
+                android:id="@+id/text_cover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500 Bs mesa para 10 personas. Ingreso gratis con invitacion"
+                android:theme="@style/TextViewDescription"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewSubtitleDescription"
+                android:text="Ubicacion"
+                android:layout_marginRight="8dp"/>
+            <TextView
+                android:id="@+id/text_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calle tal av. equis #2525"
+                android:theme="@style/TextViewDescription"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/feed_club_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/menu"
+        android:elevation="1dp"
+        android:visibility="invisible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
+            <Button
+                android:id="@+id/add_post_button"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:text="Anadir nueva publicacion"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feed_club_recycler"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/feed_post_club_item"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/client_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone">
+        <View
+            android:layout_width="600sp"
+            android:layout_height="200sp"
+            android:background="@color/dark_blue"
+            android:rotation="135"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <View
+            android:layout_width="600sp"
+            android:layout_height="150sp"
+            android:background="@color/blue"
+            android:rotation="135"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <View
+            android:layout_width="600sp"
+            android:layout_height="100sp"
+            android:background="@color/purple"
+            android:rotation="135"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/club_background"
+        android:layout_width="600sp"
+        android:layout_height="200sp"
+        android:background="#3C8183"
+        android:rotation="45"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/club_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="club_info_scroll,constraint_club"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/client_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="client_background,top_menu_client"
+        android:visibility="visible"
+        />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/club_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="club_background, top_menu_club"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@ class PostDB {
                 clubId = 6
             ),
             Post(
-                title = "",
+                title = "Rompe con la rutina",
                 date = Date(2023,10,24),
                 description = "\uD83D\uDD25 Este Miércoles en Malegria, la fiesta número uno en Sopocachi, La Paz, Bolivia, te espera con una irresistible oferta. Reúnete con tus amigos y prepárate para vivir una noche inolvidable con nuestras promociones especiales:\n" +
                         "\uD83C\uDF79 2x1 en todos nuestros cócteles. \uD83C\uDF79 ¡No te pierdas la oportunidad de degustar nuestras exquisitas creaciones!\n" +
@@ -40,5 +40,11 @@ class PostDB {
                 clubId = 4
             )
         )
+        fun getAllPost(): List<Post>{
+            return posts
+        }
+        fun getPostFromClub(clubId: Int): List<Post> {
+            return posts.filter { club -> club.clubId == clubId }
+        }
     }
 }
