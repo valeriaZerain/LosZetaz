@@ -25,6 +25,8 @@ class HomeScreenActivity : AppCompatActivity() {
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        PostDB.setContext(applicationContext)
+
         binding.searchIcon.setOnClickListener {
             val intentHomeToSearch = Intent(this, SearchScreenActivity::class.java)
             startActivity(intentHomeToSearch)
@@ -58,6 +60,10 @@ class HomeScreenActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        showRecentPost()
+    }
     fun showMostLikedClubs(){
         mostLikedClubAdapter.addClubs(ClubDB.mostLikedClubs())
         binding.mostLikedClubRecycler.apply{
@@ -69,6 +75,7 @@ class HomeScreenActivity : AppCompatActivity() {
 
     fun showRecentPost(){
         recentPostClubAdapter.addPost(PostDB.posts)
+        println("Added PostDB")
 
         binding.recentPostClubRecycler.apply {
             layoutManager =

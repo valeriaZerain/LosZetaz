@@ -4,14 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.progra.loszetaz.ClubProfileActivity
 import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
 import com.progra.loszetaz.dataBase.ClubDB
-import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Post
-import com.progra.loszetaz.databinding.ActivityHomeScreenBinding
 import com.progra.loszetaz.databinding.RecentPostClubItemBinding
 
 class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPostClubAdapterViewHolder>() {
@@ -47,7 +44,7 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
 
                 fun binding(data: Post){
                     binding.postTitle.text = data.title
-                    binding.postImage.setImageResource(data.images[0])
+                    binding.postImage.setImageBitmap(data.image)
                     binding.recentPostClubDescription.text = data.getMiniDescription()
                     binding.textShowMore.setOnClickListener {
                         val intent = Intent(context,ClubProfileActivity::class.java)
@@ -55,7 +52,6 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
                         context?.startActivity(intent)
                     }
                 }
-
             }
     fun addPost(newPosts: List<Post>){
         recentPostList.clear()

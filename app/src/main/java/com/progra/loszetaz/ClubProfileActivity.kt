@@ -1,5 +1,6 @@
 package com.progra.loszetaz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,8 +24,6 @@ class ClubProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityClubProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        PostDB.addPost()
 
         if(isClientUser){
             binding.clubLayout.visibility = View.INVISIBLE
@@ -55,6 +54,15 @@ class ClubProfileActivity : AppCompatActivity() {
             }
         }
 
+        binding.addPostButton.setOnClickListener{
+            val intent = Intent(this,CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showPosts()
     }
 
     fun showInfoProfile(){
@@ -90,6 +98,7 @@ class ClubProfileActivity : AppCompatActivity() {
     }
 
     fun setProfile(){
+        binding.textClubNameFeed.text = actualClub.name
         binding.textClubName.text = actualClub.name
         binding.imageLogoClub.setImageResource(actualClub.logo)
         binding.textNumberLikes.text = actualClub.likes.toString()

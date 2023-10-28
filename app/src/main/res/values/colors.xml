@@ -12,4 +12,5 @@
     <color name="dark_blue">#36286A</color>
     <color name="blue">#3575A9</color>
     <color name="turquoise_transparent">#7075F9FD</color>
+    <color name="gray_transparent">#705C5A5A</color>
 </resources>
