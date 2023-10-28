@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.progra.loszetaz.adapters.FeedPostClubAdapter
 import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Club
-import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.ActivityClubProfileBinding
-import java.util.Date
 
 class ClubProfileActivity : AppCompatActivity() {
 
@@ -20,57 +18,78 @@ class ClubProfileActivity : AppCompatActivity() {
     private var isInfoShown: Boolean = true
     private lateinit var actualClub: Club
 
-    private val isClientUser = true
+    private val isClientUser = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClubProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        PostDB.addPost()
+
         if(isClientUser){
             binding.clubLayout.visibility = View.INVISIBLE
             binding.clientLayout.visibility = View.VISIBLE
+            // TODO check if the actualUser has liked the club
         }
         else{
+            binding.updateInfo.visibility = View.VISIBLE
             binding.clubLayout.visibility = View.VISIBLE
             binding.clientLayout.visibility = View.INVISIBLE
         }
         actualClub = intent.getSerializableExtra(CLUB_KEY) as Club
 
-        showProfile()
+        setProfile()
         showPosts()
 
 
         binding.textInfo.setOnClickListener{
             if(!isInfoShown){
                 isInfoShown = true
-                binding.feedClubScroll.visibility = View.GONE
-                binding.clubInfo.visibility = View.VISIBLE
-                binding.textInfo.setTextColor(
-                    AppCompatResources.getColorStateList
-                        (this, R.color.turquoise))
-                binding.textFeed.setTextColor(
-                    AppCompatResources.getColorStateList
-                        (this, R.color.white))
-
+               showInfoProfile()
             }
         }
         binding.textFeed.setOnClickListener {
             if(isInfoShown){
                 isInfoShown = false
-                binding.clubInfo.visibility = View.GONE
-                binding.feedClubScroll.visibility = View.VISIBLE
-                binding.textInfo.setTextColor(
-                    AppCompatResources.getColorStateList
-                        (this, R.color.white))
-                binding.textFeed.setTextColor(
-                    AppCompatResources.getColorStateList
-                        (this, R.color.fucsia))
+                showFeedProfile()
             }
         }
 
     }
 
-    fun showProfile(){
+    fun showInfoProfile(){
+        binding.feedClubScroll.visibility = View.GONE
+        binding.clubInfo.visibility = View.VISIBLE
+        binding.textInfo.setTextColor(
+            AppCompatResources.getColorStateList
+                (this, R.color.turquoise))
+        binding.textFeed.setTextColor(
+            AppCompatResources.getColorStateList
+                (this, R.color.white))
+        if(!isClientUser)
+            binding.updateInfo.visibility = View.VISIBLE
+        else
+            binding.updateInfo.visibility = View.GONE
+        binding.addPostButton.visibility = View.GONE
+    }
+
+    fun showFeedProfile(){
+        binding.clubInfo.visibility = View.GONE
+        binding.feedClubScroll.visibility = View.VISIBLE
+        binding.textInfo.setTextColor(
+            AppCompatResources.getColorStateList
+                (this, R.color.white))
+        binding.textFeed.setTextColor(
+            AppCompatResources.getColorStateList
+                (this, R.color.fucsia))
+        if(!isClientUser)
+            binding.addPostButton.visibility = View.VISIBLE
+        else
+            binding.addPostButton.visibility = View.GONE
+        binding.updateInfo.visibility = View.GONE
+    }
+
+    fun setProfile(){
         binding.textClubName.text = actualClub.name
         binding.imageLogoClub.setImageResource(actualClub.logo)
         binding.textNumberLikes.text = actualClub.likes.toString()

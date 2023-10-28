@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.FeedPostClubItemBinding
 
@@ -38,7 +39,7 @@ class FeedPostClubAdapter: RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClub
             RecyclerView.ViewHolder(binding.root) {
                 fun binding(data: Post){
                     binding.titlePost.text = data.title
-                    binding.datePost.text = data.date.toString()
+                    binding.datePost.text = data.date
                     binding.imgPost.setImageResource(data.images[0])
                     binding.descriptionPost.text = data.description
                 }

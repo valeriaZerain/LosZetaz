@@ -70,8 +70,11 @@
     <string name="tag_live_music">Música en vivo</string>
     <string name="tag_tables">Mesas</string>
     <string name="tag_no_cover">No cover</string>
-
     <string name="recent_post_title">Novedades</string>
     <string name="most_liked_title">Más visitadas</string>
     <string name="maps_label">Mapa</string>
+    <string name="information">Información</string>
+    <string name="feed">Feed</string>
+    <string name="schedule_club_profile">Horario</string>
+    <string name="location_club_profile">Ubicación</string>
 </resources>
