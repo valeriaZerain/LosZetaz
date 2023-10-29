@@ -27,7 +27,6 @@
             android:id="@+id/club_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Wave"
             android:theme="@style/TextViewTitle"
             android:gravity="center"
             />

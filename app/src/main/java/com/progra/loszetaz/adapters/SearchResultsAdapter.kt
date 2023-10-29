@@ -43,7 +43,6 @@ class SearchResultsAdapter: RecyclerView.Adapter<SearchResultsAdapter.SearchResu
                     binding.clubName.text = data.name
                     setImage(data)
                     binding.resultItem.setOnClickListener{
-                        println("Cliiiick")
                         val intent = Intent(context, ClubProfileActivity::class.java)
                         intent.putExtra(ClubProfileActivity.CLUB_KEY, data)
                         context?.startActivity(intent)
