@@ -25,7 +25,6 @@ class HomeScreenActivity : AppCompatActivity() {
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        PostDB.setContext(applicationContext)
 
         binding.searchIcon.setOnClickListener {
             val intentHomeToSearch = Intent(this, SearchScreenActivity::class.java)
@@ -74,7 +73,7 @@ class HomeScreenActivity : AppCompatActivity() {
     }
 
     fun showRecentPost(){
-        recentPostClubAdapter.addPost(PostDB.posts)
+        recentPostClubAdapter.addPost(PostDB.getAllPost())
         println("Added PostDB")
 
         binding.recentPostClubRecycler.apply {

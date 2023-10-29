@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.progra.loszetaz.CreatePostActivity.Companion.NAME_CLUB_KEY
 import com.progra.loszetaz.adapters.FeedPostClubAdapter
 import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Club
@@ -19,7 +20,7 @@ class ClubProfileActivity : AppCompatActivity() {
     private var isInfoShown: Boolean = true
     private lateinit var actualClub: Club
 
-    private val isClientUser = false
+    private val isClientUser = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClubProfileBinding.inflate(layoutInflater)
@@ -56,6 +57,7 @@ class ClubProfileActivity : AppCompatActivity() {
 
         binding.addPostButton.setOnClickListener{
             val intent = Intent(this,CreatePostActivity::class.java)
+            intent.putExtra(NAME_CLUB_KEY, actualClub.name)
             startActivity(intent)
         }
     }

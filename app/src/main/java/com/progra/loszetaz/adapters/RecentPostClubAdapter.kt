@@ -44,13 +44,19 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
 
                 fun binding(data: Post){
                     binding.postTitle.text = data.title
-                    binding.postImage.setImageBitmap(data.image)
+                    setImage(data)
                     binding.recentPostClubDescription.text = data.getMiniDescription()
                     binding.textShowMore.setOnClickListener {
                         val intent = Intent(context,ClubProfileActivity::class.java)
                         intent.putExtra(CLUB_KEY, ClubDB.getClubById(data.clubId))
                         context?.startActivity(intent)
                     }
+                }
+                fun setImage(data: Post){
+                    if(data.imageBitmap != null)
+                        binding.postImage.setImageBitmap(data.imageBitmap)
+                    else
+                        binding.postImage.setImageResource(data.image)
                 }
             }
     fun addPost(newPosts: List<Post>){

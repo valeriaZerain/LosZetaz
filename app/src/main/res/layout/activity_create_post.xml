@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:src="@drawable/user"/>
         <TextView
-            android:id="@+id/text_club_name_feed"
+            android:id="@+id/text_club_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -52,7 +52,7 @@
             android:id="@+id/post_title"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Titulo"
+            android:hint="@string/title"
             android:theme="@style/TextViewTitle"
             android:background="@color/gray_transparent"
             android:layout_margin="30dp"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:hint="Descripcion"
+            android:hint="@string/description_club"
             android:background="@color/gray_transparent"
             android:theme="@style/TextViewDescription"
             android:minLines="9"
@@ -91,7 +91,7 @@
             android:id="@+id/confirm_post_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Publicar"
+            android:text="@string/post"
             android:theme="@style/PostButton"
             android:backgroundTint="@color/black"
             />
@@ -99,7 +99,7 @@
             android:id="@+id/cancel_post_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
+            android:text="@string/cancel"
             android:theme="@style/CancelButton"
             android:backgroundTint="@color/black"
             />

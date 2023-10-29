@@ -5,20 +5,22 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.core.content.ContextCompat
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.ActivityCreatePostBinding
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Locale
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 class CreatePostActivity : AppCompatActivity() {
 
@@ -30,22 +32,30 @@ class CreatePostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreatePostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val nameClub = intent.getStringExtra(NAME_CLUB_KEY)
+        binding.textClubName.text = nameClub
+
         binding.confirmPostButton.setOnClickListener {
-            val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("es","ES"))
-            val current = LocalDate.now().format(formatter)
+            val now: Instant = Clock.System.now()
+            val today: LocalDate = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
+
             if(binding.postTitle.text.toString().isNotEmpty() && pickedBitMap != null) {
                 val post = Post(
                     title = binding.postTitle.text.toString(),
                     description = binding.descriptionPost.text.toString(),
                     clubId = 5,
-                    image = pickedBitMap!!,
-                    date = current,
+                    imageBitmap = pickedBitMap!!,
+                    date = today,
+                    image = -1
                 )
                 PostDB.addPost(post)
                 finish()
             }
             else{
-                //TODO Mostrar que no puedes crear sin titulo y sin imagen
+                val toast = Toast.makeText(this,
+                    "El titulo y la imagen no pueden estar vacios", Toast.LENGTH_SHORT)
+                toast.show()
             }
         }
         binding.cancelPostButton.setOnClickListener {
@@ -84,10 +94,12 @@ class CreatePostActivity : AppCompatActivity() {
             val source = ImageDecoder.createSource(this.contentResolver, pickedPhoto!!)
             pickedBitMap = ImageDecoder.decodeBitmap(source)
             pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!,500,500,false)
-            //binding.uploadedImage.setImageBitmap(pickedBitMap)
-            val d = BitmapDrawable(getResources(), pickedBitMap);
-            binding.uploadedImage.setImageDrawable(d)
+            binding.uploadedImage.setImageBitmap(pickedBitMap)
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    companion object {
+        val NAME_CLUB_KEY = "name_club_key"
     }
 }

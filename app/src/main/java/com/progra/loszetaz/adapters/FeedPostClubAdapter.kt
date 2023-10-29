@@ -39,11 +39,17 @@ class FeedPostClubAdapter: RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClub
             RecyclerView.ViewHolder(binding.root) {
                 fun binding(data: Post){
                     binding.titlePost.text = data.title
-                    binding.datePost.text = data.date
+                    binding.datePost.text = data.getDate()
                     binding.descriptionPost.text = data.description
-                    binding.imgPost.setImageBitmap(data.image)
+                    setImage(data)
                 }
 
+                fun setImage(data: Post){
+                    if(data.imageBitmap != null)
+                        binding.imgPost.setImageBitmap(data.imageBitmap)
+                    else
+                        binding.imgPost.setImageResource(data.image)
+                }
             }
 
     fun addFeedPost(newPost: List<Post>){

@@ -77,4 +77,8 @@
     <string name="feed">Feed</string>
     <string name="schedule_club_profile">Horario</string>
     <string name="location_club_profile">Ubicación</string>
+    <string name="title">Título</string>
+    <string name="post">Publicar</string>
+    <string name="cancel">Cancelar</string>
 </resources>
+
