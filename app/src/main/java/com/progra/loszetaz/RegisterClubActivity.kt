@@ -21,8 +21,8 @@ class RegisterClubActivity : AppCompatActivity() {
         setContentView(binding.root)
         auth = Firebase.auth
         binding.buttonCreateaccount.setOnClickListener {
-            val email:String= binding.edittextOwneremail.text.toString()
-            val password:String= binding.edittextPassword.text.toString()
+            val email: String = binding.edittextOwneremail.text.toString()
+            val password: String = binding.edittextPassword.text.toString()
             clickCreateAccount(email, password)
         }
     }
@@ -32,6 +32,21 @@ class RegisterClubActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+                    val clubName: String = binding.edittextClubname.toString()
+                    val license: String = binding.edittextLicense.toString()
+                    val phoneNumber: Int = binding.edittextPhonenumerclub.toString().toInt()
+                    val description: String = binding.edittextDescription.toString()
+                    val schedule: String = binding.edittextSchedule.toString()
+                    val location: String = binding.edittextLocation.toString()
+                    val cover: Int = binding.edittextCover.toString().toInt()
+                    var recommendations: String = binding.edittextRecommendations.toString()
+                    val tags: MutableList<Boolean> = mutableListOf()
+                    tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
+                    tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
+                    tags.set(TagsEnum.OLDIES.id, binding.checkboxOldies.isChecked)
+                    tags.set(TagsEnum.NOCOVER.id, binding.checkboxNoCover.isChecked)
+                    tags.set(TagsEnum.LIVE.id, binding.checkboxLiveMusic.isChecked)
+
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                 } else {

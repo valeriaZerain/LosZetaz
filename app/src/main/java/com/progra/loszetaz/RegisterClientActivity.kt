@@ -35,8 +35,8 @@ class RegisterClientActivity : AppCompatActivity() {
         binding = ActivityRegisterClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
-        binding.profilePlaceholder.setOnClickListener{
-
+        binding.profilePlaceholder.setOnClickListener {
+            view -> pickedPhoto(view)
         }
         binding.buttonCreateaccount.setOnClickListener {
             val email: String = binding.edittextEmail.text.toString()
