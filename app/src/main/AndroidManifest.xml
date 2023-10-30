@@ -33,28 +33,27 @@
         </activity>
         <activity
             android:name=".SearchScreenActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
-            android:name=".RegisterClub"
+            android:name=".RegisterClubActivity"
+
             android:exported="true" />
         <activity
             android:name=".RegisterClientActivity"
             android:exported="true" />
         <activity
-            android:name=".QuestionRegister"
+            android:name=".QuestionRegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
             android:exported="true" />
-        <activity
-            android:name=".Iniciar_sesion"
-            android:exported="false"
-            android:label="@string/title_activity_iniciar_sesion"
-            android:theme="@style/Theme.LosZetaz" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>

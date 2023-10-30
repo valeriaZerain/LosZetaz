@@ -5,8 +5,8 @@ import com.progra.loszetaz.dataClases.Club
 
 class ClubDB {
 
-    companion object{
-
+    companion object {
+        var id = 18
         val clubs: MutableList<Club> = mutableListOf(
             Club(
                 id = 1,
@@ -297,7 +297,7 @@ class ClubDB {
                 likes = 8,
                 zone = "Centro"
             ),
-            )
+        )
 
         fun getAllClubs(): List<Club> {
             return clubs
@@ -318,9 +318,9 @@ class ClubDB {
                 for(j in 1..objective.length){
                     val isDifferent = (text[i-1]!=objective[j-1])
                     dp[i][j] = minOf(
-                        dp[i-1][j]+1,
-                        dp[i][j-1]+1,
-                        dp[i-1][j-1] + ( if(isDifferent) 1 else 0 )
+                        dp[i - 1][j] + 1,
+                        dp[i][j - 1] + 1,
+                        dp[i - 1][j - 1] + (if (isDifferent) 1 else 0)
                     )
                 }
             }
@@ -349,7 +349,7 @@ class ClubDB {
                 for(i in 0..4){
                     containsTags = containsTags && ((tags[i] && club.tags[i]) || !tags[i])
                 }
-                if(containsTags)
+                if (containsTags)
                     result.add(club)
             }
             return result
@@ -369,4 +369,37 @@ class ClubDB {
         }
     }
 
+    fun addClub(
+        name: String,
+        ownerEmail: String,
+        license: String,
+        ownerNumber: Int,
+        description: String,
+        cover: Int,
+        schedule: String,
+        recommendations: String,
+        contactNumber: Int,
+        tags: MutableList<Boolean>,
+        zone: String
+    ) {
+        id++
+        var newClub: Club = Club(
+            id = id,
+            logo = 10,
+            name = name,
+            ownerName = ownerEmail,
+            license = license,
+            ownerNumber = ownerNumber,
+            description = description,
+            location = "falta estoo",
+            cover = cover,
+            schedule = schedule,
+            recommendations = recommendations,
+            contactNumber = contactNumber,
+            tags = tags,
+            likes = 0,
+            zone = zone
+        )
+        clubs.add(newClub)
+    }
 }

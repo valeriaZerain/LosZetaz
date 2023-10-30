@@ -4,37 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchScreenActivity"
     android:background="@color/black"
-    >
+    tools:context=".SearchScreenActivity">
 
     <LinearLayout
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:background="@color/purple"
         android:orientation="horizontal"
         android:weightSum="5"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/purple"
-        >
-    
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/home"
             android:padding="8dp"
-            >
-        </ImageView>
+            android:src="@drawable/home"></ImageView>
+
         <TextView
+            style="@style/TextViewTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="@string/search_title"
-            style="@style/TextViewTitle"
             android:gravity="center"
-            >
+            android:text="@string/search_title">
 
         </TextView>
     </LinearLayout>
@@ -78,27 +74,23 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
             android:visibility="gone"
             >
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,8 +118,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <CheckBox
                     android:id="@+id/checkbox_tables"
                     android:layout_width="wrap_content"
@@ -146,8 +138,6 @@
                     android:id="@+id/checkbox_oldies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_oldies"
-                    style="@style/TextViewButton"
                     android:layout_marginRight="4dp"
                     />
             </LinearLayout>
@@ -158,19 +148,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
             android:visibility="gone"
             >
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -215,24 +202,19 @@
             </LinearLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
             android:visibility="gone"
             >
             <Button
+                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
-                style="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-            </Button>
+                app:layout_constraintTop_toTopOf="parent"></Button>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
