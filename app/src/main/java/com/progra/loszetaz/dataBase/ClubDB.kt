@@ -21,7 +21,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Llevate dinero para el taxi",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, true, true, false, false),
+                tags = mutableListOf(false,true,true,false,false),
                 likes = 10,
                 zone = "Irpavi"
             ),
@@ -38,7 +38,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:30 PM - 2:00 AM",
                 recommendations = "Vente preparada que el ambiente está más caliente que una llajua con aji",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, false, true, false, false),
+                tags = mutableListOf(false,false,true,false,false),
                 likes = 20,
                 zone = "Calacoto"
             ),
@@ -55,7 +55,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 9:00 PM - 2:00 AM",
                 recommendations = "",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, true, false, false, true),
+                tags = mutableListOf(false,true,false,false,true),
                 likes = 15,
                 zone = "San Pedro"
             ),
@@ -72,7 +72,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Ven temprano que se llena rapido",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, true, true, false, false),
+                tags = mutableListOf(false,true,true,false,false),
                 likes = 30,
                 zone = "Sopocachi"
             ),
@@ -89,7 +89,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Reserva tu mesa",
                 contactNumber = 12345678,
-                tags = mutableListOf(true, false, true, false, false),
+                tags = mutableListOf(true,false,true,false,false),
                 likes = 50,
                 zone = "Cota Cota"
             ),
@@ -106,7 +106,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 5:00 PM - 2:00 AM",
                 recommendations = "Deja tu corazon en tu casa y ven a divertirte",
                 contactNumber = 12345678,
-                tags = mutableListOf(true, false, true, false, false),
+                tags = mutableListOf(true,false,true,false,false),
                 likes = 35,
                 zone = "Cota Cota"
             ),
@@ -123,7 +123,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 7:00 PM - 2:00 AM",
                 recommendations = "Llevate abrigo",
                 contactNumber = 12345678,
-                tags = mutableListOf(true, true, true, false, false),
+                tags = mutableListOf(true,true,true,false,false),
                 likes = 25,
                 zone = "Cota Cota"
             ),
@@ -140,7 +140,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 7:00 PM - 2:00 AM",
                 recommendations = "",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, true, true, false, true),
+                tags = mutableListOf(false,true,true,false,true),
                 likes = 15,
                 zone = "Calacoto"
             ),
@@ -157,7 +157,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 9:00 PM - 2:00 AM",
                 recommendations = "Mientras mas tarde mejor",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, false, false, false, true),
+                tags = mutableListOf(false,false,false,false,true),
                 likes = 10,
                 zone = "Sopocachi"
             ),
@@ -174,7 +174,7 @@ class ClubDB {
                 schedule = "Sabados: 9:00 PM - 2:00 AM",
                 recommendations = "",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, true, false, false, false),
+                tags = mutableListOf(false,true,false,false,false),
                 likes = 26,
                 zone = "Calacoto"
             ),
@@ -191,7 +191,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "Hipoteca la casa",
                 contactNumber = 12345678,
-                tags = mutableListOf(false, false, true, false, false),
+                tags = mutableListOf(false,false,true,false,false),
                 likes = 26,
                 zone = "Calacoto"
             ),
@@ -208,7 +208,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, true, false, false, false),
+                tags = mutableListOf(false,true,false,false,false),
                 likes = 26,
                 zone = "Irpavi"
             ),
@@ -225,7 +225,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, true, false, false, false),
+                tags = mutableListOf(false,true,false,false,false),
                 likes = 26,
                 zone = "Centro"
             ),
@@ -242,7 +242,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 6:00 PM - 23:59 PM",
                 recommendations = "No lleves auto",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, false, false, false, false),
+                tags = mutableListOf(false,false,false,false,false),
                 likes = 29,
                 zone = "Centro"
             ),
@@ -259,7 +259,7 @@ class ClubDB {
                 schedule = "Viernes y Sabados: 7:00 PM - 02:00 AM",
                 recommendations = "Cuidado te asalten",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, true, false, false, true),
+                tags = mutableListOf(false,true,false,false,true),
                 likes = 9,
                 zone = "Miraflores"
             ),
@@ -276,7 +276,7 @@ class ClubDB {
                 schedule = "Jueves, Viernes, Sabados y Domingos: 8:00 PM - 3:00 AM",
                 recommendations = "Cuidado te asalten",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, true, false, false, true),
+                tags = mutableListOf(false,true,false,false,true),
                 likes = 9,
                 zone = "San Pedro"
             ),
@@ -293,7 +293,7 @@ class ClubDB {
                 schedule = "Jueves, Viernes, Sabados y Domingos: 8:00 PM - 3:00 AM",
                 recommendations = "Cuidado te asalten",
                 contactNumber = 63076222,
-                tags = mutableListOf(false, false, false, true, true),
+                tags = mutableListOf(false,false,false,true,true),
                 likes = 8,
                 zone = "Centro"
             ),
@@ -302,22 +302,21 @@ class ClubDB {
         fun getAllClubs(): List<Club> {
             return clubs
         }
-
-        fun mostLikedClubs(): List<Club> {
+        fun mostLikedClubs(): List<Club>{
             return clubs.sortedWith(compareByDescending { it.likes })
         }
 
-        fun editDistance(text: String, objective: String): Int {
-            val dp = Array(text.length + 1) { IntArray(objective.length + 1) }
+        fun editDistance(text: String, objective: String): Int{
+            val dp = Array(text.length+1) { IntArray(objective.length+1) }
             text.lowercase()
             objective.lowercase()
-            for (i in 0..text.length)
-                dp[i][0] = i
-            for (i in 0..objective.length)
-                dp[0][i] = i
-            for (i in 1..text.length) {
-                for (j in 1..objective.length) {
-                    val isDifferent = (text[i - 1] != objective[j - 1])
+            for(i in 0..text.length)
+                dp[i][0]=i
+            for(i in 0..objective.length)
+                dp[0][i]=i
+            for(i in 1..text.length){
+                for(j in 1..objective.length){
+                    val isDifferent = (text[i-1]!=objective[j-1])
                     dp[i][j] = minOf(
                         dp[i - 1][j] + 1,
                         dp[i][j - 1] + 1,
@@ -329,26 +328,25 @@ class ClubDB {
             println(dp)
             return dp[text.length][objective.length]
         }
-
         fun searchByName(name: String, clubsFiltered: List<Club>): List<Club> {
 
             val result = mutableListOf<Club>()
-            clubsFiltered.forEach { club: Club ->
-                if (club.name.lowercase().contains(name.lowercase()))
+            clubsFiltered.forEach{ club: Club ->
+                if(club.name.lowercase().contains(name.lowercase()))
                     result.add(club)
             }
             return result
             //return clubsFiltered.sortedWith( compareByDescending { -editDistance(it.name, name) })
         }
 
-        fun searchByTags(tags: List<Boolean>, clubsFiltered: List<Club>): List<Club> {
+        fun searchByTags(tags: List<Boolean>, clubsFiltered: List<Club>): List<Club>{
             val result = mutableListOf<Club>()
-            clubsFiltered.forEach { club ->
+            clubsFiltered.forEach{ club ->
                 var containsTags = true
 //                tags.forEach { tag ->
 //                    containsTags = containsTags && club.tags.contains(tag)
 //                }
-                for (i in 0..4) {
+                for(i in 0..4){
                     containsTags = containsTags && ((tags[i] && club.tags[i]) || !tags[i])
                 }
                 if (containsTags)
@@ -357,16 +355,15 @@ class ClubDB {
             return result
         }
 
-        fun searchByZones(zone: String, clubsFiltered: List<Club>): List<Club> {
+        fun searchByZones(zone: String, clubsFiltered: List<Club>): List<Club>{
             val result = mutableListOf<Club>()
-            clubsFiltered.forEach { club ->
-                if (club.zone == zone) {
+            clubsFiltered.forEach{ club ->
+                if(club.zone == zone){
                     result.add(club)
                 }
             }
             return result
         }
-
         fun getClubById(id: Int): Club? {
             return clubs.find { club -> club.id == id }
         }

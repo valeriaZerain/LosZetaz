@@ -62,10 +62,22 @@
         <item>Calacoto</item>
         <item>Cota Cota</item>
     </string-array>
+    <string name="show_more">Ver más...</string>
     <string name="tag_smoking_area">Área de fumadores</string>
     <string name="tag_outdoor">Al aire Libre</string>
     <string name="tag_oldies">Clasicos</string>
     <string name="tag_live_music">Música en vivo</string>
     <string name="tag_tables">Mesas</string>
     <string name="tag_no_cover">No cover</string>
+    <string name="recent_post_title">Novedades</string>
+    <string name="most_liked_title">Más visitadas</string>
+    <string name="maps_label">Mapa</string>
+    <string name="information">Información</string>
+    <string name="feed">Feed</string>
+    <string name="schedule_club_profile">Horario</string>
+    <string name="location_club_profile">Ubicación</string>
+    <string name="title">Título</string>
+    <string name="post">Publicar</string>
+    <string name="cancel">Cancelar</string>
 </resources>
+
