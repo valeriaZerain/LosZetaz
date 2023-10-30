@@ -2,27 +2,34 @@ package com.progra.loszetaz.fragment
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.progra.loszetaz.R
 
-class MapsFragment : Fragment() {
+class MapsFragment : Fragment(){
+
+    private lateinit var googleMap: GoogleMap
+    private lateinit var mapView: MapView
+    private val locationPermissionCode = 2
+    val zoomLevel = 17f
 
     private val callback = OnMapReadyCallback { googleMap ->
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel))
     }
 
     override fun onCreateView(
