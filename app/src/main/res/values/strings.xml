@@ -26,7 +26,7 @@
     <string name="club_name">Nombre de discoteca*</string>
     <string name="insert_club_name">Insertar nombre de discoteca</string>
     <string name="owner_name">Nombre del dueño*</string>
-    <string name="insert_owner">Insertar nombre del dueño de discoteca</string>
+    <string name="insert_owner">Insertar el correo del dueño de discoteca</string>
     <string name="license">Licencia de funcionamiento*</string>
     <string name="insert_license">Insertar licencia de funcionamiento</string>
     <string name="description_club">Descripción</string>
@@ -63,8 +63,6 @@
     </string-array>
     <string name="tag_smoking_area">Área de fumadores</string>
     <string name="tag_outdoor">Al aire Libre</string>
-    <string name="tag_reggaeton">Reggaeton</string>
-    <string name="tag_cumbia">Cumbia</string>
     <string name="tag_oldies">Clasicos</string>
     <string name="tag_live_music">Música en vivo</string>
     <string name="tag_tables">Mesas</string>

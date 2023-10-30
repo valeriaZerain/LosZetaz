@@ -82,10 +82,10 @@
                         android:layout_weight="1"
                         android:text="@string/select_picture"
                         android:theme="@style/TextViewButton"
-                        android:visibility="gone" />
+                        android:src="@drawable/profile_picture_empty"/>
 
-                    <Button
-                        android:id="@+id/button_profilepicture"
+                    <TextView
+                        android:id="@+id/text_profilepicture"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

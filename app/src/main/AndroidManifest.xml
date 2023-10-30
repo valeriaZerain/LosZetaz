@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -18,7 +19,7 @@
             android:name=".SearchScreenActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterClub"
+            android:name=".RegisterClubActivity"
             android:exported="true" />
         <activity
             android:name=".RegisterClientActivity"

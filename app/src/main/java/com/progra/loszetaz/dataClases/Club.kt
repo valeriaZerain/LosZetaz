@@ -5,7 +5,6 @@ data class Club(
     val id: Int,
     var logo: String,
     val name: String,
-//    val owner: Owner,
     var ownerName: String,
     var license: String,
     var ownerNumber: Int,
@@ -19,9 +18,3 @@ data class Club(
     var likes: Int,
     val zone: String
 )
-
-//data class Owner(
-//    val name: String,
-//    val number: String,
-//    val license: String
-//)

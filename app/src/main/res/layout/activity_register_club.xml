@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".RegisterClub">
+    tools:context=".RegisterClubActivity">
 
     <View
         android:layout_width="600sp"
@@ -120,14 +120,25 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
-                android:id="@+id/edittext_ownername"
+                android:id="@+id/edittext_owneremail"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
                 android:background="@color/white"
                 android:hint="@string/insert_owner"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/purple" />
+
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="name"
+                android:background="@color/white"
+                android:hint="@string/insert_owner"
+                android:inputType="textPassword"
                 android:textColorHint="@color/purple" />
 
             <TextView
@@ -277,21 +288,21 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/smoking_area"
+                android:text="@string/tag_outdoor"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/subject"
+                android:text="@string/tag_live_music"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/non_alcohol_drinks"
+                android:text="@string/tag_no_cover"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
@@ -301,8 +312,15 @@
                 android:text="@string/tables_reserved"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tag_oldies"
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
 
             <Button
+                android:id="@+id/button_createaccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"

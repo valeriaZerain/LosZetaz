@@ -20,7 +20,7 @@ class QuestionRegisterActivity : AppCompatActivity() {
             startActivity(intent1)
         }
         binding.ButtonClub.setOnClickListener{
-            val intent2: Intent = Intent(context,RegisterClub::class.java)
+            val intent2: Intent = Intent(context,RegisterClubActivity::class.java)
             startActivity(intent2)
         }
     }
