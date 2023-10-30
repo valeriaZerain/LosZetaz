@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -104,7 +105,9 @@ class RegisterClientActivity : AppCompatActivity() {
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
-                    print("Voy a llorar")
+                    val toast = Toast.makeText(this,
+                        "No se pudo registrar el usuario correctamente", Toast.LENGTH_SHORT)
+                    toast.show()
                 }
             }
     }

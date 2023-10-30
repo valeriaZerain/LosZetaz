@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
         binding.buttonSignin.setOnClickListener{
@@ -39,10 +40,12 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    val intent = Intent(context, SearchScreenActivity::class.java)
+                    val intent = Intent(context, HomeScreenActivity::class.java)
                     startActivity(intent)
                 } else {
-
+                    val toast = Toast.makeText(this,
+                        "La contraseña o el usuario son incorrectos", Toast.LENGTH_SHORT)
+                    toast.show()
                 }
             }
     }
