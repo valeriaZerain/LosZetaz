@@ -21,7 +21,7 @@ import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 
 class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListener{
-    private lateinit var mMap: GoogleMap
+    lateinit var mMap: GoogleMap
     private var onMapReadyListener: ((GoogleMap) -> Unit)? = null
 
     val zoomLevel = 12f
@@ -77,7 +77,7 @@ class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListen
         mMap = gMap
         onMapReadyListener?.invoke(gMap)
     }
-    fun setOnMapReadyListener(listener: (GoogleMap) -> Unit) {
+     fun setOnMapReadyListener(listener: (GoogleMap) -> Unit) {
         onMapReadyListener = listener
     }
 }

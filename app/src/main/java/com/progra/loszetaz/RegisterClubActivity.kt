@@ -24,6 +24,8 @@ class RegisterClubActivity : AppCompatActivity(){
     private lateinit var binding: ActivityRegisterClubBinding
     val context: Context = this
     private lateinit var googleMap: GoogleMap
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterClubBinding.inflate(layoutInflater)
@@ -40,6 +42,7 @@ class RegisterClubActivity : AppCompatActivity(){
             this.googleMap = googleMap
         }
 
+
         binding.buttonCreateaccount.setOnClickListener {
             val email: String = binding.edittextOwneremail.text.toString()
             val password: String = binding.edittextPassword.text.toString()
@@ -51,6 +54,9 @@ class RegisterClubActivity : AppCompatActivity(){
             }
         }
         binding.buttonRegisterMapAccepted.setOnClickListener{
+            val centerOfMap = fragment.mMap.cameraPosition.target
+            latitude = centerOfMap.latitude
+            longitude = centerOfMap.longitude
             binding.constraintRegistermap.visibility = View.GONE
         }
     }
@@ -69,9 +75,7 @@ class RegisterClubActivity : AppCompatActivity(){
                     val cover: Int = binding.edittextCover.toString().toInt()
                     var recommendations: String = binding.edittextRecommendations.toString()
                     val tags: MutableList<Boolean> = mutableListOf()
-                    val centerOfMap = googleMap.cameraPosition.target
-                    val latitude = centerOfMap.latitude
-                    val longitude = centerOfMap.longitude
+
                     tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
                     tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
                     tags.set(TagsEnum.OLDIES.id, binding.checkboxOldies.isChecked)
