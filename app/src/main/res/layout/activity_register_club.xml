@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".RegisterClub">
+    tools:context=".RegisterClubActivity">
 
     <View
         android:layout_width="600sp"
@@ -82,10 +82,10 @@
                         android:layout_weight="1"
                         android:text="@string/select_picture"
                         android:theme="@style/TextViewButton"
-                        android:visibility="gone" />
+                        android:src="@drawable/profile_picture_empty"/>
 
-                    <Button
-                        android:id="@+id/button_logo"
+                    <TextView
+                        android:id="@+id/text_logo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -116,20 +116,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/owner_name"
+                android:text="@string/owner_email"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
-                android:id="@+id/edittext_ownername"
+                android:id="@+id/edittext_owneremail"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
                 android:background="@color/white"
                 android:hint="@string/insert_owner"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/purple" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/password"
+                android:theme="@style/TextViewSubtitle" />
+
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="password"
+                android:background="@color/white"
+                android:hint="@string/insert_password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/purple" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -191,12 +208,17 @@
                 android:text="@string/location"
                 android:theme="@style/TextViewSubtitle" />
 
-            <View
-                android:id="@+id/map_placeholder"
-                android:layout_width="360dp"
-                android:layout_height="360dp"
+            <EditText
+                android:id="@+id/edittext_location"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/background_button" />
+                android:background="@color/white"
+                android:hint="@string/insert_location"
+                android:textColorHint="@color/purple"
+                android:autofillHints="location"
+                android:inputType="text"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,7 +228,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
-
+                android:id="@+id/edittext_schedule"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -224,6 +246,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_cover"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -241,6 +264,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_recommendations"
                 android:layout_width="320dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
@@ -258,6 +282,7 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
+                android:id="@+id/edittext_contact"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -275,34 +300,46 @@
                 android:theme="@style/TextViewSubtitle" />
 
             <CheckBox
+                android:id="@+id/checkbox_Outside"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/smoking_area"
+                android:text="@string/tag_outdoor"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
             <CheckBox
+                android:id="@+id/checkbox_live_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/subject"
+                android:text="@string/tag_live_music"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
             <CheckBox
+                android:id="@+id/checkbox_noCover"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/non_alcohol_drinks"
+                android:text="@string/tag_no_cover"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
             <CheckBox
+                android:id="@+id/checkbox_tables"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tables_reserved"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
+            <CheckBox
+                android:id="@+id/checkbox_Oldies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tag_oldies"
+                android:textColor="@color/white"
+                android:theme="@style/TextViewDescription" />
 
             <Button
+                android:id="@+id/button_createaccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"

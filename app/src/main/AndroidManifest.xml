@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +21,8 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
+            android:name=".CreatePostActivity"
+            android:exported="true">
             android:name=".MapActivity"
             android:exported="true">
             <intent-filter>
@@ -33,6 +36,18 @@
             android:exported="true" />
         <activity
             android:name=".RegisterClub"
+            android:exported="true" />
+            android:name=".ClubProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeScreenActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".SearchScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterClubActivity"
+
             android:exported="true" />
         <activity
             android:name=".RegisterClientActivity"
@@ -48,4 +63,11 @@
             android:exported="true" />
     </application>
 
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

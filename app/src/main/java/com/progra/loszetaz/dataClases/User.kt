@@ -7,6 +7,6 @@ data class User(
     val cellphone: Int,
     val birthday: String,
     val ci: Int,
-    val password: String,
-    val likedIdClubs: MutableList<Int>
+    val likedIdClubs: List<Int>,
+    //val profilePicture: Int
 )

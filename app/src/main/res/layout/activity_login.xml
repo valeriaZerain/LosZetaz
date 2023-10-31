@@ -56,10 +56,10 @@
 
     <TextView
         android:id="@+id/text_signin"
-        android:theme="@style/TextViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
+        android:theme="@style/TextViewTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline" />
@@ -79,11 +79,11 @@
 
         <TextView
             android:id="@+id/textusername"
-            android:theme="@style/TextViewSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/username"
+            android:theme="@style/TextViewSubtitle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_signin" />
 
@@ -111,11 +111,11 @@
 
         <TextView
             android:id="@+id/textpassword"
-            android:theme="@style/TextViewSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/password"
+            android:theme="@style/TextViewSubtitle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_signin" />
 
@@ -124,32 +124,32 @@
             android:layout_width="300sp"
             android:layout_height="48sp"
             android:layout_weight="1"
+            android:autofillHints="password"
             android:background="@color/white"
             android:hint="@string/insert_password"
+            android:inputType="textPassword"
             android:paddingStart="14dp"
-            android:textColorHint="@color/purple"
-            android:autofillHints="password"
-            android:inputType="textPassword"/>
+            android:textColorHint="@color/purple" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
         android:id="@+id/button_signin"
-        android:theme="@style/TextViewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/login"
+        android:theme="@style/TextViewButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_password" />
 
     <Button
         android:id="@+id/button_register"
-        android:theme="@style/TextViewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/register_account"
+        android:theme="@style/TextViewButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_signin" />

@@ -1,11 +1,12 @@
 package com.progra.loszetaz.dataClases
 
+import java.io.Serializable
+
 
 data class Club(
     val id: Int,
-    var logo: String,
+    var logo: Int,
     val name: String,
-//    val owner: Owner,
     var ownerName: String,
     var license: String,
     var ownerNumber: Int,
@@ -15,13 +16,7 @@ data class Club(
     var schedule: String,
     var recommendations: String,
     var contactNumber: Int,
-    val tags: MutableList<String>,
+    var tags: MutableList<Boolean>,
     var likes: Int,
     val zone: String
-)
-
-//data class Owner(
-//    val name: String,
-//    val number: String,
-//    val license: String
-//)
+): Serializable
