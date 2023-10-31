@@ -30,6 +30,10 @@ class HomeScreenActivity : AppCompatActivity() {
             val intentHomeToSearch = Intent(this, SearchScreenActivity::class.java)
             startActivity(intentHomeToSearch)
         }
+        binding.buttonGoToMap.setOnClickListener {
+            val intentGoToMap = Intent(this, MapActivity::class.java)
+            startActivity(intentGoToMap)
+        }
 
         showMostLikedClubs()
         showRecentPost()
