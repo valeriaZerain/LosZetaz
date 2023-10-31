@@ -70,7 +70,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
                     this,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED
-            ) { return
+            ) {
+                return
             }
             map.isMyLocationEnabled = true
         } else {
@@ -109,13 +110,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
                         this,
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     ) != PackageManager.PERMISSION_GRANTED
-                ) { return
+                ) {
+                    return
                 }
                 map.isMyLocationEnabled = true
             } else {
                 Toast.makeText(this, "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT)
                     .show()
             }
+
             else -> {}
         }
     }
@@ -123,7 +126,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     override fun onResumeFragments() {
         super.onResumeFragments()
         if (!::map.isInitialized) return
-        if (!isLocationPermissionGranted()){
+        if (!isLocationPermissionGranted()) {
             if (ActivityCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -131,7 +134,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
                     this,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED
-            ) { return
+            ) {
+                return
             }
             map.isMyLocationEnabled = false
             Toast.makeText(this, "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT)
@@ -139,13 +143,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
         }
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
+    override fun onMarkerClick(marker: Marker):Boolean {
         val markerID = marker.title
-        try{
+        try {
             val intent = Intent(this, HomeScreenActivity::class.java)
         } catch (e: ClassNotFoundException) {
             Toast.makeText(this, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
                 .show()
         }
+        return true
     }
 }

@@ -108,7 +108,7 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.textRecommendations.text = actualClub.recommendations
         binding.schedule.text = actualClub.schedule
         binding.textCover.text = actualClub.cover.toString()
-        binding.textLocation.text = actualClub.location
+        binding.textLocation.text = actualClub.latitude.toString()
     }
     fun showPosts(){
 

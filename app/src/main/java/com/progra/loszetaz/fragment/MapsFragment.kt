@@ -22,17 +22,18 @@ import com.progra.loszetaz.R
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 
-class MapsFragment : Fragment(){
+class MapsFragment : Fragment() {
 
-    private lateinit var googleMap: GoogleMap
+    private lateinit var mMap: GoogleMap
     private lateinit var mapView: MapView
     private val locationPermissionCode = 2
     val zoomLevel = 8f
 
     private val callback = OnMapReadyCallback { googleMap ->
-        addMarkers(ClubDB.clubs)
+        mMap = googleMap
         val initialLocation = LatLng(-16.529046, -68.112800)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, zoomLevel))
+        addMarkers(ClubDB.clubs)
     }
 
     override fun onCreateView(
@@ -49,20 +50,17 @@ class MapsFragment : Fragment(){
         mapFragment?.getMapAsync(callback)
     }
 
-    fun addMarkers(listLocations: List<Club>){
-        val markerOptions = MarkerOptions()
-        listLocations.forEach{
+    fun addMarkers(listLocations: List<Club>) {
+
+        listLocations.forEach {
             var id = it.id
             var latitude = it.latitude
             var longitude = it.longitude
             var latLng = LatLng(latitude, longitude)
+            val markerOptions = MarkerOptions()
             markerOptions.position(latLng)
-            googleMap.addMarker(markerOptions)
+            mMap.addMarker(markerOptions)
         }
-    }
-
-    override fun onMarkerClick(p0: Marker): Boolean {
-        TODO("Not yet implemented")
     }
 
 }
