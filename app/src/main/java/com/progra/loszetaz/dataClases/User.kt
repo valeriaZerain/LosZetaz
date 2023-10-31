@@ -1,5 +1,7 @@
 package com.progra.loszetaz.dataClases
 
+import android.graphics.Bitmap
+
 data class User(
     val id: Int,
     val name: String,
@@ -8,5 +10,5 @@ data class User(
     val birthday: String,
     val ci: Int,
     val likedIdClubs: List<Int>,
-    //val profilePicture: Int
+    val profilePicture: Bitmap
 )

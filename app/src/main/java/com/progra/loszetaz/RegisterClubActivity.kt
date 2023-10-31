@@ -35,6 +35,9 @@ class RegisterClubActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+                    GlobalConfig.markAsClub(user)
+                    GlobalConfig.initUser(user)
+
                     val clubName: String = binding.edittextClubname.toString()
                     val license: String = binding.edittextLicense.toString()
                     val phoneNumber: Int = binding.edittextPhonenumerclub.toString().toInt()

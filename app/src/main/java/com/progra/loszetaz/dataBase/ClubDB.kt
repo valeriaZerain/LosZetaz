@@ -11,7 +11,7 @@ class ClubDB {
             Club(
                 id = 1,
                 logo = R.drawable.logo_vanity,
-                ownerName = "Jhons Vanity",
+                ownerEmail = "vanity@vanity.com",
                 name = "Vanity",
                 license = "90800124A-B24235510",
                 ownerNumber = 7186811,
@@ -28,7 +28,7 @@ class ClubDB {
             Club(
                 id = 2,
                 logo = R.drawable.logo_garden,
-                ownerName = "Cristian Garden",
+                ownerEmail = "garden@garden.com",
                 name = "Garden",
                 license = "90800124A-B24235510",
                 ownerNumber = 68765432,
@@ -45,7 +45,7 @@ class ClubDB {
             Club(
                 id = 3,
                 logo = R.drawable.logo_gold,
-                ownerName = "Gold Benson",
+                ownerEmail = "gold@gold.com",
                 name = "Gold",
                 license = "90800124A-B24235510",
                 ownerNumber = 68765432,
@@ -62,7 +62,7 @@ class ClubDB {
             Club(
                 id = 4,
                 logo = R.drawable.logo_malegria,
-                ownerName = "Justin Malegria",
+                ownerEmail = "malegria@malegria.com",
                 name = "Malegria",
                 license = "90800124A-B24235510",
                 ownerNumber = 946876542,
@@ -79,7 +79,7 @@ class ClubDB {
             Club(
                 id = 5,
                 logo = R.drawable.logo_pacha,
-                ownerName = "Rodrigo Pacha",
+                ownerEmail = "pacha@pacha.com",
                 name = "Pacha",
                 license = "90800124A-B24235510",
                 ownerNumber = 68765432,
@@ -96,7 +96,7 @@ class ClubDB {
             Club(
                 id = 6,
                 logo = R.drawable.logo_taboo,
-                ownerName = "Taboo Johnson",
+                ownerEmail = "taboo@taboo.com",
                 name = "Taboo",
                 license = "90800124A-B24235510",
                 ownerNumber = 68765432,
@@ -113,7 +113,7 @@ class ClubDB {
             Club(
                 id = 7,
                 logo = R.drawable.logo_fabula,
-                ownerName = "Kevin Fabula",
+                ownerEmail = "fabula@fabula.com",
                 name = "Fabula",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -130,7 +130,7 @@ class ClubDB {
             Club(
                 id = 9,
                 logo = R.drawable.logo_black_monkey,
-                ownerName = "Black Monkey",
+                ownerEmail = "black@black.com",
                 name = "Black Monkey Bar",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -147,7 +147,7 @@ class ClubDB {
             Club(
                 id = 10,
                 logo = R.drawable.logo_forum,
-                ownerName = "Marco Forum",
+                ownerEmail = "forum@forum.com",
                 name = "Forum",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -164,7 +164,7 @@ class ClubDB {
             Club(
                 id = 11,
                 logo = R.drawable.logo_zouk,
-                ownerName = "Hans Zoruk",
+                ownerEmail = "zoruk@zoruk.com",
                 name = "Zoruk Boulevard",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -181,7 +181,7 @@ class ClubDB {
             Club(
                 id = 12,
                 logo = R.drawable.logo_wave,
-                ownerName = "WIlson Wave",
+                ownerEmail = "wave@wave.com",
                 name = "Wave Club",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -198,7 +198,7 @@ class ClubDB {
             Club(
                 id = 13,
                 logo = R.drawable.logo_london,
-                ownerName = "James London",
+                ownerEmail = "london@london.com",
                 name = "London Club",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -215,7 +215,7 @@ class ClubDB {
             Club(
                 id = 14,
                 logo = R.drawable.logo_zelta,
-                ownerName = "Suvadra Zelta",
+                ownerEmail = "zelta@zelta.com",
                 name = "Zelta",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -232,7 +232,7 @@ class ClubDB {
             Club(
                 id = 15,
                 logo = R.drawable.logo_plan_b,
-                ownerName = "Chencho y Maldy",
+                ownerEmail = "planb@planb.com",
                 name = "Club Plan B",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -249,7 +249,7 @@ class ClubDB {
             Club(
                 id = 16,
                 logo = R.drawable.logo_level,
-                ownerName = "Loki",
+                ownerEmail = "level@level.com",
                 name = "Level Club",
                 license = "90800124A-B24235510",
                 ownerNumber = 68768432,
@@ -266,7 +266,7 @@ class ClubDB {
             Club(
                 id = 17,
                 logo = R.drawable.logo_guru,
-                ownerName = "Gabo Guru",
+                ownerEmail = "guru@guru.com",
                 name = "Gurú",
                 license = "90800124A-B24235510",
                 ownerNumber = 68128432,
@@ -283,8 +283,8 @@ class ClubDB {
             Club(
                 id = 18,
                 logo = R.drawable.logo_open_mind,
-                ownerName = "Oliver Mind",
-                name = "Open Mind",
+                ownerEmail = "Oliver Mind",
+                name = "open@open.com",
                 license = "90800124A-B24235510",
                 ownerNumber = 68128432,
                 description = "UN LUGAR PARA OLVIDARSE DE TODO Y PASAR BUENOS MOMENTOS CON TUS AMIGOS DISFRUTAR DE LA BUENA MUSICA",
@@ -367,6 +367,15 @@ class ClubDB {
             return result
         }
 
+        fun getClubByEmail(email: String): Club {
+            var result: Club? = null
+            clubs.forEach{ club ->
+                if(club.ownerEmail == email){
+                    result = club
+                }
+            }
+            return result!!
+        }
         fun getClubById(id: Int): Club? {
             return clubs.find { club -> club.id == id }
         }
@@ -382,7 +391,7 @@ class ClubDB {
             schedule: String,
             recommendations: String,
             contactNumber: Int,
-            tags: MutableList<Boolean>,
+            tags: MutableList<Boolean>
             //zone: String
         ) {
             id++
@@ -390,7 +399,7 @@ class ClubDB {
                 id = id,
                 logo = 10,
                 name = name,
-                ownerName = ownerEmail,
+                ownerEmail = ownerEmail,
                 license = license,
                 ownerNumber = ownerNumber,
                 description = description,

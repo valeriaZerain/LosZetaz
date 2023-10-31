@@ -85,6 +85,7 @@ class RegisterClientActivity : AppCompatActivity() {
             if (pickedPhoto != null) {
                 val source = ImageDecoder.createSource(this.contentResolver, pickedPhoto!!)
                 pickedBitMap = ImageDecoder.decodeBitmap(source)
+                pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!,500,500,false)
                 binding.profilePlaceholder.setImageBitmap(pickedBitMap)
             }
         }
@@ -92,23 +93,54 @@ class RegisterClientActivity : AppCompatActivity() {
     }
 
     fun clickCreateAccount(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    val username: String = binding.edittextUsernameclient.text.toString()
-                    val phone: Int = binding.edittextPhonenumberclient.text.toString().toInt()
-                    val birthday: String = binding.edittextBirthday.text.toString()
-                    val ci: Int = binding.edittextCi.text.toString().toInt()
 
-                    UserDB.addUser(username, email, phone, birthday, ci)
-                    val intent = Intent(context, LoginActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val toast = Toast.makeText(this,
-                        "No se pudo registrar el usuario correctamente", Toast.LENGTH_SHORT)
-                    toast.show()
+        val username: String = binding.edittextUsernameclient.text.toString()
+        val phone: Int = binding.edittextPhonenumberclient.text.toString().toInt()
+        val birthday: String = binding.edittextBirthday.text.toString()
+        val ci: Int = binding.edittextCi.text.toString().toInt()
+
+        if(
+            username.isNotEmpty() &&
+            phone != 0 &&
+            birthday.isNotEmpty() &&
+            ci != 0 &&
+            pickedBitMap != null
+        ) {
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        UserDB.addUser(
+                            username,
+                            email,
+                            phone,
+                            birthday,
+                            ci,
+                            pickedBitMap!!,
+                            user!!.uid,
+                            context
+                        )
+
+                        GlobalConfig.markAsClient(user)
+                        GlobalConfig.initUser(user)
+
+                        val intent = Intent(context, LoginActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val toast = Toast.makeText(
+                            this,
+                            "No se pudo registrar el usuario correctamente", Toast.LENGTH_SHORT
+                        )
+                        toast.show()
+                    }
                 }
-            }
+        }
+        else{
+            val toast = Toast.makeText(
+                this,
+                "Llena todos los datos", Toast.LENGTH_SHORT
+            )
+            toast.show()
+        }
     }
 }

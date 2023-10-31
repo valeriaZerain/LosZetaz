@@ -7,7 +7,7 @@ data class Club(
     val id: Int,
     var logo: Int,
     val name: String,
-    var ownerName: String,
+    var ownerEmail: String,
     var license: String,
     var ownerNumber: Int,
     var description: String,
