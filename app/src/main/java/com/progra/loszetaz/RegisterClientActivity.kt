@@ -101,7 +101,8 @@ class RegisterClientActivity : AppCompatActivity() {
                     val birthday: String = binding.edittextBirthday.text.toString()
                     val ci: Int = binding.edittextCi.text.toString().toInt()
 
-                    UserDB.addUser(username, email, phone, birthday, ci)
+                    // TODO el usuario puede crear cuentas sin foto de perfil?
+                    UserDB.addUser(username, email, phone, birthday, ci, pickedBitMap!!, user!!.uid, context)
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                 } else {

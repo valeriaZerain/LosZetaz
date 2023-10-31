@@ -2,6 +2,7 @@ package com.progra.loszetaz.dataBase
 
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club
+import com.progra.loszetaz.dataClases.User
 
 class ClubDB {
 
@@ -404,6 +405,16 @@ class ClubDB {
                 zone = "también falta estoo"
             )
             clubs.add(newClub)
+        }
+
+        fun getClubByEmail(email: String): Club {
+            var result: Club? = null
+            ClubDB.clubs.forEach{ club ->
+                if(club.email == email){
+                    result = user
+                }
+            }
+            return result!!
         }
     }
 }

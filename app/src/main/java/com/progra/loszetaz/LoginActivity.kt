@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityLoginBinding
 import com.progra.loszetaz.databinding.ActivityRegisterClientBinding
 
@@ -40,6 +41,12 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+                    if(GlobalConfig.isUserAClient(user))
+                        UserDB.setActualClient(UserDB.getClientByEmail(email))
+                    else{
+
+                        //TODO actualizar club
+                    }
                     val intent = Intent(context, HomeScreenActivity::class.java)
                     startActivity(intent)
                 } else {
