@@ -1,33 +1,30 @@
 package com.progra.loszetaz.fragment
-
-import android.Manifest
-import android.content.pm.PackageManager
-import android.location.Location
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.progra.loszetaz.ClubProfileActivity
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 
-class MapsFragment : Fragment() {
-
+class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListener{
     private lateinit var mMap: GoogleMap
-    private lateinit var mapView: MapView
-    private val locationPermissionCode = 2
-    val zoomLevel = 8f
+    private var onMapReadyListener: ((GoogleMap) -> Unit)? = null
+
+    val zoomLevel = 12f
 
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
@@ -57,10 +54,30 @@ class MapsFragment : Fragment() {
             var longitude = it.longitude
             var latLng = LatLng(latitude, longitude)
             val markerOptions = MarkerOptions()
+            markerOptions.title(id.toString())
             markerOptions.position(latLng)
             mMap.addMarker(markerOptions)
         }
     }
 
+    override fun onMarkerClick(marker: Marker): Boolean {
+        val markerID = marker.title?.toInt()
+        try {
+            val intent = Intent(context, ClubProfileActivity::class.java)
+            intent.putExtra(ClubProfileActivity.CLUB_KEY, ClubDB.getClubById(markerID))
+            startActivity(intent)
+        } catch (e: ClassNotFoundException) {
+            Toast.makeText(context, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
+                .show()
+        }
+        return true
+    }
 
+    override fun onMapReady(gMap: GoogleMap) {
+        mMap = gMap
+        onMapReadyListener?.invoke(gMap)
+    }
+    fun setOnMapReadyListener(listener: (GoogleMap) -> Unit) {
+        onMapReadyListener = listener
+    }
 }
