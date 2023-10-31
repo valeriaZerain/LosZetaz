@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.commit
 import com.google.android.gms.maps.GoogleMap
@@ -25,7 +26,7 @@ class RegisterClubActivity : AppCompatActivity(){
     private lateinit var googleMap: GoogleMap
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityRegisterClubBinding.inflate(layoutInflater)
+        binding = ActivityRegisterClubBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
         val fragment = MapsFragment()
@@ -34,10 +35,23 @@ class RegisterClubActivity : AppCompatActivity(){
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
+
+        fragment.setOnMapReadyListener { googleMap ->
+            this.googleMap = googleMap
+        }
+
         binding.buttonCreateaccount.setOnClickListener {
             val email: String = binding.edittextOwneremail.text.toString()
             val password: String = binding.edittextPassword.text.toString()
             clickCreateAccount(email, password)
+        }
+        binding.buttonRegisterMap.setOnClickListener{
+            if(binding.constraintRegistermap.visibility == View.GONE){
+                binding.constraintRegistermap.visibility = View.VISIBLE
+            }
+        }
+        binding.buttonRegisterMapAccepted.setOnClickListener{
+            binding.constraintRegistermap.visibility = View.GONE
         }
     }
 
@@ -54,10 +68,10 @@ class RegisterClubActivity : AppCompatActivity(){
                     val contact: Int = binding.edittextContact.toString().toInt()
                     val cover: Int = binding.edittextCover.toString().toInt()
                     var recommendations: String = binding.edittextRecommendations.toString()
+                    val tags: MutableList<Boolean> = mutableListOf()
                     val centerOfMap = googleMap.cameraPosition.target
                     val latitude = centerOfMap.latitude
                     val longitude = centerOfMap.longitude
-                    val tags: MutableList<Boolean> = mutableListOf()
                     tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
                     tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
                     tags.set(TagsEnum.OLDIES.id, binding.checkboxOldies.isChecked)

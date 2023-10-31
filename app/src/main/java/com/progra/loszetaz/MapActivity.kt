@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,6 +14,8 @@ import androidx.fragment.app.commit
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.Marker
+import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
+import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.databinding.ActivityMapBinding
 import com.progra.loszetaz.fragment.MapsFragment
 
@@ -46,11 +49,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
             startActivity(intent)
         }
 
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
+        map.setOnMarkerClickListener(this)
         enableLocation()
     }
 
@@ -144,9 +147,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
 
     override fun onMarkerClick(marker: Marker):Boolean {
-        val markerID = marker.title
+        val markerID = marker.title?.toInt()
         try {
-            val intent = Intent(this, HomeScreenActivity::class.java)
+            val intent = Intent(this, ClubProfileActivity::class.java)
+            intent.putExtra(CLUB_KEY, ClubDB.getClubById(markerID))
+            startActivity(intent)
         } catch (e: ClassNotFoundException) {
             Toast.makeText(this, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
                 .show()
