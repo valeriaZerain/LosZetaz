@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
     <TextView
         android:id="@+id/title_post"
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
 
     <ImageView
         android:id="@+id/img_post"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="400dp"
         app:layout_constraintDimensionRatio="1:2"
         android:src="@drawable/post_pacha_pachaween"

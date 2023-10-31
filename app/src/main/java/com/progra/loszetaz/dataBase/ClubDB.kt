@@ -1,13 +1,21 @@
 package com.progra.loszetaz.dataBase
 
+import android.content.Context
+import android.preference.PreferenceManager
+import com.google.gson.Gson
+import com.progra.loszetaz.GlobalConfig
+import com.progra.loszetaz.GlobalConfig.Companion.preference
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club
+import com.progra.loszetaz.dataClases.User
 
 class ClubDB {
 
     companion object {
-        var id = 18
-        val clubs: MutableList<Club> = mutableListOf(
+
+        val CLUBDB_KEY = "CLUDB_KEY"
+        private val gson = Gson()
+        var clubs: MutableList<Club> = mutableListOf(
             Club(
                 id = 1,
                 logo = R.drawable.logo_vanity,
@@ -23,7 +31,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, true, true, false, false),
                 likes = 10,
-                zone = "Irpavi"
+                zone = "Irpavi",
+                logoString = null
             ),
             Club(
                 id = 2,
@@ -40,7 +49,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, false, true, false, false),
                 likes = 20,
-                zone = "Calacoto"
+                zone = "Calacoto",
+                logoString = null
             ),
             Club(
                 id = 3,
@@ -57,7 +67,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, true, false, false, true),
                 likes = 15,
-                zone = "San Pedro"
+                zone = "San Pedro",
+                logoString = null
             ),
             Club(
                 id = 4,
@@ -74,7 +85,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, true, true, false, false),
                 likes = 30,
-                zone = "Sopocachi"
+                zone = "Sopocachi",
+                logoString = null
             ),
             Club(
                 id = 5,
@@ -91,7 +103,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(true, false, true, false, false),
                 likes = 50,
-                zone = "Cota Cota"
+                zone = "Cota Cota",
+                logoString = null
             ),
             Club(
                 id = 6,
@@ -108,7 +121,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(true, false, true, false, false),
                 likes = 35,
-                zone = "Cota Cota"
+                zone = "Cota Cota",
+                logoString = null
             ),
             Club(
                 id = 7,
@@ -125,7 +139,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(true, true, true, false, false),
                 likes = 25,
-                zone = "Cota Cota"
+                zone = "Cota Cota",
+                logoString = null
             ),
             Club(
                 id = 9,
@@ -142,7 +157,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, true, true, false, true),
                 likes = 15,
-                zone = "Calacoto"
+                zone = "Calacoto",
+                logoString = null
             ),
             Club(
                 id = 10,
@@ -159,7 +175,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, false, false, false, true),
                 likes = 10,
-                zone = "Sopocachi"
+                zone = "Sopocachi",
+                logoString = null
             ),
             Club(
                 id = 11,
@@ -176,7 +193,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, true, false, false, false),
                 likes = 26,
-                zone = "Calacoto"
+                zone = "Calacoto",
+                logoString = null
             ),
             Club(
                 id = 12,
@@ -193,7 +211,8 @@ class ClubDB {
                 contactNumber = 12345678,
                 tags = mutableListOf(false, false, true, false, false),
                 likes = 26,
-                zone = "Calacoto"
+                zone = "Calacoto",
+                logoString = null
             ),
             Club(
                 id = 13,
@@ -210,7 +229,8 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, true, false, false, false),
                 likes = 26,
-                zone = "Irpavi"
+                zone = "Irpavi",
+                logoString = null
             ),
             Club(
                 id = 14,
@@ -227,7 +247,8 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, true, false, false, false),
                 likes = 26,
-                zone = "Centro"
+                zone = "Centro",
+                logoString = null
             ),
             Club(
                 id = 15,
@@ -244,7 +265,8 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, false, false, false, false),
                 likes = 29,
-                zone = "Centro"
+                zone = "Centro",
+                logoString = null
             ),
             Club(
                 id = 16,
@@ -261,7 +283,8 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, true, false, false, true),
                 likes = 9,
-                zone = "Miraflores"
+                zone = "Miraflores",
+                logoString = null
             ),
             Club(
                 id = 17,
@@ -278,13 +301,14 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, true, false, false, true),
                 likes = 9,
-                zone = "San Pedro"
+                zone = "San Pedro",
+                logoString = null
             ),
             Club(
                 id = 18,
                 logo = R.drawable.logo_open_mind,
-                ownerEmail = "Oliver Mind",
-                name = "open@open.com",
+                ownerEmail = "open@open.com",
+                name = "Open Mind",
                 license = "90800124A-B24235510",
                 ownerNumber = 68128432,
                 description = "UN LUGAR PARA OLVIDARSE DE TODO Y PASAR BUENOS MOMENTOS CON TUS AMIGOS DISFRUTAR DE LA BUENA MUSICA",
@@ -295,9 +319,22 @@ class ClubDB {
                 contactNumber = 63076222,
                 tags = mutableListOf(false, false, false, true, true),
                 likes = 8,
-                zone = "Centro"
+                zone = "Centro",
+                logoString = null
             ),
         )
+
+        fun loadClubs(){
+            val data = preference.getString(CLUBDB_KEY, "[]")
+            val clubsPreferences = gson.fromJson(data, Array<Club>::class.java).toMutableList()
+
+            clubsPreferences.forEach{ club: Club ->
+                if(clubs.contains(club))
+                    clubsPreferences.remove(club)
+            }
+
+            clubs.addAll(clubsPreferences)
+        }
 
         fun getAllClubs(): List<Club> {
             return clubs
@@ -307,28 +344,6 @@ class ClubDB {
             return clubs.sortedWith(compareByDescending { it.likes })
         }
 
-        fun editDistance(text: String, objective: String): Int {
-            val dp = Array(text.length + 1) { IntArray(objective.length + 1) }
-            text.lowercase()
-            objective.lowercase()
-            for (i in 0..text.length)
-                dp[i][0] = i
-            for (i in 0..objective.length)
-                dp[0][i] = i
-            for (i in 1..text.length) {
-                for (j in 1..objective.length) {
-                    val isDifferent = (text[i - 1] != objective[j - 1])
-                    dp[i][j] = minOf(
-                        dp[i - 1][j] + 1,
-                        dp[i][j - 1] + 1,
-                        dp[i - 1][j - 1] + (if (isDifferent) 1 else 0)
-                    )
-                }
-            }
-            println("$text -> $objective : ${dp[text.length][objective.length]}")
-            println(dp)
-            return dp[text.length][objective.length]
-        }
 
         fun searchByName(name: String, clubsFiltered: List<Club>): List<Club> {
 
@@ -391,12 +406,15 @@ class ClubDB {
             schedule: String,
             recommendations: String,
             contactNumber: Int,
-            tags: MutableList<Boolean>
-            //zone: String
+            tags: MutableList<Boolean>,
+            logoString: String,
+            //zone: String,
+            userFirebaseId: String,
+            context: Context
         ) {
-            id++
+
             var newClub: Club = Club(
-                id = id,
+                id = clubs.size+1,
                 logo = 10,
                 name = name,
                 ownerEmail = ownerEmail,
@@ -410,9 +428,24 @@ class ClubDB {
                 contactNumber = contactNumber,
                 tags = tags,
                 likes = 0,
-                zone = "también falta estoo"
+                zone = "también falta estoo",
+                logoString = logoString
             )
             clubs.add(newClub)
+
+            val clubsJSON = gson.toJson(clubs)
+
+            val editor = preference.edit()
+            editor.putString(CLUBDB_KEY, clubsJSON)
+            editor.putBoolean(userFirebaseId, true)
+            editor.apply()
+
+        }
+        fun saveClubs(){
+            val clubsJSON = gson.toJson(clubs)
+            val editor = preference.edit()
+            editor.putString(CLUBDB_KEY, clubsJSON)
+            editor.apply()
         }
     }
 }

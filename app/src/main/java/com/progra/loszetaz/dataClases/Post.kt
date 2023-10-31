@@ -6,6 +6,7 @@ import kotlinx.datetime.toJavaLocalDate
 import java.util.Locale
 
 data class Post(
+    val id: Int,
     val title: String,
     val date: LocalDate,
     val description: String,

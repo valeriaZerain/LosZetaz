@@ -41,15 +41,14 @@ class CreatePostActivity : AppCompatActivity() {
             val today: LocalDate = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
 
             if(binding.postTitle.text.toString().isNotEmpty() && pickedBitMap != null) {
-                val post = Post(
-                    title = binding.postTitle.text.toString(),
-                    description = binding.descriptionPost.text.toString(),
-                    clubId = 5,
-                    imageString = pickedPhoto!!.toString(),
-                    date = today,
-                    image = -1
-                )
-                PostDB.addPost(post)
+
+                val title = binding.postTitle.text.toString()
+                val description = binding.descriptionPost.text.toString()
+                val clubId = GlobalConfig.actualClub!!.id
+                val imageString = pickedPhoto!!.toString()
+                val date = today
+
+                PostDB.addPost(title,description,clubId,imageString,date, this)
                 finish()
             }
             else{

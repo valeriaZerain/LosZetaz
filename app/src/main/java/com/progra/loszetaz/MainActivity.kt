@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import com.google.firebase.auth.FirebaseAuth
+import com.progra.loszetaz.GlobalConfig.Companion.isUserClient
+import com.progra.loszetaz.dataBase.ClubDB
+import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityMainBinding
 import java.util.logging.Handler
@@ -20,14 +23,22 @@ class MainActivity : AppCompatActivity() {
 
         GlobalConfig.initPreferences(context)
         UserDB.loadUsers()
+        PostDB.loadPosts()
+        ClubDB.loadClubs()
 
         val handler = android.os.Handler(Looper.getMainLooper())
         handler.postDelayed({
             val user = FirebaseAuth.getInstance().currentUser
             if(user != null){
                 GlobalConfig.initUser(user)
-                val home = Intent(this, HomeScreenActivity::class.java)
-                startActivity(home)
+                if (isUserClient){
+                    val home = Intent(this, HomeScreenActivity::class.java)
+                    startActivity(home)
+                }
+                else {
+                    val profile = Intent(this, ClubProfileActivity::class.java)
+                    startActivity(profile)
+                }
             }
             else {
                 val intent = Intent(this, LoginActivity::class.java)

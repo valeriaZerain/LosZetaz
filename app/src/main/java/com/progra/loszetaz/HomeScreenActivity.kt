@@ -69,6 +69,7 @@ class HomeScreenActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         showRecentPost()
+        showMostLikedClubs()
     }
     fun showMostLikedClubs(){
         mostLikedClubAdapter.addClubs(ClubDB.mostLikedClubs())

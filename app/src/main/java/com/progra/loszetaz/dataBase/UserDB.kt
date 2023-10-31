@@ -54,14 +54,13 @@ class UserDB {
         fun loadUsers() {
             val data = preference.getString(USERDB_KEY, "[]")
             users = gson.fromJson(data, Array<User>::class.java).toMutableList()
-            println(users)
         }
 
         fun addUser(
             username: String, email: String, cellphone: Int, birthday: String, ci: Int,
             pickedPhotoString: String, userFirebaseId: String, context: Context
         ) {
-            val newLikes: List<Int> = mutableListOf()
+            val newLikes: MutableList<Int> = mutableListOf()
             val newUser = User(
                 id = users.size,
                 name = username,
@@ -73,7 +72,7 @@ class UserDB {
                 profilePictureString = pickedPhotoString
             )
             users.add(newUser)
-            preference = PreferenceManager.getDefaultSharedPreferences(context)
+
 
             val usersJSON = gson.toJson(users)
             val prettyUserJSON = prettyGson.toJson(users)
@@ -82,12 +81,14 @@ class UserDB {
             editor.putBoolean(userFirebaseId, true)
             editor.apply()
 
-            setActualClient(newUser)
+        }
+        fun saveUsers(){
+            val usersJSON = gson.toJson(users)
+            val editor = preference.edit()
+            editor.putString(USERDB_KEY, usersJSON)
+            editor.apply()
         }
 
-        fun setActualClient(user: User) {
-            GlobalConfig.actualClient = user
-        }
 
         fun getClientByEmail(email: String): User {
             var result: User? = null

@@ -19,6 +19,7 @@
         android:background="@color/fucsia"
         android:elevation="1dp">
         <ImageView
+            android:id="@+id/profile_icon"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -114,7 +115,7 @@
         <ImageView
             android:id="@+id/image_logo_club"
             android:layout_width="120dp"
-            android:layout_height="match_parent"
+            android:layout_height="120dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:src="@drawable/logo_taboo"

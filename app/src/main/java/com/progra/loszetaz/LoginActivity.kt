@@ -37,18 +37,35 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun loginUser(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    GlobalConfig.initUser(user)
-                    val intent = Intent(context, HomeScreenActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val toast = Toast.makeText(this,
-                        "La contraseña o el usuario son incorrectos", Toast.LENGTH_SHORT)
-                    toast.show()
+        if(email.isNotEmpty() && password.isNotEmpty()) {
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        GlobalConfig.initUser(user)
+
+                        if (GlobalConfig.isUserClient) {
+                            val intent = Intent(context, HomeScreenActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            val clubProfile = Intent(context, ClubProfileActivity::class.java)
+                            startActivity(clubProfile)
+                        }
+                    } else {
+                        val toast = Toast.makeText(
+                            this,
+                            "La contraseña o el usuario son incorrectos", Toast.LENGTH_SHORT
+                        )
+                        toast.show()
+                    }
                 }
-            }
+        }
+        else{
+            val toast = Toast.makeText(
+                this,
+                "Usuario y/o contraseña son incorrectas", Toast.LENGTH_SHORT
+            )
+            toast.show()
+        }
     }
 }

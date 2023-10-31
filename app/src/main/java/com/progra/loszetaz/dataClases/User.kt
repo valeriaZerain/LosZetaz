@@ -9,6 +9,6 @@ data class User(
     val cellphone: Int,
     val birthday: String,
     val ci: Int,
-    val likedIdClubs: List<Int>,
+    val likedIdClubs: MutableList<Int>,
     val profilePictureString: String
 ) : Serializable

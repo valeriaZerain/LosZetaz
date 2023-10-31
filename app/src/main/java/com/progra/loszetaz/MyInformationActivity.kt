@@ -9,6 +9,8 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.progra.loszetaz.GlobalConfig.Companion.CLUB_KEY
 import com.progra.loszetaz.GlobalConfig.Companion.USER_KEY
+import com.progra.loszetaz.GlobalConfig.Companion.actualClient
+import com.progra.loszetaz.GlobalConfig.Companion.actualClub
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.dataClases.User
 import com.progra.loszetaz.databinding.ActivityMyInformationBinding
@@ -25,7 +27,7 @@ class MyInformationActivity : AppCompatActivity() {
             binding.topMenu.setBackgroundColor(getColor(R.color.purple))
             binding.clientLayout.visibility = View.VISIBLE
 
-            val client = intent.getSerializableExtra(USER_KEY) as User
+            val client = actualClient!!
             binding.userCi.text = client.ci.toString()
             binding.userBirthday.text = client.birthday
             binding.userEmail.text = client.email
@@ -38,12 +40,14 @@ class MyInformationActivity : AppCompatActivity() {
             binding.clientLayout.visibility = View.GONE
             binding.topMenu.setBackgroundColor(getColor(R.color.fucsia))
 
-            val club = intent.getBooleanArrayExtra(CLUB_KEY) as Club
+            val club = actualClub!!
             binding.userEmail.text = club.ownerEmail
             binding.userPhone.text = club.contactNumber.toString()
         }
         binding.logOutButton.setOnClickListener {
             Firebase.auth.signOut()
+            actualClient = null
+            actualClub = null
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

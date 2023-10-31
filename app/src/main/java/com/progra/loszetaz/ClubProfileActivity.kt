@@ -1,14 +1,20 @@
 package com.progra.loszetaz
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.progra.loszetaz.CreatePostActivity.Companion.NAME_CLUB_KEY
+import com.progra.loszetaz.GlobalConfig.Companion.actualClient
+import com.progra.loszetaz.GlobalConfig.Companion.actualClub
+import com.progra.loszetaz.GlobalConfig.Companion.isUserClient
 import com.progra.loszetaz.adapters.FeedPostClubAdapter
+import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.PostDB
+import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.ActivityClubProfileBinding
 
@@ -17,26 +23,52 @@ class ClubProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityClubProfileBinding
     private val feedClubAdapter by lazy { FeedPostClubAdapter() }
 
-    private var isInfoShown: Boolean = true
-    private lateinit var actualClub: Club
+    private lateinit var club: Club
 
-    private val isClientUser = true
+    private var isInfoShown: Boolean = true
+    private var hasLiked: Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClubProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if(isClientUser){
+        if(isUserClient){
+            club = intent.getSerializableExtra(CLUB_KEY) as Club
             binding.clubLayout.visibility = View.INVISIBLE
             binding.clientLayout.visibility = View.VISIBLE
-            // TODO check if the actualUser has liked the club
+
+            hasLiked = actualClient!!.likedIdClubs.contains(club.id)
+            if(hasLiked)
+                binding.imageFavorite.setImageResource(R.drawable.favorite_full)
+            else
+                binding.imageFavorite.setImageResource(R.drawable.favorite_border)
+
+            binding.imageFavorite.setOnClickListener {
+                hasLiked = !hasLiked
+                if(hasLiked){
+                    binding.imageFavorite.setImageResource(R.drawable.favorite_full)
+                    actualClient!!.likedIdClubs.add(club.id)
+                    ClubDB.getClubById(club.id)!!.likes++
+                    club.likes++
+                }
+                else{
+                    binding.imageFavorite.setImageResource(R.drawable.favorite_border)
+                    actualClient!!.likedIdClubs.remove(club.id)
+                    ClubDB.getClubById(club.id)!!.likes--
+                    club.likes--
+                }
+                setProfile()
+                ClubDB.saveClubs()
+                UserDB.saveUsers()
+            }
         }
         else{
+            club = actualClub!!
             binding.updateInfo.visibility = View.VISIBLE
             binding.clubLayout.visibility = View.VISIBLE
             binding.clientLayout.visibility = View.INVISIBLE
         }
-        actualClub = intent.getSerializableExtra(CLUB_KEY) as Club
 
         setProfile()
         showPosts()
@@ -57,7 +89,12 @@ class ClubProfileActivity : AppCompatActivity() {
 
         binding.addPostButton.setOnClickListener{
             val intent = Intent(this,CreatePostActivity::class.java)
-            intent.putExtra(NAME_CLUB_KEY, actualClub.name)
+            intent.putExtra(NAME_CLUB_KEY, club.name)
+            startActivity(intent)
+        }
+
+        binding.profileIcon.setOnClickListener {
+            val intent = Intent(this,MyInformationActivity::class.java)
             startActivity(intent)
         }
     }
@@ -76,7 +113,7 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.textFeed.setTextColor(
             AppCompatResources.getColorStateList
                 (this, R.color.white))
-        if(!isClientUser)
+        if(!isUserClient)
             binding.updateInfo.visibility = View.VISIBLE
         else
             binding.updateInfo.visibility = View.GONE
@@ -92,7 +129,7 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.textFeed.setTextColor(
             AppCompatResources.getColorStateList
                 (this, R.color.fucsia))
-        if(!isClientUser)
+        if(!isUserClient)
             binding.addPostButton.visibility = View.VISIBLE
         else
             binding.addPostButton.visibility = View.GONE
@@ -100,19 +137,26 @@ class ClubProfileActivity : AppCompatActivity() {
     }
 
     fun setProfile(){
-        binding.textClubNameFeed.text = actualClub.name
-        binding.textClubName.text = actualClub.name
-        binding.imageLogoClub.setImageResource(actualClub.logo)
-        binding.textNumberLikes.text = actualClub.likes.toString()
-        binding.textDescription.text = actualClub.description
-        binding.textRecommendations.text = actualClub.recommendations
-        binding.schedule.text = actualClub.schedule
-        binding.textCover.text = actualClub.cover.toString()
-        binding.textLocation.text = actualClub.location
+        binding.textClubNameFeed.text = club.name
+        binding.textClubName.text = club.name
+        binding.textNumberLikes.text = club.likes.toString()
+        binding.textDescription.text = club.description
+        binding.textRecommendations.text = club.recommendations
+        binding.schedule.text = club.schedule
+        binding.textCover.text = club.cover.toString()
+        binding.textLocation.text = club.location
+        setProfileImage()
+    }
+
+    fun setProfileImage(){
+        if(club.logoString != null)
+            binding.imageLogoClub.setImageURI(Uri.parse(club.logoString))
+        else
+            binding.imageLogoClub.setImageResource(club.logo)
     }
     fun showPosts(){
 
-        feedClubAdapter.addFeedPost(PostDB.getPostFromClub(actualClub.id))
+        feedClubAdapter.addFeedPost(PostDB.getPostFromClub(club.id))
 
         binding.feedClubRecycler.apply {
             layoutManager =
