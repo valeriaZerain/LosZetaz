@@ -51,7 +51,6 @@ class MapsFragment : Fragment() {
     }
 
     fun addMarkers(listLocations: List<Club>) {
-
         listLocations.forEach {
             var id = it.id
             var latitude = it.latitude
@@ -62,5 +61,6 @@ class MapsFragment : Fragment() {
             mMap.addMarker(markerOptions)
         }
     }
+
 
 }

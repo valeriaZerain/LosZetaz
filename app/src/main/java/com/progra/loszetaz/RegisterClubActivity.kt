@@ -5,6 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.commit
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -13,16 +16,24 @@ import com.progra.loszetaz.dataBase.TagsEnum
 import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityRegisterClientBinding
 import com.progra.loszetaz.databinding.ActivityRegisterClubBinding
+import com.progra.loszetaz.fragment.MapsFragment
 
-class RegisterClubActivity : AppCompatActivity() {
+class RegisterClubActivity : AppCompatActivity(){
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityRegisterClubBinding
     val context: Context = this
+    private lateinit var googleMap: GoogleMap
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityRegisterClubBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        val fragment = MapsFragment()
+        supportFragmentManager.commit {
+            replace(binding.mapFragment.id, fragment)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
         binding.buttonCreateaccount.setOnClickListener {
             val email: String = binding.edittextOwneremail.text.toString()
             val password: String = binding.edittextPassword.text.toString()
@@ -40,10 +51,12 @@ class RegisterClubActivity : AppCompatActivity() {
                     val phoneNumber: Int = binding.edittextPhonenumerclub.toString().toInt()
                     val description: String = binding.edittextDescription.toString()
                     val schedule: String = binding.edittextSchedule.toString()
-                    val location: String = binding.edittextLocation.toString()
                     val contact: Int = binding.edittextContact.toString().toInt()
                     val cover: Int = binding.edittextCover.toString().toInt()
                     var recommendations: String = binding.edittextRecommendations.toString()
+                    val centerOfMap = googleMap.cameraPosition.target
+                    val latitude = centerOfMap.latitude
+                    val longitude = centerOfMap.longitude
                     val tags: MutableList<Boolean> = mutableListOf()
                     tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
                     tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
@@ -56,12 +69,13 @@ class RegisterClubActivity : AppCompatActivity() {
                         license = license,
                         ownerNumber = phoneNumber,
                         description = description,
+                        latitude = latitude,
+                        longitude = longitude,
                         cover = cover,
                         schedule = schedule,
                         recommendations = recommendations,
                         contactNumber = contact,
                         tags = tags,
-                        location = location
                     )
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
@@ -72,4 +86,5 @@ class RegisterClubActivity : AppCompatActivity() {
                 }
             }
     }
+
 }
