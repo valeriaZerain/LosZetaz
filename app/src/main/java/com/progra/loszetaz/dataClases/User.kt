@@ -1,6 +1,6 @@
 package com.progra.loszetaz.dataClases
 
-import android.graphics.Bitmap
+import java.io.Serializable
 
 data class User(
     val id: Int,
@@ -10,5 +10,5 @@ data class User(
     val birthday: String,
     val ci: Int,
     val likedIdClubs: List<Int>,
-    val profilePicture: Bitmap
-)
+    val profilePictureString: String
+) : Serializable

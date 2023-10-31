@@ -45,7 +45,7 @@ class CreatePostActivity : AppCompatActivity() {
                     title = binding.postTitle.text.toString(),
                     description = binding.descriptionPost.text.toString(),
                     clubId = 5,
-                    imageBitmap = pickedBitMap!!,
+                    imageString = pickedPhoto!!.toString(),
                     date = today,
                     image = -1
                 )

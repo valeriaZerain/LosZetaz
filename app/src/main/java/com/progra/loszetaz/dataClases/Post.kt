@@ -1,6 +1,5 @@
 package com.progra.loszetaz.dataClases
 
-import android.graphics.Bitmap
 import java.time.format.DateTimeFormatter
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.toJavaLocalDate
@@ -12,7 +11,7 @@ data class Post(
     val description: String,
     val image: Int,
     val clubId: Int,
-    val imageBitmap: Bitmap?
+    val imageString: String?
 
 ){
     fun getMiniDescription(): String{

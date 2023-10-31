@@ -104,7 +104,7 @@ class RegisterClientActivity : AppCompatActivity() {
             phone != 0 &&
             birthday.isNotEmpty() &&
             ci != 0 &&
-            pickedBitMap != null
+            pickedPhoto != null
         ) {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
@@ -116,7 +116,7 @@ class RegisterClientActivity : AppCompatActivity() {
                             phone,
                             birthday,
                             ci,
-                            pickedBitMap!!,
+                            pickedPhoto!!.toString(),
                             user!!.uid,
                             context
                         )

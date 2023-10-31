@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.progra.loszetaz.GlobalConfig.Companion.USER_KEY
 import com.progra.loszetaz.adapters.MostLikedClubAdapter
 import com.progra.loszetaz.adapters.RecentPostClubAdapter
 import com.progra.loszetaz.dataBase.ClubDB
@@ -57,6 +58,12 @@ class HomeScreenActivity : AppCompatActivity() {
                     (this, R.color.fucsia))
             }
         }
+
+        binding.profileButton.setOnClickListener{
+            val intent = Intent(this, MyInformationActivity::class.java)
+            intent.putExtra(USER_KEY,GlobalConfig.actualClient)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
@@ -74,7 +81,6 @@ class HomeScreenActivity : AppCompatActivity() {
 
     fun showRecentPost(){
         recentPostClubAdapter.addPost(PostDB.getAllPost())
-        println("Added PostDB")
 
         binding.recentPostClubRecycler.apply {
             layoutManager =
@@ -82,4 +88,5 @@ class HomeScreenActivity : AppCompatActivity() {
             adapter = recentPostClubAdapter
         }
     }
+
 }

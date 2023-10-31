@@ -1,10 +1,10 @@
 package com.progra.loszetaz.adapters
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.FeedPostClubItemBinding
 
@@ -45,8 +45,8 @@ class FeedPostClubAdapter: RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClub
                 }
 
                 fun setImage(data: Post){
-                    if(data.imageBitmap != null)
-                        binding.imgPost.setImageBitmap(data.imageBitmap)
+                    if(data.imageString != null)
+                        binding.imgPost.setImageURI(Uri.parse(data.imageString))
                     else
                         binding.imgPost.setImageResource(data.image)
                 }

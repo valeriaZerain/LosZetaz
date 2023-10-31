@@ -2,6 +2,7 @@ package com.progra.loszetaz.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -53,8 +54,8 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
                     }
                 }
                 fun setImage(data: Post){
-                    if(data.imageBitmap != null)
-                        binding.postImage.setImageBitmap(data.imageBitmap)
+                    if(data.imageString != null)
+                        binding.postImage.setImageURI(Uri.parse(data.imageString))
                     else
                         binding.postImage.setImageResource(data.image)
                 }

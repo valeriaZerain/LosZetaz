@@ -11,6 +11,10 @@ import com.progra.loszetaz.dataClases.User
 
 class GlobalConfig {
     companion object{
+
+        val USER_KEY = "user_key"
+        val CLUB_KEY = "club_key"
+
         var actualClient: User? = null
         var actualClub: Club? = null
         var userFirebase: FirebaseUser? = null

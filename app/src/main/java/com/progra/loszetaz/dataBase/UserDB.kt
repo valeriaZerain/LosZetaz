@@ -1,9 +1,7 @@
 package com.progra.loszetaz.dataBase
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.preference.PreferenceManager
-import androidx.annotation.Nullable
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.progra.loszetaz.GlobalConfig
@@ -61,7 +59,7 @@ class UserDB {
 
         fun addUser(
             username: String, email: String, cellphone: Int, birthday: String, ci: Int,
-            pickedBitmap: Bitmap, userFirebaseId: String, context: Context
+            pickedPhotoString: String, userFirebaseId: String, context: Context
         ) {
             val newLikes: List<Int> = mutableListOf()
             val newUser = User(
@@ -72,7 +70,7 @@ class UserDB {
                 birthday = birthday,
                 ci = ci,
                 likedIdClubs = newLikes,
-                profilePicture = pickedBitmap
+                profilePictureString = pickedPhotoString
             )
             users.add(newUser)
             preference = PreferenceManager.getDefaultSharedPreferences(context)
