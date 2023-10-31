@@ -1,0 +1,83 @@
+package com.progra.loszetaz.fragment
+import android.content.Intent
+import androidx.fragment.app.Fragment
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.progra.loszetaz.ClubProfileActivity
+import com.progra.loszetaz.R
+import com.progra.loszetaz.dataBase.ClubDB
+import com.progra.loszetaz.dataClases.Club
+
+class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListener{
+    lateinit var mMap: GoogleMap
+    private var onMapReadyListener: ((GoogleMap) -> Unit)? = null
+
+    val zoomLevel = 12f
+
+    private val callback = OnMapReadyCallback { googleMap ->
+        mMap = googleMap
+        val initialLocation = LatLng(-16.529046, -68.112800)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, zoomLevel))
+        addMarkers(ClubDB.clubs)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_maps, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
+    }
+
+    fun addMarkers(listLocations: List<Club>) {
+        listLocations.forEach {
+            var id = it.id
+            var latitude = it.latitude
+            var longitude = it.longitude
+            var latLng = LatLng(latitude, longitude)
+            val markerOptions = MarkerOptions()
+            markerOptions.title(id.toString())
+            markerOptions.position(latLng)
+            mMap.addMarker(markerOptions)
+        }
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        val markerID = marker.title?.toInt()
+        try {
+            val intent = Intent(context, ClubProfileActivity::class.java)
+            intent.putExtra(ClubProfileActivity.CLUB_KEY, ClubDB.getClubById(markerID))
+            startActivity(intent)
+        } catch (e: ClassNotFoundException) {
+            Toast.makeText(context, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
+                .show()
+        }
+        return true
+    }
+
+    override fun onMapReady(gMap: GoogleMap) {
+        mMap = gMap
+        onMapReadyListener?.invoke(gMap)
+    }
+     fun setOnMapReadyListener(listener: (GoogleMap) -> Unit) {
+        onMapReadyListener = listener
+    }
+}

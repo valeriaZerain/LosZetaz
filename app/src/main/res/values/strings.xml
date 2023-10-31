@@ -31,12 +31,13 @@
     <string name="insert_license">Insertar licencia de funcionamiento</string>
     <string name="description_club">Descripción</string>
     <string name="insert_description_club">Insertar la descripción</string>
-    <string name="insert_location">Insertar el url de la ubicación</string>
+    <string name="insert_location">Elegir ubicación</string>
+    <string name="accept_location">Guardar la ubicacion</string>
     <string name="location">Ubicación*</string>
     <string name="schedule">Horario*</string>
     <string name="insert_schedule">Ingresa el horario</string>
     <string name="contactofclub">Contacto de la discoteca</string>
-    <string name="insert_contacts">Ingresa a que número se pueden comunica</string>
+    <string name="insert_contacts">Ingresa a que número se pueden comunicar</string>
     <string name="recomendations">Recomendaciones</string>
     <string name="insert_recomendations">Insertar recomendaciones para tus clientes (Ej:horas de llegada para no hacer fila, etc.)</string>
     <string name="tags">Etiquetas</string>
@@ -79,5 +80,7 @@
     <string name="title">Título</string>
     <string name="post">Publicar</string>
     <string name="cancel">Cancelar</string>
+    <string name="map">Mapa</string>
+    <string name="homescreen">Inicio</string>
 </resources>
 
