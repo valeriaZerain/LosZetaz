@@ -2,6 +2,7 @@ package com.progra.loszetaz.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -50,9 +51,9 @@ class SearchResultsAdapter: RecyclerView.Adapter<SearchResultsAdapter.SearchResu
                 }
 
                 fun setImage(data: Club){
-//                    if(data.imageBitmap != null)
-//                        binding.imgClub.setImageBitmap(data.imageBitmap)
-//                    else
+                    if(data.logoString != null)
+                        binding.imgClub.setImageURI(Uri.parse(data.logoString))
+                    else
                         binding.imgClub.setImageResource(data.logo)
                 }
             }

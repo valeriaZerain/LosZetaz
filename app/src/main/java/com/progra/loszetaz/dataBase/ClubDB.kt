@@ -4,6 +4,7 @@ import android.content.Context
 import android.preference.PreferenceManager
 import com.google.gson.Gson
 import com.progra.loszetaz.GlobalConfig
+import com.progra.loszetaz.GlobalConfig.Companion.actualClub
 import com.progra.loszetaz.GlobalConfig.Companion.preference
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club
@@ -346,12 +347,11 @@ class ClubDB {
             val data = preference.getString(CLUBDB_KEY, "[]")
             val clubsPreferences = gson.fromJson(data, Array<Club>::class.java).toMutableList()
 
-            clubsPreferences.forEach{ club: Club ->
-                if(clubs.contains(club))
-                    clubsPreferences.remove(club)
+            if(clubsPreferences.isNotEmpty()){
+                clubs.clear()
+                clubs.addAll(clubsPreferences)
             }
 
-            clubs.addAll(clubsPreferences)
         }
 
         fun getAllClubs(): List<Club> {
@@ -371,16 +371,12 @@ class ClubDB {
                     result.add(club)
             }
             return result
-            //return clubsFiltered.sortedWith( compareByDescending { -editDistance(it.name, name) })
         }
 
         fun searchByTags(tags: List<Boolean>, clubsFiltered: List<Club>): List<Club> {
             val result = mutableListOf<Club>()
             clubsFiltered.forEach { club ->
                 var containsTags = true
-//                tags.forEach { tag ->
-//                    containsTags = containsTags && club.tags.contains(tag)
-//                }
                 for (i in 0..4) {
                     containsTags = containsTags && ((tags[i] && club.tags[i]) || !tags[i])
                 }
@@ -467,6 +463,16 @@ class ClubDB {
             val editor = preference.edit()
             editor.putString(CLUBDB_KEY, clubsJSON)
             editor.apply()
+        }
+
+        fun updateClub(club: Club) {
+            actualClub = club
+            for (i in 0..clubs.size-1){
+                if(club.id == clubs[i].id){
+                    clubs[i] = club
+                }
+            }
+            saveClubs()
         }
     }
 }

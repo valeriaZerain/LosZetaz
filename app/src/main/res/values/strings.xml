@@ -82,5 +82,6 @@
     <string name="cancel">Cancelar</string>
     <string name="map">Mapa</string>
     <string name="homescreen">Inicio</string>
+    <string name="update_club">Guardar los cambios</string>
 </resources>
 

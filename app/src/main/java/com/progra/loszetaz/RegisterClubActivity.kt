@@ -20,9 +20,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.TagsEnum
 import com.progra.loszetaz.dataBase.UserDB
+import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.ActivityRegisterClientBinding
 import com.progra.loszetaz.databinding.ActivityRegisterClubBinding
 import com.progra.loszetaz.fragment.EmptyMapFragment
@@ -71,6 +73,36 @@ class RegisterClubActivity : AppCompatActivity(){
             longitude = centerOfMap.longitude
             binding.constraintRegistermap.visibility = View.GONE
         }
+
+        binding.buttonUpdateAccount.setOnClickListener {
+            updateClub()
+        }
+        if(GlobalConfig.updatingProfile){
+            val club = intent.getSerializableExtra(CLUB_KEY) as Club
+            binding.buttonCreateaccount.visibility = View.GONE
+            binding.buttonUpdateAccount.visibility = View.VISIBLE
+            binding.edittextClubname.setText(club.name)
+            binding.edittextLicense.setText(club.license)
+            binding.edittextSchedule.setText(club.schedule)
+            binding.edittextOwneremail.visibility = View.GONE
+            binding.textViewEmail.visibility = View.GONE
+            binding.textViewPassword.visibility = View.GONE
+            binding.edittextPassword.visibility = View.GONE
+            binding.edittextPhonenumerclub.setText(club.ownerNumber.toString())
+            binding.edittextDescription.setText(club.description)
+            binding.edittextContact.setText(club.contactNumber.toString())
+            binding.edittextRecommendations.setText(club.recommendations)
+            binding.edittextCover.setText(club.cover.toString())
+            latitude = club.latitude
+            longitude = club.longitude
+            if(club.logoString != null) {
+                pickedPhoto = Uri.parse(club.logoString)
+                binding.logoPlaceholder.setImageURI(Uri.parse(club.logoString))
+            }
+            else {
+                binding.logoPlaceholder.setImageResource(club.logo)
+            }
+        }
     }
 
 
@@ -107,6 +139,51 @@ class RegisterClubActivity : AppCompatActivity(){
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+
+    fun updateClub(){
+        val clubName: String = binding.edittextClubname.text.toString()
+        val license: String = binding.edittextLicense.text.toString()
+        val schedule: String = binding.edittextSchedule.text.toString()
+        if( clubName.isNotEmpty()
+            && license.isNotEmpty()
+            && schedule.isNotEmpty()) {
+            val phoneNumber: Int = binding.edittextPhonenumerclub.text.toString().toInt()
+            val description: String = binding.edittextDescription.text.toString()
+            val contact: Int = binding.edittextContact.text.toString().toInt()
+            val cover: Int = binding.edittextCover.text.toString().toInt()
+            var recommendations: String = binding.edittextRecommendations.text.toString()
+            val tags: MutableList<Boolean> = mutableListOf(false, false, false, false, false)
+            tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
+            tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
+            tags.set(TagsEnum.OLDIES.id, binding.checkboxOldies.isChecked)
+            tags.set(TagsEnum.NOCOVER.id, binding.checkboxNoCover.isChecked)
+            tags.set(TagsEnum.LIVE.id, binding.checkboxLiveMusic.isChecked)
+
+            val club = intent.getSerializableExtra(CLUB_KEY) as Club
+            club.name = clubName
+            club.license = license
+            club.schedule = schedule
+            club.ownerNumber = phoneNumber
+            club.description = description
+            club.contactNumber = contact
+            club.cover = cover
+            club.recommendations = recommendations
+            club.tags = tags
+            club.logoString = pickedPhoto.toString() ?: ""
+            club.longitude = longitude
+            club.latitude = latitude
+            ClubDB.updateClub(club)
+            GlobalConfig.updatingProfile = false
+            finish()
+        }
+        else{
+            val toast = Toast.makeText(
+                this,
+                "Todos los datos con * son obligatorios", Toast.LENGTH_SHORT
+            )
+            toast.show()
+        }
+    }
 
     fun clickCreateAccount(email: String, password: String) {
 

@@ -14,6 +14,7 @@ import com.progra.loszetaz.GlobalConfig.Companion.actualClient
 import com.progra.loszetaz.GlobalConfig.Companion.actualClub
 import com.progra.loszetaz.GlobalConfig.Companion.coordinateProfileClub
 import com.progra.loszetaz.GlobalConfig.Companion.isUserClient
+import com.progra.loszetaz.GlobalConfig.Companion.updatingProfile
 import com.progra.loszetaz.adapters.FeedPostClubAdapter
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.PostDB
@@ -104,10 +105,19 @@ class ClubProfileActivity : AppCompatActivity() {
             val intent = Intent(this,MyInformationActivity::class.java)
             startActivity(intent)
         }
+
+        binding.updateInfo.setOnClickListener {
+            updatingProfile = true
+            val intent = Intent(this, RegisterClubActivity::class.java)
+            intent.putExtra(CLUB_KEY, club)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        club = actualClub!!
+        setProfile()
         showPosts()
     }
 

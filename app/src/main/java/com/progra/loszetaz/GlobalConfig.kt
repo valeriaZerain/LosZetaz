@@ -23,6 +23,8 @@ class GlobalConfig {
         lateinit var preference: SharedPreferences
 
         var coordinateProfileClub: LatLng? = null
+
+        var updatingProfile = false
         fun initPreferences(context: Context){
             preference = PreferenceManager.getDefaultSharedPreferences(context)
         }
