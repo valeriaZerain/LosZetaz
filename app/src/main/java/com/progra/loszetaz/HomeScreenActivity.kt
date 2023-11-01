@@ -68,6 +68,11 @@ class HomeScreenActivity : AppCompatActivity() {
             intent.putExtra(USER_KEY,GlobalConfig.actualClient)
             startActivity(intent)
         }
+
+        binding.buttonGoToMap.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {

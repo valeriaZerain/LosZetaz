@@ -15,6 +15,7 @@ class ClubDB {
 
         val CLUBDB_KEY = "CLUDB_KEY"
         private val gson = Gson()
+
         var clubs: MutableList<Club> = mutableListOf(
             Club(
                 id = 1,

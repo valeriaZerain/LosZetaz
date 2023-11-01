@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -128,13 +127,12 @@ class RegisterClubActivity : AppCompatActivity(){
                 if (task.isSuccessful) {
                     val user = auth.currentUser
 
-                    val phoneNumber: Int = binding.edittextPhonenumerclub.toString().toInt()
-                    val description: String = binding.edittextDescription.toString()
-                    val location: String = binding.edittextLocation.toString()
-                    val contact: Int = binding.edittextContact.toString().toInt()
-                    val cover: Int = binding.edittextCover.toString().toInt()
-                    var recommendations: String = binding.edittextRecommendations.toString()
-                    val tags: MutableList<Boolean> = mutableListOf()
+                    val phoneNumber: Int = binding.edittextPhonenumerclub.text.toString().toInt()
+                    val description: String = binding.edittextDescription.text.toString()
+                    val contact: Int = binding.edittextContact.text.toString().toInt()
+                    val cover: Int = binding.edittextCover.text.toString().toInt()
+                    var recommendations: String = binding.edittextRecommendations.text.toString()
+                    val tags: MutableList<Boolean> = mutableListOf(false, false, false, false, false)
                     tags.set(TagsEnum.TABLE.id, binding.checkboxTables.isChecked)
                     tags.set(TagsEnum.OUTSIDE.id, binding.checkboxOutside.isChecked)
                     tags.set(TagsEnum.OLDIES.id, binding.checkboxOldies.isChecked)

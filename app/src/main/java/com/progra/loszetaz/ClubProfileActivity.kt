@@ -144,7 +144,8 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.textRecommendations.text = club.recommendations
         binding.schedule.text = club.schedule
         binding.textCover.text = club.cover.toString()
-        binding.textLocation.text = club.location
+        // TODO Mostrar el mapa fragment
+        binding.textLocation.text = ""
         setProfileImage()
     }
 

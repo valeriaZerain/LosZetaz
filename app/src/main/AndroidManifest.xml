@@ -23,6 +23,9 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
+            android:name=".MapActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MyInformationActivity"
             android:exported="false" />
         <activity
