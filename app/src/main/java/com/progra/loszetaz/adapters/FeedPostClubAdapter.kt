@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.FeedPostClubItemBinding
 
-class FeedPostClubAdapter: RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClubAdapterViewHolder>() {
+class FeedPostClubAdapter :
+    RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClubAdapterViewHolder>() {
 
     private var context: Context? = null
     private var feedPostList = mutableListOf<Post>()
@@ -30,29 +31,29 @@ class FeedPostClubAdapter: RecyclerView.Adapter<FeedPostClubAdapter.FeedPostClub
         holder: FeedPostClubAdapter.FeedPostClubAdapterViewHolder,
         position: Int
     ) {
-       holder.binding(feedPostList[position])
+        holder.binding(feedPostList[position])
     }
 
     override fun getItemCount(): Int = feedPostList.size
 
-    inner class FeedPostClubAdapterViewHolder(private val binding: FeedPostClubItemBinding):
-            RecyclerView.ViewHolder(binding.root) {
-                fun binding(data: Post){
-                    binding.titlePost.text = data.title
-                    binding.datePost.text = data.getDate()
-                    binding.descriptionPost.text = data.description
-                    setImage(data)
-                }
+    inner class FeedPostClubAdapterViewHolder(private val binding: FeedPostClubItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun binding(data: Post) {
+            binding.titlePost.text = data.title
+            binding.datePost.text = data.getDate()
+            binding.descriptionPost.text = data.description
+            setImage(data)
+        }
 
-                fun setImage(data: Post){
-                    if(data.imageString != null)
-                        binding.imgPost.setImageURI(Uri.parse(data.imageString))
-                    else
-                        binding.imgPost.setImageResource(data.image)
-                }
-            }
+        fun setImage(data: Post) {
+            if (data.imageString != null)
+                binding.imgPost.setImageURI(Uri.parse(data.imageString))
+            else
+                binding.imgPost.setImageResource(data.image)
+        }
+    }
 
-    fun addFeedPost(newPost: List<Post>){
+    fun addFeedPost(newPost: List<Post>) {
         feedPostList.clear()
         feedPostList.addAll(newPost)
     }

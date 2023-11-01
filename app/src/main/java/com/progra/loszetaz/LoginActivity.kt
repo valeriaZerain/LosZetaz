@@ -8,9 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityLoginBinding
-import com.progra.loszetaz.databinding.ActivityRegisterClientBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,20 +22,20 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
-        binding.buttonSignin.setOnClickListener{
-            var username:String = binding.edittextUsername.text.toString()
-            var password:String = binding.edittextPassword.text.toString()
+        binding.buttonSignin.setOnClickListener {
+            var username: String = binding.edittextUsername.text.toString()
+            var password: String = binding.edittextPassword.text.toString()
             loginUser(username, password)
         }
 
-        binding.buttonRegister.setOnClickListener{
+        binding.buttonRegister.setOnClickListener {
             val intent = Intent(context, QuestionRegisterActivity::class.java)
             startActivity(intent)
         }
     }
 
     fun loginUser(email: String, password: String) {
-        if(email.isNotEmpty() && password.isNotEmpty()) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -59,8 +57,7 @@ class LoginActivity : AppCompatActivity() {
                         toast.show()
                     }
                 }
-        }
-        else{
+        } else {
             val toast = Toast.makeText(
                 this,
                 "Usuario y/o contraseña son incorrectas", Toast.LENGTH_SHORT

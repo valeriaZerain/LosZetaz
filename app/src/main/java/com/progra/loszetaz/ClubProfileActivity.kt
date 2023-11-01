@@ -21,7 +21,6 @@ import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.ActivityClubProfileBinding
 import com.progra.loszetaz.fragment.EmptyMapFragment
-import com.progra.loszetaz.fragment.MapsFragment
 
 class ClubProfileActivity : AppCompatActivity() {
 
@@ -39,26 +38,25 @@ class ClubProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fragment = EmptyMapFragment()
-        if(isUserClient){
+        if (isUserClient) {
             club = intent.getSerializableExtra(CLUB_KEY) as Club
             binding.clubLayout.visibility = View.INVISIBLE
             binding.clientLayout.visibility = View.VISIBLE
 
             hasLiked = actualClient!!.likedIdClubs.contains(club.id)
-            if(hasLiked)
+            if (hasLiked)
                 binding.imageFavorite.setImageResource(R.drawable.favorite_full)
             else
                 binding.imageFavorite.setImageResource(R.drawable.favorite_border)
 
             binding.imageFavorite.setOnClickListener {
                 hasLiked = !hasLiked
-                if(hasLiked){
+                if (hasLiked) {
                     binding.imageFavorite.setImageResource(R.drawable.favorite_full)
                     actualClient!!.likedIdClubs.add(club.id)
                     ClubDB.getClubById(club.id)!!.likes++
                     club.likes++
-                }
-                else{
+                } else {
                     binding.imageFavorite.setImageResource(R.drawable.favorite_border)
                     actualClient!!.likedIdClubs.remove(club.id)
                     ClubDB.getClubById(club.id)!!.likes--
@@ -68,8 +66,7 @@ class ClubProfileActivity : AppCompatActivity() {
                 ClubDB.saveClubs()
                 UserDB.saveUsers()
             }
-        }
-        else{
+        } else {
             club = actualClub!!
             binding.updateInfo.visibility = View.VISIBLE
             binding.clubLayout.visibility = View.VISIBLE
@@ -81,27 +78,37 @@ class ClubProfileActivity : AppCompatActivity() {
         showPosts()
 
 
-        binding.textInfo.setOnClickListener{
-            if(!isInfoShown){
+        binding.textInfo.setOnClickListener {
+            if (!isInfoShown) {
                 isInfoShown = true
-               showInfoProfile()
+                showInfoProfile()
             }
         }
         binding.textFeed.setOnClickListener {
-            if(isInfoShown){
+            if (isInfoShown) {
                 isInfoShown = false
                 showFeedProfile()
             }
         }
 
-        binding.addPostButton.setOnClickListener{
-            val intent = Intent(this,CreatePostActivity::class.java)
+        binding.addPostButton.setOnClickListener {
+            val intent = Intent(this, CreatePostActivity::class.java)
             intent.putExtra(NAME_CLUB_KEY, club.name)
             startActivity(intent)
         }
 
         binding.profileIcon.setOnClickListener {
-            val intent = Intent(this,MyInformationActivity::class.java)
+            val intent = Intent(this, MyInformationActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.iconHomescreen.setOnClickListener {
+            val intent: Intent = Intent(this, HomeScreenActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.searchIcon.setOnClickListener {
+            val intent: Intent = Intent(this, SearchScreenActivity::class.java)
             startActivity(intent)
         }
     }
@@ -111,47 +118,52 @@ class ClubProfileActivity : AppCompatActivity() {
         showPosts()
     }
 
-    fun showInfoProfile(){
+    fun showInfoProfile() {
         binding.feedClubScroll.visibility = View.GONE
         binding.clubInfo.visibility = View.VISIBLE
         binding.textInfo.setTextColor(
             AppCompatResources.getColorStateList
-                (this, R.color.turquoise))
+                (this, R.color.turquoise)
+        )
         binding.textFeed.setTextColor(
             AppCompatResources.getColorStateList
-                (this, R.color.white))
-        if(!isUserClient)
+                (this, R.color.white)
+        )
+        if (!isUserClient)
             binding.updateInfo.visibility = View.VISIBLE
         else
             binding.updateInfo.visibility = View.GONE
         binding.addPostButton.visibility = View.GONE
     }
 
-    fun showFeedProfile(){
+    fun showFeedProfile() {
         binding.clubInfo.visibility = View.GONE
         binding.feedClubScroll.visibility = View.VISIBLE
         binding.textInfo.setTextColor(
             AppCompatResources.getColorStateList
-                (this, R.color.white))
+                (this, R.color.white)
+        )
         binding.textFeed.setTextColor(
             AppCompatResources.getColorStateList
-                (this, R.color.fucsia))
-        if(!isUserClient)
+                (this, R.color.fucsia)
+        )
+        if (!isUserClient)
             binding.addPostButton.visibility = View.VISIBLE
         else
             binding.addPostButton.visibility = View.GONE
         binding.updateInfo.visibility = View.GONE
     }
 
-    fun setMap(){
-        coordinateProfileClub = LatLng( club.latitude, club.longitude)
+    fun setMap() {
+        coordinateProfileClub = LatLng(club.latitude, club.longitude)
         supportFragmentManager.commit {
             replace(binding.mapFragment.id, fragment)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
     }
-    fun setProfile(){
+
+    fun setProfile() {
         binding.textClubNameFeed.text = club.name
         binding.textClubName.text = club.name
         binding.textNumberLikes.text = club.likes.toString()
@@ -164,13 +176,14 @@ class ClubProfileActivity : AppCompatActivity() {
         setProfileImage()
     }
 
-    fun setProfileImage(){
-        if(club.logoString != null)
+    fun setProfileImage() {
+        if (club.logoString != null)
             binding.imageLogoClub.setImageURI(Uri.parse(club.logoString))
         else
             binding.imageLogoClub.setImageResource(club.logo)
     }
-    fun showPosts(){
+
+    fun showPosts() {
 
         feedClubAdapter.addFeedPost(PostDB.getPostFromClub(club.id))
 
@@ -182,7 +195,7 @@ class ClubProfileActivity : AppCompatActivity() {
 
     }
 
-    companion object{
+    companion object {
         val CLUB_KEY = "club_key"
     }
 }

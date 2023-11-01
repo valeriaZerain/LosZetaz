@@ -145,10 +145,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
-                android:background="@color/white"
                 android:hint="@string/insert_club_name"
                 android:inputType="textPersonName"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,16 +162,16 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
-                android:background="@color/white"
+
                 android:hint="@string/insert_owner"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/password"
+                android:text="@string/password_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -181,10 +180,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="password"
-                android:background="@color/white"
                 android:hint="@string/insert_password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -199,16 +197,15 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="license"
-                android:background="@color/white"
                 android:hint="@string/insert_license"
-                android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:inputType="text"
+                android:theme="@style/EditTextGrey"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/phone_number"
+                android:text="@string/phone_number_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -217,16 +214,15 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
-                android:background="@color/white"
                 android:hint="@string/insert_phonenumber"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/description_club"
+                android:text="@string/description_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -235,10 +231,10 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
-                android:background="@color/white"
                 android:hint="@string/insert_description_club"
                 android:inputType="text"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey"
+                android:maxLines="5"/>
 
             <TextView
                 android:id="@+id/text_location"
@@ -268,10 +264,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="time"
-                android:background="@color/white"
                 android:hint="@string/insert_schedule"
-                android:inputType="time"
-                android:textColorHint="@color/purple" />
+                android:inputType="text"
+                android:theme="@style/EditTextGrey"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -286,10 +281,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="price"
-                android:background="@color/white"
                 android:hint="@string/insert_cover"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -304,10 +298,10 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
-                android:background="@color/white"
                 android:hint="@string/insert_recomendations"
                 android:inputType="text"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey"
+                android:maxLines="5"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -322,10 +316,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
-                android:background="@color/white"
                 android:hint="@string/insert_contacts"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -373,6 +366,23 @@
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                >
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_zones"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="@string/dropdown_hint"
+                    android:theme="@style/TextViewDescription"
+                    android:inputType="none"
+                    android:background="@color/white"
+                    >
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/button_createaccount"
                 android:layout_width="wrap_content"
@@ -381,7 +391,8 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginBottom="64dp"
                 android:text="@string/create_account"
-                android:theme="@style/TextViewButton" />
+                android:theme="@style/CancelButton"
+                android:backgroundTint="@color/gray_transparent"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

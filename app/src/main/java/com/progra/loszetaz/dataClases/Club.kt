@@ -19,6 +19,6 @@ data class Club(
     var contactNumber: Int,
     var tags: MutableList<Boolean>,
     var likes: Int,
-    val zone: String,
+    val zone: String?,
     val logoString: String?
-): Serializable
+) : Serializable

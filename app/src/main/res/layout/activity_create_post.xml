@@ -18,6 +18,7 @@
         android:background="@color/fucsia"
         android:elevation="1dp">
         <ImageView
+            android:id="@+id/icon_user"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -59,6 +60,8 @@
             android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:maxLines="2"
+            android:inputType="text"
+            android:autofillHints="text"
             />
         <ImageView
             android:id="@+id/uploaded_image"
@@ -78,7 +81,8 @@
             android:maxLines="9"
             android:gravity="top"
             android:textColorHint="@color/white"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:autofillHints="description"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -12,7 +12,8 @@ import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.RecentPostClubItemBinding
 
-class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPostClubAdapterViewHolder>() {
+class RecentPostClubAdapter :
+    RecyclerView.Adapter<RecentPostClubAdapter.RecentPostClubAdapterViewHolder>() {
 
     private var context: Context? = null
     private var recentPostList = mutableListOf<Post>()
@@ -40,27 +41,29 @@ class RecentPostClubAdapter: RecyclerView.Adapter<RecentPostClubAdapter.RecentPo
 
     override fun getItemCount(): Int = recentPostList.size
 
-    inner class RecentPostClubAdapterViewHolder(private  val binding: RecentPostClubItemBinding):
-            RecyclerView.ViewHolder(binding.root){
+    inner class RecentPostClubAdapterViewHolder(private val binding: RecentPostClubItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-                fun binding(data: Post){
-                    binding.postTitle.text = data.title
-                    setImage(data)
-                    binding.recentPostClubDescription.text = data.getMiniDescription()
-                    binding.textShowMore.setOnClickListener {
-                        val intent = Intent(context,ClubProfileActivity::class.java)
-                        intent.putExtra(CLUB_KEY, ClubDB.getClubById(data.clubId))
-                        context?.startActivity(intent)
-                    }
-                }
-                fun setImage(data: Post){
-                    if(data.imageString != null)
-                        binding.postImage.setImageURI(Uri.parse(data.imageString))
-                    else
-                        binding.postImage.setImageResource(data.image)
-                }
+        fun binding(data: Post) {
+            binding.postTitle.text = data.title
+            setImage(data)
+            binding.recentPostClubDescription.text = data.getMiniDescription()
+            binding.textShowMore.setOnClickListener {
+                val intent = Intent(context, ClubProfileActivity::class.java)
+                intent.putExtra(CLUB_KEY, ClubDB.getClubById(data.clubId))
+                context?.startActivity(intent)
             }
-    fun addPost(newPosts: List<Post>){
+        }
+
+        fun setImage(data: Post) {
+            if (data.imageString != null)
+                binding.postImage.setImageURI(Uri.parse(data.imageString))
+            else
+                binding.postImage.setImageResource(data.image)
+        }
+    }
+
+    fun addPost(newPosts: List<Post>) {
         recentPostList.clear()
         recentPostList.addAll(newPosts)
     }

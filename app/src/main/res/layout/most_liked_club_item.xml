@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toTopOf="@id/center_line"
                 app:layout_constraintBottom_toBottomOf="@id/center_line"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 />
             <TextView
                 android:id="@+id/text_number_likes"
@@ -58,7 +58,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/center_line"
                 app:layout_constraintTop_toTopOf="@id/center_line"
                 android:theme="@style/TextViewPostItem"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 />
             <TextView
                 android:id="@+id/text_show_more"

@@ -109,7 +109,7 @@
                 android:background="@color/white"
                 android:hint="@string/insert_username"
                 android:inputType="textPersonName"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
                 android:background="@color/white"
                 android:hint="@string/insert_email"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +145,8 @@
                 android:background="@color/white"
                 android:hint="@string/insert_phonenumber"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:maxLength="8"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,7 +164,7 @@
                 android:background="@color/white"
                 android:hint="@string/insert_birthday"
                 android:inputType="date"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -181,7 +182,7 @@
                 android:background="@color/white"
                 android:hint="@string/insert_ci"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -199,7 +200,7 @@
                 android:background="@color/white"
                 android:hint="@string/insert_password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/purple" />
+                android:theme="@style/EditTextGrey" />
 
             <Button
                 android:id="@+id/button_createaccount"
@@ -209,7 +210,8 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginBottom="64dp"
                 android:text="@string/create_account"
-                android:theme="@style/TextViewButton" />
+                android:theme="@style/CancelButton"
+                android:backgroundTint="@color/gray_transparent"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
