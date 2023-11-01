@@ -2,6 +2,7 @@ package com.progra.loszetaz.dataBase
 
 import android.content.Context
 import com.google.gson.Gson
+import com.progra.loszetaz.GlobalConfig.Companion.actualClub
 import com.progra.loszetaz.GlobalConfig.Companion.preference
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club

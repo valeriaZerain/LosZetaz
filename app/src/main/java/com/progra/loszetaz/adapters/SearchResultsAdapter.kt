@@ -57,15 +57,6 @@ class SearchResultsAdapter :
                         binding.imgClub.setImageResource(data.logo)
                 }
             }
-        }
-
-        fun setImage(data: Club) {
-            if (data.logoString != null)
-                binding.imgClub.setImageURI(Uri.parse(data.logoString))
-            else
-                binding.imgClub.setImageResource(data.logo)
-        }
-    }
 
     fun addResults(newResults: List<Club>) {
         searchResultList.clear()

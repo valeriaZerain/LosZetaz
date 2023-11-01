@@ -123,7 +123,7 @@ class ClubProfileActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        club = actualClub!!
+        club = ClubDB.getClubById(club.id)!!
         setProfile()
         showPosts()
     }
@@ -205,6 +205,9 @@ class ClubProfileActivity : AppCompatActivity() {
 
     }
 
+    fun updateClub(updatedClub: Club){
+        club = updatedClub
+    }
     companion object {
         val CLUB_KEY = "club_key"
     }

@@ -22,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.TagsEnum
+import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.ActivityRegisterClubBinding
 import com.progra.loszetaz.fragment.EmptyMapFragment
 
@@ -193,6 +194,7 @@ class RegisterClubActivity : AppCompatActivity() {
             club.logoString = pickedPhoto.toString() ?: ""
             club.longitude = longitude
             club.latitude = latitude
+
             ClubDB.updateClub(club)
             GlobalConfig.updatingProfile = false
             finish()
