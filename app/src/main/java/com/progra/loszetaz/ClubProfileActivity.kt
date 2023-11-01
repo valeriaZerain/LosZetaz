@@ -56,12 +56,12 @@ class ClubProfileActivity : AppCompatActivity() {
                     binding.imageFavorite.setImageResource(R.drawable.favorite_full)
                     actualClient!!.likedIdClubs.add(club.id)
                     ClubDB.getClubById(club.id)!!.likes++
-                    club.likes++
+                   // club.likes++
                 } else {
                     binding.imageFavorite.setImageResource(R.drawable.favorite_border)
                     actualClient!!.likedIdClubs.remove(club.id)
                     ClubDB.getClubById(club.id)!!.likes--
-                    club.likes--
+                   // club.likes--
                 }
                 setProfile()
                 ClubDB.saveClubs()
