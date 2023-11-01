@@ -21,7 +21,7 @@ class PostDB {
                 description = "¡Este sábado tenemos un line up imperdible!\n" +
                         "Prepara tu mejor disfraz para bailar por horas.\n",
                 image = R.drawable.post_pacha_pachaween,
-                clubId = 5,
+                clubId = 4,
                 imageString = null
             ),
             Post(
@@ -31,7 +31,7 @@ class PostDB {
                 description = "¡La previa a Halloween \uD83C\uDF83 \uD83D\uDC7B es en Pachita!\n" +
                         "La Calle de brujas!!",
                 image = R.drawable.post_pacha_calle_brujas,
-                clubId = 5,
+                clubId = 4,
                 imageString = null
             ),
             Post(
@@ -40,7 +40,7 @@ class PostDB {
                 date = LocalDate(2023, 10, 25),
                 description = "Day of the Dead, Awaken the Fiesta\uD83D\uDC80",
                 image = R.drawable.post_taboo_dia_muertos,
-                clubId = 6,
+                clubId = 5,
                 imageString = null
             ),
             Post(
@@ -51,7 +51,7 @@ class PostDB {
                         "\uD83C\uDF79 2x1 en todos nuestros cócteles. \uD83C\uDF79 ¡No te pierdas la oportunidad de degustar nuestras exquisitas creaciones!\n" +
                         "\uD83C\uDFA7 ¡Tú eres el DJ! \uD83C\uDFA7 Ponemos el control de la música en tus manos para que disfrutes de tus canciones favoritas toda la noche",
                 image = R.drawable.post_malegria_2x1,
-                clubId = 4,
+                clubId = 3,
                 imageString = null
             )
         )
