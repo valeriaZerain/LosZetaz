@@ -10,8 +10,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.MediaStore.Images
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -36,8 +34,8 @@ class RegisterClientActivity : AppCompatActivity() {
         binding = ActivityRegisterClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
-        binding.profilePlaceholder.setOnClickListener {
-            view -> pickedPhoto(view)
+        binding.profilePlaceholder.setOnClickListener { view ->
+            pickedPhoto(view)
         }
         binding.buttonCreateaccount.setOnClickListener {
             val email: String = binding.edittextEmail.text.toString()
@@ -85,7 +83,7 @@ class RegisterClientActivity : AppCompatActivity() {
             if (pickedPhoto != null) {
                 val source = ImageDecoder.createSource(this.contentResolver, pickedPhoto!!)
                 pickedBitMap = ImageDecoder.decodeBitmap(source)
-                pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!,500,500,false)
+                pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!, 500, 500, false)
                 binding.profilePlaceholder.setImageBitmap(pickedBitMap)
             }
         }
@@ -99,7 +97,7 @@ class RegisterClientActivity : AppCompatActivity() {
         val birthday: String = binding.edittextBirthday.text.toString()
         val ci: Int = binding.edittextCi.text.toString().toInt()
 
-        if(
+        if (
             username.isNotEmpty() &&
             phone != 0 &&
             birthday.isNotEmpty() &&
@@ -134,8 +132,7 @@ class RegisterClientActivity : AppCompatActivity() {
                         toast.show()
                     }
                 }
-        }
-        else{
+        } else {
             val toast = Toast.makeText(
                 this,
                 "Llena todos los datos", Toast.LENGTH_SHORT

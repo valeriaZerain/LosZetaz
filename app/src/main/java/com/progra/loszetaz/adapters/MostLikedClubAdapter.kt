@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.progra.loszetaz.ClubProfileActivity
 import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
-import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.MostLikedClubItemBinding
 

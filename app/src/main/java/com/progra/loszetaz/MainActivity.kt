@@ -11,7 +11,6 @@ import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityMainBinding
-import java.util.logging.Handler
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,18 +28,16 @@ class MainActivity : AppCompatActivity() {
         val handler = android.os.Handler(Looper.getMainLooper())
         handler.postDelayed({
             val user = FirebaseAuth.getInstance().currentUser
-            if(user != null){
+            if (user != null) {
                 GlobalConfig.initUser(user)
-                if (isUserClient){
+                if (isUserClient) {
                     val home = Intent(this, HomeScreenActivity::class.java)
                     startActivity(home)
-                }
-                else {
+                } else {
                     val profile = Intent(this, ClubProfileActivity::class.java)
                     startActivity(profile)
                 }
-            }
-            else {
+            } else {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }

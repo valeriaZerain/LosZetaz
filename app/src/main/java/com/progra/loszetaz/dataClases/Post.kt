@@ -14,13 +14,13 @@ data class Post(
     val clubId: Int,
     val imageString: String?
 
-){
-    fun getMiniDescription(): String{
+) {
+    fun getMiniDescription(): String {
         return "${description.take(40)}..."
     }
 
     fun getDate(): String {
-        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("es","ES"))
+        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("es", "ES"))
         val current = date.toJavaLocalDate().format(formatter)
         return current
     }

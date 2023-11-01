@@ -5,7 +5,8 @@
     <string name="username">Nombre de usuario</string>
     <string name="password">Contraseña</string>
     <string name="insert_password">Insertar contraseña</string>
-    <string name="insert_username">Insertar nombre de usuario</string>
+    <string name="insert_username">Insertar el nombre de usuario</string>
+    <string name="insert_usernamelogin">Insertar el correo electrónico</string>
     <string name="register_account">¿No tienes una cuenta?</string>
     <string name="question_register">¿Qué tipo de cuenta deseas crear?</string>
     <string name="register_client">Quiero salir de fiesta</string>
@@ -82,6 +83,15 @@
     <string name="cancel">Cancelar</string>
     <string name="map">Mapa</string>
     <string name="homescreen">Inicio</string>
+    <string name="my_profile">Mi Perfil</string>
+    <string name="close_account">Cerrar Sesion</string>
+    <string name="name_of_club_search">Nombre de discoteca</string>
+    <string name="title_of_publication">Titulo de la publicacion</string>
+    <string name="date">25 Oct 2023</string>
+    <string name="description_example">¡Este sábado tenemos un line up imperdible! Prepara tu mejor disfraz para bailar por horas.\n</string>
+    <string name="description_mandatory">Descripción*</string>
+    <string name="phone_number_mandatory">Número de teléfono*</string>
+    <string name="password_mandatory">Contraseña*</string>
     <string name="update_club">Guardar los cambios</string>
 </resources>
 

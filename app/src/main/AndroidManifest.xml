@@ -35,10 +35,10 @@
 
         <activity
             android:name=".MapActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MyInformationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CreatePostActivity"
             android:exported="true" />

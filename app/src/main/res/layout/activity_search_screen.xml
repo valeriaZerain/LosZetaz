@@ -18,19 +18,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/icon_homescreen"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@drawable/home"></ImageView>
+            android:src="@drawable/home" />
 
         <TextView
-            style="@style/TextViewTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center"
-            android:text="@string/search_title">
+            android:text="@string/search_title"
+            android:theme="@style/TextViewTitle">
 
         </TextView>
     </LinearLayout>
@@ -39,51 +40,56 @@
         android:id="@+id/search_parameters"
         android:layout_width="match_parent"
         android:layout_height="700dp"
-        app:layout_constraintTop_toBottomOf="@+id/top_menu"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="vertical"
         android:padding="20dp"
         android:weightSum="9"
-        android:orientation="vertical"
-        >
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_menu">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            app:layout_constraintTop_toBottomOf="@id/top_menu"
-            android:paddingVertical="10dp"
             android:orientation="horizontal"
-            android:weightSum="6">
+            android:paddingVertical="10dp"
+            android:weightSum="6"
+            app:layout_constraintTop_toBottomOf="@id/top_menu">
 
             <EditText
                 android:id="@+id/search_name_parameter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:theme="@style/TextViewDescription"
+                android:autofillHints="text"
                 android:background="@drawable/background_button"
-                android:paddingLeft="12dp"
-                android:maxLines="1"/>
+                android:hint="@string/name_of_club_search"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="12dp"
+                android:theme="@style/TextViewDescription"
+                android:textColor="@color/white"/>
+
             <ImageView
                 android:id="@+id/search_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:src="@drawable/search"
-                android:layout_marginLeft="4dp"/>
+                android:src="@drawable/search" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <Button
-                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
+                android:theme="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></Button>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
@@ -95,23 +101,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="visible"
-                >
+                android:visibility="visible">
+
                 <CheckBox
                     android:id="@+id/checkbox_outside"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
                     android:text="@string/tag_outdoor"
-                    style="@style/TextViewButton"
-                    android:layout_marginRight="4dp"
-                    />
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton" />
+
                 <CheckBox
                     android:id="@+id/checkbox_live_music"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tag_live_music"
-                    style="@style/TextViewButton"
-                    />
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton" />
 
             </LinearLayout>
 
@@ -125,21 +132,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tag_tables"
-                    style="@style/TextViewButton"
-                    />
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton" />
 
                 <CheckBox
                     android:id="@+id/checkbox_no_cover"
-                    style="@style/TextViewButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_no_cover"/>
+                    android:text="@string/tag_no_cover"
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton" />
+
                 <CheckBox
                     android:id="@+id/checkbox_oldies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    />
+                    android:layout_marginEnd="4dp"
+                    android:text="@string/tag_oldies"
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -149,15 +160,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <Button
-                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
+                android:theme="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></Button>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -166,38 +177,35 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="7">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/search_by_zone_title"
-                style="@style/TextViewSubtitle"
                 android:layout_weight="2"
                 android:padding="10dp"
-                >
-            </TextView>
+                android:text="@string/search_by_zone_title"
+                android:theme="@style/TextViewSubtitle"/>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:focusableInTouchMode="true"
                 android:layout_weight="5"
-                >
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                    >
+                    android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
                     <AutoCompleteTextView
                         android:id="@+id/dropdown_zones"
+                        android:theme="@style/TextViewDescription"
+                        android:textColorHint="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:hint="@string/dropdown_hint"
-                        style="@style/TextViewDescription"
-                        android:inputType="none"
-                        android:background="@color/gray_transparent"
-                        >
-                    </AutoCompleteTextView>
+                        android:inputType="none"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -206,29 +214,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <Button
-                style="@style/TextViewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="@string/search_button"
+                android:theme="@style/TextViewButton"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></Button>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/result_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/result_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/search_result_item" />
-            </LinearLayout>
+                android:theme="@style/EditTextGrey"
+                tools:listitem="@layout/search_result_item" />
+        </LinearLayout>
 
 
     </LinearLayout>

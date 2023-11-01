@@ -11,7 +11,7 @@ import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.dataClases.User
 
 class GlobalConfig {
-    companion object{
+    companion object {
 
         val USER_KEY = "user_key"
         val CLUB_KEY = "club_key"
@@ -29,31 +29,35 @@ class GlobalConfig {
             preference = PreferenceManager.getDefaultSharedPreferences(context)
         }
 
-        fun markAsClient(user: FirebaseUser?){
+        fun markAsClient(user: FirebaseUser?) {
             val editor = preference.edit()
             editor.putBoolean(user!!.uid, true)
             editor.apply()
         }
 
-        fun markAsClub(user: FirebaseUser?){
+        fun markAsClub(user: FirebaseUser?) {
             val editor = preference.edit()
             editor.putBoolean(user!!.uid, false)
             editor.apply()
         }
-        fun initUser(currentUserFirebase: FirebaseUser?){
+
+        fun initUser(currentUserFirebase: FirebaseUser?) {
             userFirebase = currentUserFirebase
             isUserClient = preference.getBoolean(userFirebase!!.uid, false)
-            if(isUserClient)
+            if (isUserClient)
                 actualClient = UserDB.getClientByEmail(userFirebase!!.email!!)
             else
                 actualClub = ClubDB.getClubByEmail(userFirebase!!.email!!)
         }
-        fun isUserAClient(): Boolean{
-            when{
+
+        fun isUserAClient(): Boolean {
+            when {
                 actualClient != null ->
                     return true
+
                 actualClub != null ->
                     return false
+
                 else ->
                     return preference.getBoolean(userFirebase!!.uid, false)
             }

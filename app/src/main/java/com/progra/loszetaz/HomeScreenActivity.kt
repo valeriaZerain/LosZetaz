@@ -18,15 +18,12 @@ class HomeScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeScreenBinding
     private val mostLikedClubAdapter by lazy { MostLikedClubAdapter() }
     private val recentPostClubAdapter by lazy { RecentPostClubAdapter() }
-
     private var isRecentPostShow = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         binding.searchIcon.setOnClickListener {
             val intentHomeToSearch = Intent(this, SearchScreenActivity::class.java)
             startActivity(intentHomeToSearch)
@@ -40,32 +37,40 @@ class HomeScreenActivity : AppCompatActivity() {
         showRecentPost()
 
         binding.textRecentPosts.setOnClickListener {
-            if(!isRecentPostShow){
+            if (!isRecentPostShow) {
                 isRecentPostShow = true
                 binding.mostLikedClubRecycler.visibility = View.GONE
                 binding.recentPostClubRecycler.visibility = View.VISIBLE
-                binding.textRecentPosts.setTextColor(AppCompatResources.getColorStateList
-                    (this, R.color.turquoise))
-                binding.textMostLikedClubs.setTextColor(AppCompatResources.getColorStateList
-                    (this, R.color.white))
+                binding.textRecentPosts.setTextColor(
+                    AppCompatResources.getColorStateList
+                        (this, R.color.turquoise)
+                )
+                binding.textMostLikedClubs.setTextColor(
+                    AppCompatResources.getColorStateList
+                        (this, R.color.white)
+                )
 
             }
         }
         binding.textMostLikedClubs.setOnClickListener {
-            if(isRecentPostShow){
+            if (isRecentPostShow) {
                 isRecentPostShow = false
                 binding.recentPostClubRecycler.visibility = View.GONE
                 binding.mostLikedClubRecycler.visibility = View.VISIBLE
-                binding.textRecentPosts.setTextColor(AppCompatResources.getColorStateList
-                    (this, R.color.white))
-                binding.textMostLikedClubs.setTextColor(AppCompatResources.getColorStateList
-                    (this, R.color.fucsia))
+                binding.textRecentPosts.setTextColor(
+                    AppCompatResources.getColorStateList
+                        (this, R.color.white)
+                )
+                binding.textMostLikedClubs.setTextColor(
+                    AppCompatResources.getColorStateList
+                        (this, R.color.fucsia)
+                )
             }
         }
 
-        binding.profileButton.setOnClickListener{
+        binding.profileButton.setOnClickListener {
             val intent = Intent(this, MyInformationActivity::class.java)
-            intent.putExtra(USER_KEY,GlobalConfig.actualClient)
+            intent.putExtra(USER_KEY, GlobalConfig.actualClient)
             startActivity(intent)
         }
 
@@ -80,16 +85,17 @@ class HomeScreenActivity : AppCompatActivity() {
         showRecentPost()
         showMostLikedClubs()
     }
-    fun showMostLikedClubs(){
+
+    fun showMostLikedClubs() {
         mostLikedClubAdapter.addClubs(ClubDB.mostLikedClubs())
-        binding.mostLikedClubRecycler.apply{
+        binding.mostLikedClubRecycler.apply {
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = mostLikedClubAdapter
         }
     }
 
-    fun showRecentPost(){
+    fun showRecentPost() {
         recentPostClubAdapter.addPost(PostDB.getAllPost())
 
         binding.recentPostClubRecycler.apply {

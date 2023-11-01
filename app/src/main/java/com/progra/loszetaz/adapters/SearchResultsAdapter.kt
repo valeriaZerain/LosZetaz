@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.progra.loszetaz.ClubProfileActivity
 import com.progra.loszetaz.dataClases.Club
-import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.SearchResultItemBinding
 
-class SearchResultsAdapter: RecyclerView.Adapter<SearchResultsAdapter.SearchResultsAdapterViewHolder>() {
+class SearchResultsAdapter :
+    RecyclerView.Adapter<SearchResultsAdapter.SearchResultsAdapterViewHolder>() {
 
     private var context: Context? = null
     private var searchResultList = mutableListOf<Club>()
@@ -57,7 +57,17 @@ class SearchResultsAdapter: RecyclerView.Adapter<SearchResultsAdapter.SearchResu
                         binding.imgClub.setImageResource(data.logo)
                 }
             }
-    fun addResults(newResults: List<Club>){
+        }
+
+        fun setImage(data: Club) {
+            if (data.logoString != null)
+                binding.imgClub.setImageURI(Uri.parse(data.logoString))
+            else
+                binding.imgClub.setImageResource(data.logo)
+        }
+    }
+
+    fun addResults(newResults: List<Club>) {
         searchResultList.clear()
         searchResultList.addAll(newResults)
     }

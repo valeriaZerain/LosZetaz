@@ -1,5 +1,6 @@
 package com.progra.loszetaz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
@@ -17,7 +18,7 @@ class SearchScreenActivity : AppCompatActivity() {
     lateinit var binding : ActivitySearchScreenBinding
     private val searchResultsAdapter by lazy { SearchResultsAdapter() }
 
-    private var zoneSelected : String? = null
+    private var zoneSelected: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchScreenBinding.inflate(layoutInflater)
@@ -62,6 +63,10 @@ class SearchScreenActivity : AppCompatActivity() {
                 searchResults = ClubDB.searchByZones(zoneSelected!!, searchResults)
             }
             showResults(searchResults)
+        }
+        binding.iconHomescreen.setOnClickListener{
+            val intent: Intent = Intent(this, HomeScreenActivity::class.java)
+            startActivity(intent)
         }
     }
 

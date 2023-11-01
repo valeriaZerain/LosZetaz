@@ -25,10 +25,14 @@ class EmptyMapFragment : Fragment() {
         mMap = googleMap
 
         val club = GlobalConfig.coordinateProfileClub
-        if(club == null){
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(-16.529046, -68.112800), 12f))
-        }
-         else {
+        if (club == null) {
+            googleMap.moveCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    LatLng(-16.529046, -68.112800),
+                    12f
+                )
+            )
+        } else {
             googleMap.addMarker(MarkerOptions().position(club))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(club, 15f))
         }

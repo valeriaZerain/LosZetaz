@@ -7,12 +7,8 @@ import android.os.Bundle
 import android.view.View
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.progra.loszetaz.GlobalConfig.Companion.CLUB_KEY
-import com.progra.loszetaz.GlobalConfig.Companion.USER_KEY
 import com.progra.loszetaz.GlobalConfig.Companion.actualClient
 import com.progra.loszetaz.GlobalConfig.Companion.actualClub
-import com.progra.loszetaz.dataClases.Club
-import com.progra.loszetaz.dataClases.User
 import com.progra.loszetaz.databinding.ActivityMyInformationBinding
 
 class MyInformationActivity : AppCompatActivity() {
@@ -22,7 +18,7 @@ class MyInformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMyInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if (GlobalConfig.isUserAClient()){
+        if (GlobalConfig.isUserAClient()) {
 
             binding.topMenu.setBackgroundColor(getColor(R.color.purple))
             binding.clientLayout.visibility = View.VISIBLE
@@ -34,8 +30,7 @@ class MyInformationActivity : AppCompatActivity() {
             binding.userName.text = client.name
             binding.userPhone.text = client.cellphone.toString()
             binding.userImage.setImageURI(Uri.parse(client.profilePictureString))
-        }
-        else{
+        } else {
 
             binding.clientLayout.visibility = View.GONE
             binding.topMenu.setBackgroundColor(getColor(R.color.fucsia))
@@ -49,6 +44,11 @@ class MyInformationActivity : AppCompatActivity() {
             actualClient = null
             actualClub = null
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.iconHomescreen.setOnClickListener {
+            val intent: Intent = Intent(this, HomeScreenActivity::class.java)
             startActivity(intent)
         }
     }

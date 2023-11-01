@@ -1,14 +1,10 @@
 package com.progra.loszetaz.dataBase
 
 import android.content.Context
-import android.preference.PreferenceManager
 import com.google.gson.Gson
-import com.progra.loszetaz.GlobalConfig
-import com.progra.loszetaz.GlobalConfig.Companion.actualClub
 import com.progra.loszetaz.GlobalConfig.Companion.preference
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataClases.Club
-import com.progra.loszetaz.dataClases.User
 
 class ClubDB {
 
@@ -343,7 +339,7 @@ class ClubDB {
             ),
         )
 
-        fun loadClubs(){
+        fun loadClubs() {
             val data = preference.getString(CLUBDB_KEY, "[]")
             val clubsPreferences = gson.fromJson(data, Array<Club>::class.java).toMutableList()
 
@@ -398,8 +394,8 @@ class ClubDB {
 
         fun getClubByEmail(email: String): Club {
             var result: Club? = null
-            clubs.forEach{ club ->
-                if(club.ownerEmail == email){
+            clubs.forEach { club ->
+                if (club.ownerEmail == email) {
                     result = club
                 }
             }
@@ -424,13 +420,13 @@ class ClubDB {
             contactNumber: Int,
             tags: MutableList<Boolean>,
             logoString: String,
-            //zone: String,
+            zone: String?,
             userFirebaseId: String,
             context: Context
         ) {
 
             var newClub: Club = Club(
-                id = clubs.size+1,
+                id = clubs.size + 1,
                 logo = 10,
                 name = name,
                 ownerEmail = ownerEmail,
@@ -445,7 +441,7 @@ class ClubDB {
                 contactNumber = contactNumber,
                 tags = tags,
                 likes = 0,
-                zone = "también falta estoo",
+                zone = zone,
                 logoString = logoString
             )
             clubs.add(newClub)
@@ -458,7 +454,8 @@ class ClubDB {
             editor.apply()
 
         }
-        fun saveClubs(){
+
+        fun saveClubs() {
             val clubsJSON = gson.toJson(clubs)
             val editor = preference.edit()
             editor.putString(CLUBDB_KEY, clubsJSON)

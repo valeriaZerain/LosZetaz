@@ -31,10 +31,10 @@
         android:id="@+id/constraint_registermap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"
         android:visibility="gone"
-        android:elevation="2dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:id="@+id/map_fragment"
@@ -46,23 +46,23 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             android:src="@drawable/pin"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:elevation="2dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_register_map_accepted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/TextViewButton"
-            android:text="@string/insert_location"
-            android:layout_marginRight="32dp"
             android:layout_marginTop="32dp"
+            android:layout_marginRight="32dp"
+            android:text="@string/insert_location"
+            android:theme="@style/TextViewButton"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,9 +118,9 @@
                         android:id="@+id/logo_placeholder"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
+                        android:src="@drawable/profile_picture_empty"
                         android:text="@string/select_picture"
-                        android:theme="@style/TextViewButton"
-                        android:src="@drawable/profile_picture_empty"/>
+                        android:theme="@style/TextViewButton" />
 
                     <TextView
                         android:id="@+id/text_logo"
@@ -145,10 +145,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_club_name"
                 android:inputType="textPersonName"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:id="@+id/text_view_email"
@@ -164,17 +165,19 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
-                android:background="@color/white"
+
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_owner"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:id="@+id/text_view_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/password"
+                android:text="@string/password_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -183,10 +186,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="password"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,16 +205,17 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="license"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_license"
-                android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/phone_number"
+                android:text="@string/phone_number_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -219,16 +224,17 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_phonenumber"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/description_club"
+                android:text="@string/description_mandatory"
                 android:theme="@style/TextViewSubtitle" />
 
             <EditText
@@ -237,10 +243,12 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_description_club"
                 android:inputType="text"
-                android:textColorHint="@color/purple" />
+                android:maxLines="5"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:id="@+id/text_location"
@@ -254,8 +262,8 @@
                 android:id="@+id/button_register_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextViewButton"
-                android:text="@string/insert_location"/>
+                android:text="@string/insert_location"
+                android:theme="@style/TextViewButton" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -270,10 +278,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="time"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_schedule"
-                android:inputType="time"
-                android:textColorHint="@color/purple" />
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -288,10 +297,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="price"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_cover"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -306,10 +316,12 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_recomendations"
                 android:inputType="text"
-                android:textColorHint="@color/purple" />
+                android:maxLines="5"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -324,10 +336,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
-                android:background="@color/white"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_contacts"
                 android:inputType="number"
-                android:textColorHint="@color/purple" />
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -367,6 +380,7 @@
                 android:text="@string/tables_reserved"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
+
             <CheckBox
                 android:id="@+id/checkbox_Oldies"
                 android:layout_width="wrap_content"
@@ -375,6 +389,21 @@
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_zones"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@color/white"
+                    android:hint="@string/dropdown_hint"
+                    android:inputType="none"
+                    android:theme="@style/TextViewDescription" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/button_createaccount"
                 android:layout_width="wrap_content"
@@ -382,8 +411,10 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginBottom="64dp"
+                android:backgroundTint="@color/gray_transparent"
                 android:text="@string/create_account"
-                android:theme="@style/TextViewButton" />
+                android:theme="@style/CancelButton" />
+  
             <Button
                 android:id="@+id/button_update_account"
                 android:layout_width="wrap_content"

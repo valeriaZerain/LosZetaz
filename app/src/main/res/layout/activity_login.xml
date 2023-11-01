@@ -92,10 +92,11 @@
             android:layout_width="300sp"
             android:layout_height="48sp"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:hint="@string/insert_username"
+            android:hint="@string/insert_usernamelogin"
             android:paddingStart="14dp"
-            android:textColorHint="@color/purple" />
+            android:theme="@style/EditTextGrey"
+            android:background="@color/gray_transparent"
+            android:textColor="@color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -125,11 +126,12 @@
             android:layout_height="48sp"
             android:layout_weight="1"
             android:autofillHints="password"
-            android:background="@color/white"
             android:hint="@string/insert_password"
             android:inputType="textPassword"
             android:paddingStart="14dp"
-            android:textColorHint="@color/purple" />
+            android:theme="@style/EditTextGrey"
+            android:background="@color/gray_transparent"
+            android:textColor="@color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
@@ -141,7 +143,8 @@
         android:theme="@style/TextViewButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_password" />
+        app:layout_constraintTop_toBottomOf="@id/layout_password"
+        android:backgroundTint="@color/purple"/>
 
     <Button
         android:id="@+id/button_register"
@@ -149,7 +152,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/register_account"
-        android:theme="@style/TextViewButton"
+        android:theme="@style/PostButton"
+        android:backgroundTint="#100FFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_signin" />

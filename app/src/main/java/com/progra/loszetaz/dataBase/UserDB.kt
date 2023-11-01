@@ -1,10 +1,8 @@
 package com.progra.loszetaz.dataBase
 
 import android.content.Context
-import android.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.progra.loszetaz.GlobalConfig
 import com.progra.loszetaz.GlobalConfig.Companion.preference
 import com.progra.loszetaz.dataClases.User
 
@@ -16,27 +14,7 @@ class UserDB {
 
         val USERDB_KEY = "USERDB_KEY"
 
-        var users: MutableList<User> = mutableListOf<User>(
-//            User(
-//                id = 10,
-//                name = "Zein Tonconi",
-//                email = "zeincho@zeincho.com",
-//                cellphone = 70186881,
-//                birthday = "08-12-2003",
-//                ci = 15278109,
-//                likedIdClubs = mutableListOf(1, 2, 3, 5)
-//            ),
-//            User(
-//                id = 11,
-//                name = "Valeria Zerain",
-//                email = "vale@zerain.com",
-//                cellphone = 60627590,
-//                birthday = "17-06-2003",
-//                ci = 15278110,
-//                likedIdClubs = mutableListOf(4, 6, 7, 8)
-//            )
-
-        )
+        var users: MutableList<User> = mutableListOf<User>()
 
         fun getAllUsers(): List<User> {
             return users
@@ -82,7 +60,8 @@ class UserDB {
             editor.apply()
 
         }
-        fun saveUsers(){
+
+        fun saveUsers() {
             val usersJSON = gson.toJson(users)
             val editor = preference.edit()
             editor.putString(USERDB_KEY, usersJSON)

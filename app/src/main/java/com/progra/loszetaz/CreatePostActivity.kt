@@ -14,7 +14,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.progra.loszetaz.dataBase.PostDB
-import com.progra.loszetaz.dataClases.Post
 import com.progra.loszetaz.databinding.ActivityCreatePostBinding
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
@@ -40,7 +39,7 @@ class CreatePostActivity : AppCompatActivity() {
             val now: Instant = Clock.System.now()
             val today: LocalDate = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
 
-            if(binding.postTitle.text.toString().isNotEmpty() && pickedBitMap != null) {
+            if (binding.postTitle.text.toString().isNotEmpty() && pickedBitMap != null) {
 
                 val title = binding.postTitle.text.toString()
                 val description = binding.descriptionPost.text.toString()
@@ -48,27 +47,39 @@ class CreatePostActivity : AppCompatActivity() {
                 val imageString = pickedPhoto!!.toString()
                 val date = today
 
-                PostDB.addPost(title,description,clubId,imageString,date, this)
+                PostDB.addPost(title, description, clubId, imageString, date, this)
                 finish()
-            }
-            else{
-                val toast = Toast.makeText(this,
-                    "El titulo y la imagen no pueden estar vacios", Toast.LENGTH_SHORT)
+            } else {
+                val toast = Toast.makeText(
+                    this,
+                    "El titulo y la imagen no pueden estar vacios", Toast.LENGTH_SHORT
+                )
                 toast.show()
             }
         }
         binding.cancelPostButton.setOnClickListener {
-           finish()
+            finish()
+        }
+        binding.iconUser.setOnClickListener {
+            val intent: Intent = Intent(this, MyInformationActivity::class.java)
+            startActivity(intent)
         }
     }
 
     fun pickedPhoto(view: View) {
-        if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                1)
-        else{
-            val galleryIntext = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        )
+            ActivityCompat.requestPermissions(
+                this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                1
+            )
+        else {
+            val galleryIntext =
+                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(galleryIntext, 2)
         }
     }
@@ -88,11 +99,11 @@ class CreatePostActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null){
+        if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             pickedPhoto = data.data
             val source = ImageDecoder.createSource(this.contentResolver, pickedPhoto!!)
             pickedBitMap = ImageDecoder.decodeBitmap(source)
-            pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!,500,500,false)
+            pickedBitMap = Bitmap.createScaledBitmap(pickedBitMap!!, 500, 500, false)
             binding.uploadedImage.setImageBitmap(pickedBitMap)
         }
         super.onActivityResult(requestCode, resultCode, data)

@@ -35,6 +35,7 @@
         <item name="android:textSize">20sp</item>
         <item name="fontFamily">@font/lato_light</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
     </style>
 
     <style name="TextViewTab">
@@ -54,28 +55,35 @@
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="TextViewShowMore">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/lato_light</item>
     </style>
-    
+
     <style name="TextViewPostItem">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">24sp</item>
         <item name="fontFamily">@font/lato_bolditalic</item>
     </style>
-    
+
     <style name="PostButton">
         <item name="strokeColor">@color/turquoise</item>
         <item name="strokeWidth">2dp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/lato_bold</item>
     </style>
+
     <style name="CancelButton">
         <item name="strokeColor">@color/fucsia</item>
         <item name="strokeWidth">2dp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/lato_bold</item>
     </style>
+
     <style name="SearchResultTitle">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">30sp</item>
@@ -87,9 +95,18 @@
         <item name="android:textSize">20sp</item>
         <item name="fontFamily">@font/lato_light</item>
     </style>
+
     <style name="TextInfoTitle">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">28sp</item>
         <item name="fontFamily">@font/lato_bold</item>
+    </style>
+
+    <style name="EditTextGrey">
+        <item name="android:background">@color/gray_transparent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/lato_light</item>
     </style>
 </resources>

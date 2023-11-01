@@ -36,7 +36,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/center_line"
                 android:theme="@style/TextViewPostItem"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 />
             <TextView
                 android:id="@+id/recent_post_club_description"
