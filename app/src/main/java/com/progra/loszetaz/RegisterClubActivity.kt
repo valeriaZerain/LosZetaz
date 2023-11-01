@@ -34,7 +34,6 @@ class RegisterClubActivity : AppCompatActivity(){
     val context: Context = this
     var pickedPhoto: Uri? = null
 
-    private lateinit var googleMap: GoogleMap
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +47,6 @@ class RegisterClubActivity : AppCompatActivity(){
             replace(binding.mapFragment.id, fragment)
             setReorderingAllowed(true)
             addToBackStack("replacement")
-        }
-
-        fragment.setOnMapReadyListener { googleMap ->
-            this.googleMap = googleMap
         }
 
         binding.logoPlaceholder.setOnClickListener {

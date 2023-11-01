@@ -16,21 +16,30 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.progra.loszetaz.ClubProfileActivity
+import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
 
-class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListener{
+class MapsFragment : Fragment(){
+
     lateinit var mMap: GoogleMap
-    private var onMapReadyListener: ((GoogleMap) -> Unit)? = null
 
     val zoomLevel = 12f
 
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
+
         val initialLocation = LatLng(-16.529046, -68.112800)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, zoomLevel))
         addMarkers(ClubDB.clubs)
+        mMap.setOnMarkerClickListener { marker ->
+            val intent = Intent(context, ClubProfileActivity::class.java)
+            val clubId = marker.title!!.toInt()
+            intent.putExtra(CLUB_KEY, ClubDB.getClubById(clubId))
+            startActivity(intent)
+            false
+        }
     }
 
     override fun onCreateView(
@@ -60,24 +69,4 @@ class MapsFragment : Fragment(),OnMapReadyCallback,GoogleMap.OnMarkerClickListen
         }
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        val markerID = marker.title?.toInt()
-        try {
-            val intent = Intent(context, ClubProfileActivity::class.java)
-            intent.putExtra(ClubProfileActivity.CLUB_KEY, ClubDB.getClubById(markerID))
-            startActivity(intent)
-        } catch (e: ClassNotFoundException) {
-            Toast.makeText(context, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
-                .show()
-        }
-        return true
-    }
-
-    override fun onMapReady(gMap: GoogleMap) {
-        mMap = gMap
-        onMapReadyListener?.invoke(gMap)
-    }
-     fun setOnMapReadyListener(listener: (GoogleMap) -> Unit) {
-        onMapReadyListener = listener
-    }
 }

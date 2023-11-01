@@ -19,11 +19,9 @@ import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.databinding.ActivityMapBinding
 import com.progra.loszetaz.fragment.MapsFragment
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+class MapActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapBinding
     val context: Context = this
-    private lateinit var map: GoogleMap
-
     companion object {
         const val REQUEST_CODE_LOCATION = 0
     }
@@ -51,111 +49,4 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
 
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
-        map.setOnMarkerClickListener(this)
-        enableLocation()
-    }
-
-    private fun isLocationPermissionGranted() =
-        ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-
-    private fun enableLocation() {
-        if (!::map.isInitialized) return
-        if (isLocationPermissionGranted()) {
-            if (ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return
-            }
-            map.isMyLocationEnabled = true
-        } else {
-            requestLocationPermission()
-        }
-    }
-
-    private fun requestLocationPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            )
-        ) {
-            Toast.makeText(this, "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
-        } else {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_CODE_LOCATION
-            )
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            REQUEST_CODE_LOCATION -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
-                map.isMyLocationEnabled = true
-            } else {
-                Toast.makeText(this, "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            else -> {}
-        }
-    }
-
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        if (!::map.isInitialized) return
-        if (!isLocationPermissionGranted()) {
-            if (ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return
-            }
-            map.isMyLocationEnabled = false
-            Toast.makeText(this, "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
-
-    override fun onMarkerClick(marker: Marker):Boolean {
-        val markerID = marker.title?.toInt()
-        try {
-            val intent = Intent(this, ClubProfileActivity::class.java)
-            intent.putExtra(CLUB_KEY, ClubDB.getClubById(markerID))
-            startActivity(intent)
-        } catch (e: ClassNotFoundException) {
-            Toast.makeText(this, "La ubicación que seleccionaste no existe", Toast.LENGTH_SHORT)
-                .show()
-        }
-        return true
-    }
 }
