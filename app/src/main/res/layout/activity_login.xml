@@ -94,7 +94,9 @@
             android:layout_weight="1"
             android:hint="@string/insert_usernamelogin"
             android:paddingStart="14dp"
-            android:theme="@style/EditTextGrey"/>
+            android:theme="@style/EditTextGrey"
+            android:background="@color/gray_transparent"
+            android:textColor="@color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -124,11 +126,12 @@
             android:layout_height="48sp"
             android:layout_weight="1"
             android:autofillHints="password"
-            android:background="@color/gray_transparent"
             android:hint="@string/insert_password"
             android:inputType="textPassword"
             android:paddingStart="14dp"
-            android:theme="@style/EditTextGrey"/>
+            android:theme="@style/EditTextGrey"
+            android:background="@color/gray_transparent"
+            android:textColor="@color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button

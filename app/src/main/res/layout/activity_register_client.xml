@@ -106,10 +106,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
-                android:background="@color/white"
                 android:hint="@string/insert_username"
                 android:inputType="textPersonName"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,10 +125,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="emailAddress"
-                android:background="@color/white"
                 android:hint="@string/insert_email"
                 android:inputType="textEmailAddress"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -142,11 +144,12 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
-                android:background="@color/white"
                 android:hint="@string/insert_phonenumber"
                 android:inputType="number"
                 android:maxLength="8"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -161,10 +164,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="birthday"
-                android:background="@color/white"
                 android:hint="@string/insert_birthday"
                 android:inputType="date"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -179,10 +183,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="ci"
-                android:background="@color/white"
                 android:hint="@string/insert_ci"
                 android:inputType="number"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -197,10 +202,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="password"
-                android:background="@color/white"
                 android:hint="@string/insert_password"
                 android:inputType="textPassword"
-                android:theme="@style/EditTextGrey" />
+                android:theme="@style/EditTextGrey"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/button_createaccount"

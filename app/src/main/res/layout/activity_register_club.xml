@@ -31,10 +31,10 @@
         android:id="@+id/constraint_registermap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"
         android:visibility="gone"
-        android:elevation="2dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:id="@+id/map_fragment"
@@ -46,23 +46,23 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             android:src="@drawable/pin"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:elevation="2dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_register_map_accepted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/TextViewButton"
-            android:text="@string/insert_location"
-            android:layout_marginRight="32dp"
             android:layout_marginTop="32dp"
+            android:layout_marginRight="32dp"
+            android:text="@string/insert_location"
+            android:theme="@style/TextViewButton"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,9 +118,9 @@
                         android:id="@+id/logo_placeholder"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
+                        android:src="@drawable/profile_picture_empty"
                         android:text="@string/select_picture"
-                        android:theme="@style/TextViewButton"
-                        android:src="@drawable/profile_picture_empty"/>
+                        android:theme="@style/TextViewButton" />
 
                     <TextView
                         android:id="@+id/text_logo"
@@ -145,8 +145,10 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_club_name"
                 android:inputType="textPersonName"
+                android:textColor="@color/white"
                 android:theme="@style/EditTextGrey" />
 
             <TextView
@@ -163,8 +165,10 @@
                 android:layout_marginTop="8dp"
                 android:autofillHints="name"
 
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_owner"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/white"
                 android:theme="@style/EditTextGrey" />
 
             <TextView
@@ -180,8 +184,10 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="password"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_password"
                 android:inputType="textPassword"
+                android:textColor="@color/white"
                 android:theme="@style/EditTextGrey" />
 
             <TextView
@@ -197,9 +203,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="license"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_license"
                 android:inputType="text"
-                android:theme="@style/EditTextGrey"/>
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -214,8 +222,10 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_phonenumber"
                 android:inputType="number"
+                android:textColor="@color/white"
                 android:theme="@style/EditTextGrey" />
 
             <TextView
@@ -231,10 +241,12 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_description_club"
                 android:inputType="text"
-                android:theme="@style/EditTextGrey"
-                android:maxLines="5"/>
+                android:maxLines="5"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:id="@+id/text_location"
@@ -248,8 +260,8 @@
                 android:id="@+id/button_register_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextViewButton"
-                android:text="@string/insert_location"/>
+                android:text="@string/insert_location"
+                android:theme="@style/TextViewButton" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -264,9 +276,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="time"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_schedule"
                 android:inputType="text"
-                android:theme="@style/EditTextGrey"/>
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -281,9 +295,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="price"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_cover"
                 android:inputType="number"
-                android:theme="@style/EditTextGrey"/>
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -298,10 +314,12 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="description"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_recomendations"
                 android:inputType="text"
-                android:theme="@style/EditTextGrey"
-                android:maxLines="5"/>
+                android:maxLines="5"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -316,9 +334,11 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:autofillHints="phone"
+                android:background="@color/gray_transparent"
                 android:hint="@string/insert_contacts"
                 android:inputType="number"
-                android:theme="@style/EditTextGrey"/>
+                android:textColor="@color/white"
+                android:theme="@style/EditTextGrey" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -358,6 +378,7 @@
                 android:text="@string/tables_reserved"
                 android:textColor="@color/white"
                 android:theme="@style/TextViewDescription" />
+
             <CheckBox
                 android:id="@+id/checkbox_Oldies"
                 android:layout_width="wrap_content"
@@ -369,18 +390,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                >
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
                 <AutoCompleteTextView
                     android:id="@+id/dropdown_zones"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:hint="@string/dropdown_hint"
-                    android:theme="@style/TextViewDescription"
-                    android:inputType="none"
                     android:background="@color/white"
-                    >
-                </AutoCompleteTextView>
+                    android:hint="@string/dropdown_hint"
+                    android:inputType="none"
+                    android:theme="@style/TextViewDescription" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -390,9 +409,9 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginBottom="64dp"
+                android:backgroundTint="@color/gray_transparent"
                 android:text="@string/create_account"
-                android:theme="@style/CancelButton"
-                android:backgroundTint="@color/gray_transparent"/>
+                android:theme="@style/CancelButton" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

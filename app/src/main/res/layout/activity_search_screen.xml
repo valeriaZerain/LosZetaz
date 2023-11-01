@@ -65,7 +65,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingStart="12dp"
-                android:theme="@style/TextViewDescription" />
+                android:theme="@style/TextViewDescription"
+                android:textColor="@color/white"/>
 
             <ImageView
                 android:id="@+id/search_button"
@@ -148,7 +149,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
                     android:text="@string/tag_oldies"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:theme="@style/TextViewButton"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -182,7 +184,7 @@
                 android:layout_weight="2"
                 android:padding="10dp"
                 android:text="@string/search_by_zone_title"
-                android:theme="@style/TextViewSubtitle"></TextView>
+                android:theme="@style/TextViewSubtitle"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -198,11 +200,12 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/dropdown_zones"
-                        style="@style/TextViewDescription"
+                        android:theme="@style/TextViewDescription"
+                        android:textColorHint="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:hint="@string/dropdown_hint"
-                        android:inputType="none"></AutoCompleteTextView>
+                        android:inputType="none"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>

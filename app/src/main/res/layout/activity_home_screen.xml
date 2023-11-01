@@ -132,7 +132,8 @@
         android:text="@string/maps_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/center_line"
-        app:layout_constraintRight_toRightOf="@id/center_line" />
+        app:layout_constraintRight_toRightOf="@id/center_line"
+        android:backgroundTint="@color/purple"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
