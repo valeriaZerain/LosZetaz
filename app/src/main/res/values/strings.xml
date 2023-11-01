@@ -92,5 +92,6 @@
     <string name="description_mandatory">Descripción*</string>
     <string name="phone_number_mandatory">Número de teléfono*</string>
     <string name="password_mandatory">Contraseña*</string>
+    <string name="update_club">Guardar los cambios</string>
 </resources>
 

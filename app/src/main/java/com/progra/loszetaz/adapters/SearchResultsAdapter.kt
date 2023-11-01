@@ -37,16 +37,25 @@ class SearchResultsAdapter :
     }
 
     override fun getItemCount(): Int = searchResultList.size
-    inner class SearchResultsAdapterViewHolder(private val binding: SearchResultItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class SearchResultsAdapterViewHolder(private val binding: SearchResultItemBinding):
+            RecyclerView.ViewHolder(binding.root){
 
-        fun binding(data: Club) {
-            binding.clubName.text = data.name
-            setImage(data)
-            binding.resultItem.setOnClickListener {
-                val intent = Intent(context, ClubProfileActivity::class.java)
-                intent.putExtra(ClubProfileActivity.CLUB_KEY, data)
-                context?.startActivity(intent)
+                fun binding(data: Club){
+                    binding.clubName.text = data.name
+                    setImage(data)
+                    binding.resultItem.setOnClickListener{
+                        val intent = Intent(context, ClubProfileActivity::class.java)
+                        intent.putExtra(ClubProfileActivity.CLUB_KEY, data)
+                        context?.startActivity(intent)
+                    }
+                }
+
+                fun setImage(data: Club){
+                    if(data.logoString != null)
+                        binding.imgClub.setImageURI(Uri.parse(data.logoString))
+                    else
+                        binding.imgClub.setImageResource(data.logo)
+                }
             }
         }
 

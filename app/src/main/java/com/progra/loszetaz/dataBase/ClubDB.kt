@@ -343,12 +343,11 @@ class ClubDB {
             val data = preference.getString(CLUBDB_KEY, "[]")
             val clubsPreferences = gson.fromJson(data, Array<Club>::class.java).toMutableList()
 
-            clubsPreferences.forEach { club: Club ->
-                if (clubs.contains(club))
-                    clubsPreferences.remove(club)
+            if(clubsPreferences.isNotEmpty()){
+                clubs.clear()
+                clubs.addAll(clubsPreferences)
             }
 
-            clubs.addAll(clubsPreferences)
         }
 
         fun getAllClubs(): List<Club> {
@@ -461,6 +460,16 @@ class ClubDB {
             val editor = preference.edit()
             editor.putString(CLUBDB_KEY, clubsJSON)
             editor.apply()
+        }
+
+        fun updateClub(club: Club) {
+            actualClub = club
+            for (i in 0..clubs.size-1){
+                if(club.id == clubs[i].id){
+                    clubs[i] = club
+                }
+            }
+            saveClubs()
         }
     }
 }
