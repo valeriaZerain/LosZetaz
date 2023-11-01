@@ -18,7 +18,7 @@ class ClubDB {
 
         var clubs: MutableList<Club> = mutableListOf(
             Club(
-                id = 1,
+                id = 0,
                 logo = R.drawable.logo_vanity,
                 ownerEmail = "vanity@vanity.com",
                 name = "Vanity",
@@ -37,7 +37,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 2,
+                id = 1,
                 logo = R.drawable.logo_garden,
                 ownerEmail = "garden@garden.com",
                 name = "Garden",
@@ -56,7 +56,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 3,
+                id = 2,
                 logo = R.drawable.logo_gold,
                 ownerEmail = "gold@gold.com",
                 name = "Gold",
@@ -75,7 +75,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 4,
+                id = 3,
                 logo = R.drawable.logo_malegria,
                 ownerEmail = "malegria@malegria.com",
                 name = "Malegria",
@@ -94,7 +94,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 5,
+                id = 4,
                 logo = R.drawable.logo_pacha,
                 ownerEmail = "pacha@pacha.com",
                 name = "Pacha",
@@ -113,7 +113,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 6,
+                id = 5,
                 logo = R.drawable.logo_taboo,
                 ownerEmail = "taboo@taboo.com",
                 name = "Taboo",
@@ -132,7 +132,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 7,
+                id = 6,
                 logo = R.drawable.logo_fabula,
                 ownerEmail = "fabula@fabula.com",
                 name = "Fabula",
@@ -151,7 +151,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 9,
+                id = 7,
                 logo = R.drawable.logo_black_monkey,
                 ownerEmail = "black@black.com",
                 name = "Black Monkey Bar",
@@ -170,7 +170,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 10,
+                id = 8,
                 logo = R.drawable.logo_forum,
                 ownerEmail = "forum@forum.com",
                 name = "Forum",
@@ -189,7 +189,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 11,
+                id = 9,
                 logo = R.drawable.logo_zouk,
                 ownerEmail = "zoruk@zoruk.com",
                 name = "Zoruk Boulevard",
@@ -208,7 +208,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 12,
+                id = 10,
                 logo = R.drawable.logo_wave,
                 ownerEmail = "wave@wave.com",
                 name = "Wave Club",
@@ -227,7 +227,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 13,
+                id = 11,
                 logo = R.drawable.logo_london,
                 ownerEmail = "london@london.com",
                 name = "London Club",
@@ -246,7 +246,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 14,
+                id = 12,
                 logo = R.drawable.logo_zelta,
                 ownerEmail = "zelta@zelta.com",
                 name = "Zelta",
@@ -265,7 +265,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 15,
+                id = 13,
                 logo = R.drawable.logo_plan_b,
                 ownerEmail = "planb@planb.com",
                 name = "Club Plan B",
@@ -284,7 +284,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 16,
+                id = 14,
                 logo = R.drawable.logo_level,
                 ownerEmail = "level@level.com",
                 name = "Level Club",
@@ -303,7 +303,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 17,
+                id = 15,
                 logo = R.drawable.logo_guru,
                 ownerEmail = "guru@guru.com",
                 name = "Gurú",
@@ -322,7 +322,7 @@ class ClubDB {
                 logoString = null
             ),
             Club(
-                id = 18,
+                id = 16,
                 logo = R.drawable.logo_open_mind,
                 ownerEmail = "open@open.com",
                 name = "Open Mind",

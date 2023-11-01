@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.maps.model.LatLng
 import com.progra.loszetaz.CreatePostActivity.Companion.NAME_CLUB_KEY
 import com.progra.loszetaz.GlobalConfig.Companion.actualClient
 import com.progra.loszetaz.GlobalConfig.Companion.actualClub
+import com.progra.loszetaz.GlobalConfig.Companion.coordinateProfileClub
 import com.progra.loszetaz.GlobalConfig.Companion.isUserClient
 import com.progra.loszetaz.adapters.FeedPostClubAdapter
 import com.progra.loszetaz.dataBase.ClubDB
@@ -17,6 +20,8 @@ import com.progra.loszetaz.dataBase.PostDB
 import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.dataClases.Club
 import com.progra.loszetaz.databinding.ActivityClubProfileBinding
+import com.progra.loszetaz.fragment.EmptyMapFragment
+import com.progra.loszetaz.fragment.MapsFragment
 
 class ClubProfileActivity : AppCompatActivity() {
 
@@ -27,12 +32,13 @@ class ClubProfileActivity : AppCompatActivity() {
 
     private var isInfoShown: Boolean = true
     private var hasLiked: Boolean = true
-
+    private lateinit var fragment: EmptyMapFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClubProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fragment = EmptyMapFragment()
         if(isUserClient){
             club = intent.getSerializableExtra(CLUB_KEY) as Club
             binding.clubLayout.visibility = View.INVISIBLE
@@ -70,6 +76,7 @@ class ClubProfileActivity : AppCompatActivity() {
             binding.clientLayout.visibility = View.INVISIBLE
         }
 
+        setMap()
         setProfile()
         showPosts()
 
@@ -136,6 +143,14 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.updateInfo.visibility = View.GONE
     }
 
+    fun setMap(){
+        coordinateProfileClub = LatLng( club.latitude, club.longitude)
+        supportFragmentManager.commit {
+            replace(binding.mapFragment.id, fragment)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+    }
     fun setProfile(){
         binding.textClubNameFeed.text = club.name
         binding.textClubName.text = club.name
@@ -144,8 +159,8 @@ class ClubProfileActivity : AppCompatActivity() {
         binding.textRecommendations.text = club.recommendations
         binding.schedule.text = club.schedule
         binding.textCover.text = club.cover.toString()
-        // TODO Mostrar el mapa fragment
-        binding.textLocation.text = ""
+
+
         setProfileImage()
     }
 

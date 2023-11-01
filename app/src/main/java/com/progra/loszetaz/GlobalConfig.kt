@@ -3,6 +3,7 @@ package com.progra.loszetaz
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseUser
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataBase.UserDB
@@ -20,6 +21,8 @@ class GlobalConfig {
         var userFirebase: FirebaseUser? = null
         var isUserClient: Boolean = true
         lateinit var preference: SharedPreferences
+
+        var coordinateProfileClub: LatLng? = null
         fun initPreferences(context: Context){
             preference = PreferenceManager.getDefaultSharedPreferences(context)
         }

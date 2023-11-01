@@ -212,11 +212,11 @@
                 android:theme="@style/TextViewSubtitleDescription"
                 android:text="@string/location_club_profile"
                 android:layout_marginRight="8dp"/>
-            <TextView
-                android:id="@+id/text_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextViewDescription"/>
+            <FrameLayout
+                android:id="@+id/map_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
     </ScrollView>
 

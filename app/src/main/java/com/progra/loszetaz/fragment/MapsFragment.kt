@@ -17,6 +17,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.progra.loszetaz.ClubProfileActivity
 import com.progra.loszetaz.ClubProfileActivity.Companion.CLUB_KEY
+import com.progra.loszetaz.GlobalConfig
 import com.progra.loszetaz.R
 import com.progra.loszetaz.dataBase.ClubDB
 import com.progra.loszetaz.dataClases.Club
@@ -25,12 +26,13 @@ class MapsFragment : Fragment(){
 
     lateinit var mMap: GoogleMap
 
-    val zoomLevel = 12f
+    var zoomLevel = 12f
+    var center = LatLng(-16.529046, -68.112800)
 
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
 
-        val initialLocation = LatLng(-16.529046, -68.112800)
+        val initialLocation = center
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, zoomLevel))
         addMarkers(ClubDB.clubs)
         mMap.setOnMarkerClickListener { marker ->

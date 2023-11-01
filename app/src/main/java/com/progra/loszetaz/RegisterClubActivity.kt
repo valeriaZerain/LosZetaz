@@ -25,6 +25,7 @@ import com.progra.loszetaz.dataBase.TagsEnum
 import com.progra.loszetaz.dataBase.UserDB
 import com.progra.loszetaz.databinding.ActivityRegisterClientBinding
 import com.progra.loszetaz.databinding.ActivityRegisterClubBinding
+import com.progra.loszetaz.fragment.EmptyMapFragment
 import com.progra.loszetaz.fragment.MapsFragment
 
 class RegisterClubActivity : AppCompatActivity(){
@@ -42,7 +43,8 @@ class RegisterClubActivity : AppCompatActivity(){
         setContentView(binding.root)
         auth = Firebase.auth
 
-        val fragment = MapsFragment()
+        val fragment = EmptyMapFragment()
+        GlobalConfig.coordinateProfileClub = null
         supportFragmentManager.commit {
             replace(binding.mapFragment.id, fragment)
             setReorderingAllowed(true)
