@@ -27,7 +27,7 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Crear local.properties con la API Key
-      run: echo "sdk.dir=/usr/local/lib/android/sdk" > ./local.properties && echo "google_maps_api_key=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> ./local.properties
+      run: echo "sdk.dir=/usr/local/lib/android/sdk" > ./local.properties && echo "MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> ./local.properties
 
     - name: Hacer el build para el apk
       run: ./gradlew assembleDebug
