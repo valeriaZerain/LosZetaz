@@ -19,6 +19,12 @@ jobs:
     - name: Crear el archivo google-services.json
       run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > ./app/google-services.json
 
+    - name: Configuracion de gradle
+      uses: gradle/gradle-build-action@v3
+
+    - name: Volver el gradle ejecutable
+      run: chmod +x ./gradlew
+
     - name: Hacer el build para el apk
       run: ./gradlew assembleDebug
 
