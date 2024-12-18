@@ -1,7 +1,8 @@
 name: Build Rumba Andina app for testing
 
 on: 
-  workflow_dispatch:
+  workflow_dispatch:  # Trigger manual
+
 jobs:
   build: 
     runs-on: ubuntu-latest
@@ -14,13 +15,16 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '21'
-        
+        java-version: '17'
+
     - name: Crear el archivo google-services.json
       run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > ./app/google-services.json
 
-    - name: Configuracion de gradle
+    - name: Configuración de Gradle
       uses: gradle/gradle-build-action@v3
+
+    - name: Limpiar caché de Gradle
+      run: ./gradlew clean  # Limpia cualquier build previo
 
     - name: Volver el gradle ejecutable
       run: chmod +x ./gradlew
