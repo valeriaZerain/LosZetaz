@@ -23,9 +23,6 @@ jobs:
     - name: Configuración de Gradle
       uses: gradle/gradle-build-action@v3
 
-    - name: Limpiar caché de Gradle
-      run: ./gradlew clean  # Limpia cualquier build previo
-
     - name: Volver el gradle ejecutable
       run: chmod +x ./gradlew
 
