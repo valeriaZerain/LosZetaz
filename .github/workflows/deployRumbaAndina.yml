@@ -1,10 +1,10 @@
 name: Build Rumba Andina app for testing
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,13 +15,15 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '21'
 
     - name: Crear el archivo google-services.json
       run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > ./app/google-services.json
 
-    - name: Crear el archivo local.properties
-      run: echo "${{ secrets.LOCAL_PROPERTIES }}" > ./local.properties
+    - name: Crear local.properties con la API Key
+      run: |
+        echo "sdk.dir=/usr/local/lib/android/sdk" > ./local.properties
+        echo "google_maps_api_key=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> ./local.properties
 
     - name: Configuración de Gradle
       uses: gradle/gradle-build-action@v3
