@@ -26,7 +26,7 @@ jobs:
         echo "google_maps_api_key=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> ./local.properties
 
     - name: Configuración de Gradle
-      uses: gradle/gradle-build-action@v3
+      uses: gradle/actions/setup-gradle@v2
 
     - name: Volver el gradle ejecutable
       run: chmod +x ./gradlew
