@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Agregar configuraciones de JAVA
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '21'
