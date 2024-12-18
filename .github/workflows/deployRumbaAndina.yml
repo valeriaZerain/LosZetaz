@@ -1,0 +1,37 @@
+name: Build Rumba Andina app for testing
+
+on: 
+  workflow_dispatch:
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Agregar configuraciones de JAVA
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        
+    - name: Crear el archivo google-services.json
+      run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > ./app/google-services.json
+
+    - name: Hacer el build para el apk
+      run: ./gradlew assembleDebug
+
+    - name: Cargar el APK construido
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Upload Artifact to Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+      with:
+        appId: ${{ secrets.FIREBASE_APP_ID }}
+        serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+        groups: testers
+        file: app/build/outputs/apk/debug/app-debug.apk
